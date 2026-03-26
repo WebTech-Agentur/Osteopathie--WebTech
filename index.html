@@ -7,6 +7,8 @@
     <title>Harmony Flow 2026 | Osteopathie der Zukunft</title>
     <meta name="description"
         content="Erleben Sie Osteopathie neu. Interaktive 3D-Analyse, ganzheitliche Heilung und modernste techniken für Ihren Körperflow.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -16,36 +18,53 @@
     <canvas id="particle-canvas"></canvas>
     <canvas id="bg-wave-canvas"></canvas>
 
-    <!-- Morphing Orb Header -->
-    <header class="header-glass glass-panel" id="main-header">
-        <div class="logo-orb">
-            <div class="logo-container" id="spine-orb-canvas"></div>
-            <span>HARMONY FLOW</span>
-        </div>
+    <!-- Harmony Flow Refined Header -->
+    <header class="header-glass" id="main-header">
+        <a href="index.html" class="logo-orb">
+            <div class="logo-circle"></div>
+            <span class="logo-text">HARMONY FLOW</span>
+        </a>
 
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">🌿 Energiefluss</a></li>
                 <li><a href="philosophie.html">🧬 Philosophie</a></li>
                 <li><a href="behandlungen.html">✨ Behandlungen</a></li>
-                <li><a href="team.html">👥 Das Team</a></li>
+                <li><a href="team.html">👥 Team</a></li>
                 <li><a href="kontakt.html">✉️ Kontakt</a></li>
             </ul>
         </nav>
 
-        <button class="btn-flow" onclick="window.location.href='kontakt.html'">Jetzt in den Flow</button>
-
-        <div class="mobile-toggle" id="mobile-toggle">
-            <div class="bar"></div>
-        </div>
+        <button class="btn-flow" onclick="window.location.href='kontakt.html'">JETZT IN DEN FLOW</button>
     </header>
 
     <!-- Body Flow Explorer Hero -->
     <section class="hero" id="home">
-        <canvas id="body-canvas"></canvas>
+        <!-- Humanoid background removed per user request -->
         <div class="hero-content">
             <h1 id="hero-title">DEIN KÖRPER WEISS.<br>WIR HÖREN ZU.</h1>
             <p class="hero-slogan" id="hero-slogan">Harmonie der Strukturen | Kraft des Fließens</p>
+        </div>
+
+        <!-- Dynamic Organ Cycle -->
+        <div class="organ-cycle-container">
+            <div class="organ-cycle-aura"></div>
+            <div class="organ-cycle-item active" data-organ="brain">
+                <span>🧠</span>
+                <span class="organ-label">Cranio</span>
+            </div>
+            <div class="organ-cycle-item" data-organ="lungs">
+                <span>🫁</span>
+                <span class="organ-label">Atem</span>
+            </div>
+            <div class="organ-cycle-item" data-organ="heart">
+                <span>🫀</span>
+                <span class="organ-label">Viszeral</span>
+            </div>
+            <div class="organ-cycle-item" data-organ="bone">
+                <span>🦴</span>
+                <span class="organ-label">Struktur</span>
+            </div>
         </div>
 
         <!-- Interactive Right Panel -->
@@ -69,71 +88,58 @@
     </section>
 
     <!-- Transition Section: Slogan Reveal -->
-    <section class="slogan-reveal" style="padding: 15vh 10%; text-align: center; background: var(--beige-dark); position: relative;">
-        <h2 style="font-family: var(--font-serif); font-size: 3.5rem; color: var(--accent-primary); opacity: 0; margin-bottom: 3rem;"
+    <section class="slogan-reveal" style="padding: 10vh 10%; text-align: center; background: var(--beige-dark);">
+        <h2 style="font-family: var(--font-serif); font-size: 3.5rem; color: var(--accent-primary); opacity: 0;"
             id="reveal-text">
             Heilung ist kein Ereignis, sondern ein Prozess des Wiedererinnerns.
         </h2>
-        <div id="reveal-btn-wrap" style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.5s;">
-            <button class="btn-flow" onclick="window.location.href='behandlungen.html'">Jetzt Methoden entdecken →</button>
-        </div>
     </section>
 
-    <!-- Next-Gen Healing Experience (Service Overview) -->
-    <section class="healing-experience" style="background: var(--page-bg); padding: 12vh 5%;">
-        <div class="experience-header">
-            <h2>Ihr Weg zur Heilung</h2>
-            <p>Präzise Methoden für Ihre ganzheitliche Gesundheit.</p>
+    <!-- Quick Win Cards -->
+    <section class="quick-cards">
+        <div class="card glass-panel" id="card-1"
+            style="background-image: url('https://images.unsplash.com/photo-1699523229232-dce23cce2f22?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;"
+            onclick="window.location.href='behandlungen.html#parietal'">
+            <div class="card-overlay"></div>
+            <div class="card-body">
+                <span class="card-icon"></span>
+                <h3>Faszien-Fokus</h3>
+                <p>Die Architektur des Lebens. Wir lösen Verklebungen, damit deine Energie wieder frei fließen kann.</p>
+                <span class="btn-secondary-text" style="color: #F5EFE6; margin-top: 1rem; border-bottom: 1px solid rgba(245,239,230,0.3); padding-bottom: 2px;">Mehr erfahren →</span>
+            </div>
         </div>
-        
-        <div class="orb-grid">
-            <!-- CRANIO -->
-            <a href="behandlungen.html#cranio" class="healing-orb-card" style="--orb-color: rgba(100, 200, 255, 0.1); --orb-glow: rgba(100, 200, 255, 0.3);">
-                <div class="floating-label">Nervensystem</div>
-                <div class="orb-bg"></div>
-                <div class="orb-icon-circle">🧠</div>
-                <h3>Cranio-<br>Sakral</h3>
-                <div class="orb-info">
-                    <span class="price">Ab 120 €</span>
-                    <span class="time">60 MINUTEN</span>
-                </div>
-            </a>
-
-            <!-- VISZERAL -->
-            <a href="behandlungen.html#viszeral" class="healing-orb-card" style="--orb-color: rgba(255, 100, 100, 0.1); --orb-glow: rgba(255, 100, 100, 0.3);">
-                <div class="floating-label">Organe</div>
-                <div class="orb-bg"></div>
-                <div class="orb-icon-circle">🫀</div>
-                <h3>Viszeral</h3>
-                <div class="orb-info">
-                    <span class="price">Ab 140 €</span>
-                    <span class="time">75 MINUTEN</span>
-                </div>
-            </a>
-
-            <!-- PARIETAL -->
-            <a href="behandlungen.html#parietal" class="healing-orb-card" style="--orb-color: rgba(172, 138, 90, 0.1); --orb-glow: rgba(172, 138, 90, 0.3);">
-                <div class="floating-label">Struktur</div>
-                <div class="orb-bg"></div>
-                <div class="orb-icon-circle">🦴</div>
-                <h3>Parietal</h3>
-                <div class="orb-info">
-                    <span class="price">Ab 110 €</span>
-                    <span class="time">60 MINUTEN</span>
-                </div>
-            </a>
-
-            <!-- SPORT -->
-            <a href="behandlungen.html#sport" class="healing-orb-card" style="--orb-color: rgba(0, 229, 201, 0.2); --orb-glow: rgba(0, 229, 201, 0.4);">
-                <div class="floating-label">Performance</div>
-                <div class="orb-bg"></div>
-                <div class="orb-icon-circle">🏅</div>
-                <h3>Sport-Ost.</h3>
-                <div class="orb-info">
-                    <span class="price">Ab 130 €</span>
-                    <span class="time">75 MINUTEN</span>
-                </div>
-            </a>
+        <div class="card glass-panel" id="card-2"
+            style="background-image: url('assets/images/viszerale-kraft.png'); background-size: cover; background-position: center;"
+            onclick="window.location.href='behandlungen.html#viszeral'">
+            <div class="card-overlay"></div>
+            <div class="card-body">
+                <span class="card-icon"></span>
+                <h3>Viszerale Kraft</h3>
+                <p>Innere Balance. Die Mobilität deiner Organe ist der Schlüssel zu vitaler Gesundheit und Immunität.</p>
+                <span class="btn-secondary-text" style="color: #F5EFE6; margin-top: 1rem; border-bottom: 1px solid rgba(245,239,230,0.3); padding-bottom: 2px;">Mehr erfahren →</span>
+            </div>
+        </div>
+        <div class="card glass-panel" id="card-3"
+            style="background-image: url('assets/images/graceie-head-650878_1920.jpg'); background-size: cover; background-position: center;"
+            onclick="window.location.href='behandlungen.html#cranio'">
+            <div class="card-overlay"></div>
+            <div class="card-body">
+                <span class="card-icon"></span>
+                <h3>Cranio-Magie</h3>
+                <p>Tiefe Ruhe für das Nervensystem. Sanfte Impulse für maximale Regeneration des gesamten Körpers.</p>
+                <span class="btn-secondary-text" style="color: #F5EFE6; margin-top: 1rem; border-bottom: 1px solid rgba(245,239,230,0.3); padding-bottom: 2px;">Mehr erfahren →</span>
+            </div>
+        </div>
+        <div class="card glass-panel" id="card-4"
+            style="background-image: url('https://images.unsplash.com/photo-1731325632687-51e90609e700?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;"
+            onclick="window.location.href='behandlungen.html#sport'">
+            <div class="card-overlay"></div>
+            <div class="card-body">
+                <span class="card-icon"></span>
+                <h3>Sport-Osteopathie</h3>
+                <p>Leistung durch Präzision. Optimiere deine Bewegungsabläufe und beuge Verletzungen vor.</p>
+                <span class="btn-secondary-text" style="color: #F5EFE6; margin-top: 1rem; border-bottom: 1px solid rgba(245,239,230,0.3); padding-bottom: 2px;">Mehr erfahren →</span>
+            </div>
         </div>
     </section>
 

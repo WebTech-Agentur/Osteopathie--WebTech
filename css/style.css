@@ -73,105 +73,131 @@ body {
     opacity: 0.15;
 }
 
-/* Morphing Orb Header */
+/* Harmony Flow Refined Header Design */
 .header-glass {
     position: fixed;
     top: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: 1200px;
-    height: 70px;
-    z-index: 1000;
+    width: 95%;
+    max-width: 1400px;
+    height: 80px;
+    z-index: 10000; /* Increased to ensure it's on top of everything */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2.5rem;
-    border-radius: 100px;
+    padding: 0 40px;
+    
+    background: rgba(255, 255, 255, 0.9); /* Increased opacity for better visibility */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12); /* Increased shadow prominence */
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: "Inter", sans-serif;
 }
 
 .header-glass.scrolled {
     top: 1rem;
-    width: 95%;
-    height: 60px;
-    background: rgba(245, 239, 230, 0.92);
-    box-shadow: 0 8px 32px rgba(90, 60, 40, 0.12);
+    width: 98%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .logo-orb {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-weight: 800;
-    font-size: 1.2rem;
-    color: var(--accent-primary);
+    text-decoration: none;
 }
 
-.logo-container {
-    width: 40px;
-    height: 40px;
+.logo-circle {
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, var(--gold-accent), transparent);
-    box-shadow: 0 0 15px rgba(232, 199, 127, 0.4);
-    position: relative;
-    overflow: hidden;
+    background: radial-gradient(circle at 30% 30%, #bfa88f, #6e5845);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo-text {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #3d2f24;
+    font-size: 1.1rem;
 }
 
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 30px;
+    align-items: center;
     list-style: none;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-main);
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
+    color: #5c5046;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: var(--hover-timing);
-    opacity: 0.65;
+    opacity: 0.9;
+}
+
+/* Hover underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #8b6f54;
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    opacity: 1;
-    color: var(--accent-primary);
-    transform: translateY(-2px);
+  color: #2d2118;
+  opacity: 1;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .nav-links a.active {
+    color: #2d2118;
     opacity: 1;
-    color: var(--accent-primary);
-    font-weight: 600;
+}
+.nav-links a.active::after {
+    width: 100%;
 }
 
 /* Flow Button */
 .btn-flow {
-    padding: 0.8rem 1.8rem;
-    border-radius: 100px;
-    background: linear-gradient(135deg, #3D2B1F, #6B4F3A);
-    color: #F5EFE6;
-    font-weight: 600;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #6e5845, #3d2f24);
+    color: white;
     border: none;
+    border-radius: 30px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
     cursor: pointer;
-    font-size: 0.85rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 24px rgba(60, 40, 20, 0.2);
     text-decoration: none;
     display: inline-block;
 }
 
 .btn-flow:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 32px rgba(60, 40, 20, 0.35);
-    background: linear-gradient(135deg, #6B4F3A, #3D2B1F);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 /* Hero Section */
@@ -197,27 +223,93 @@ body {
 }
 
 .hero-content {
-    position: relative;
+    position: absolute;
+    left: 8%;
+    top: 170px; /* Locked under the header with perfect spacing */
     z-index: 10;
-    text-align: center;
+    text-align: left;
+    max-width: 900px;
     pointer-events: none;
 }
 
 .hero h1 {
     font-family: var(--font-serif);
-    font-size: clamp(3rem, 10vw, 8rem);
-    line-height: 1;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.05;
     margin-bottom: 2rem;
     opacity: 0;
     transform: translateY(30px);
+    color: #2D2118; /* Even deeper brown for absolute clarity */
+    font-weight: 900;
+    text-shadow: 0 4px 20px rgba(255, 255, 255, 0.5);
+    letter-spacing: -2px;
 }
 
 .hero-slogan {
-    font-size: 1.2rem;
-    letter-spacing: 0.4rem;
+    font-size: 1rem;
+    letter-spacing: 0.6rem;
     text-transform: uppercase;
     margin-top: 1rem;
-    color: var(--accent-secondary);
+    color: #8b6f54;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+/* Interactive Organ Cycle Display */
+.organ-cycle-container {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.organ-cycle-item {
+    position: absolute;
+    font-size: 15rem; /* Drastic increase in size */
+    opacity: 0;
+    transform: scale(0.6) rotate(-15deg);
+    filter: drop-shadow(0 0 50px rgba(107, 79, 58, 0.4));
+    transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.organ-cycle-item.active {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.organ-cycle-aura {
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(172, 138, 90, 0.12) 0%, transparent 65%);
+    border-radius: 50%;
+    animation: pulsateAura 4s ease-in-out infinite;
+}
+
+@keyframes pulsateAura {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.15); opacity: 0.5; }
+}
+
+.organ-label {
+    font-family: var(--font-serif);
+    font-size: 1.8rem; /* Slightly larger label */
+    color: var(--gold-accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* Quick-Win Cards */

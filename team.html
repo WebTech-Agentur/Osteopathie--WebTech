@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team | Harmony Flow 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .team-container {
@@ -14,15 +16,18 @@
             max-width: 1400px;
             margin: 0 auto;
         }
+
         .member-card {
             display: flex;
             align-items: center;
             gap: 5rem;
             perspective: 1000px;
         }
+
         .member-card:nth-child(even) {
             flex-direction: row-reverse;
         }
+
         .portrait-3d {
             width: 450px;
             height: 600px;
@@ -31,6 +36,7 @@
             transition: transform 0.6s ease;
             cursor: pointer;
         }
+
         .portrait-frame {
             position: absolute;
             width: 100%;
@@ -41,10 +47,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 50px rgba(0,229,201,0.1);
+            box-shadow: 0 0 50px rgba(0, 229, 201, 0.1);
             border: 2px solid var(--glass-border);
             z-index: 2;
         }
+
         .aura {
             position: absolute;
             width: 120%;
@@ -57,15 +64,18 @@
             z-index: 1;
             transition: opacity 0.6s ease;
         }
+
         .member-card:hover .aura {
             opacity: 0.4;
         }
+
         .member-info h2 {
             font-family: var(--font-serif);
             font-size: 3.5rem;
             color: var(--gold-accent);
             margin-bottom: 1rem;
         }
+
         .role {
             text-transform: uppercase;
             letter-spacing: 0.3rem;
@@ -73,6 +83,7 @@
             margin-bottom: 2rem;
             display: block;
         }
+
         .bio {
             font-size: 1.1rem;
             opacity: 0.8;
@@ -81,26 +92,27 @@
         }
     </style>
 </head>
+
 <body>
 
     <canvas id="particle-canvas"></canvas>
     <canvas id="bg-wave-canvas"></canvas>
 
-    <header class="header-glass glass-panel" id="main-header">
-        <div class="logo-orb">
-            <div class="logo-container" id="spine-orb-canvas"></div>
-            <span>HARMONY FLOW</span>
-        </div>
+    <header class="header-glass" id="main-header">
+        <a href="index.html" class="logo-orb">
+            <div class="logo-circle"></div>
+            <span class="logo-text">HARMONY FLOW</span>
+        </a>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">🌿 Energiefluss</a></li>
                 <li><a href="philosophie.html">🧬 Philosophie</a></li>
                 <li><a href="behandlungen.html">✨ Behandlungen</a></li>
-                <li><a href="team.html" class="active">👥 Das Team</a></li>
+                <li><a href="team.html" class="active">👥 Team</a></li>
                 <li><a href="kontakt.html">✉️ Kontakt</a></li>
             </ul>
         </nav>
-        <button class="btn-flow" onclick="window.location.href='kontakt.html'">Jetzt in den Flow</button>
+        <button class="btn-flow" onclick="window.location.href='kontakt.html'">JETZT IN DEN FLOW</button>
     </header>
 
     <main>
@@ -113,19 +125,19 @@
         <section class="team-container">
             <div class="member-card">
                 <div class="portrait-3d" id="member-1-p">
-                    <div class="aura" style="--aura-color: #00E5C9;"></div>
+                    <div class="aura" style="--aura-color: #6B4F3A;"></div>
                     <div class="portrait-frame">
-                        <div style="text-align: center; color: rgba(255,255,255,0.2);">
-                            <span style="font-size: 8rem;">🧑‍⚕️</span><br>
-                            FOTOREALISTISCHES PORTRÄT<br>ANDREW FLOW
-                        </div>
+                        <img src="assets/images/Screenshot 2026-03-26 135313.png" alt="Dr. Andrew Flow - Osteopath"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
                     </div>
                 </div>
                 <div class="member-info">
                     <span class="role">Gründer & DO</span>
                     <h2>Dr. Andrew Flow</h2>
                     <p class="bio">
-                        Mit über 15 Jahren Erfahrung in der viszeralen und craniosakralen Osteopathie verbindet Andrew wissenschaftliche Präzision mit intuitiver Heilkunst. Sein Fokus liegt auf der Ganzheitlichkeit des Fasziensystems.
+                        Mit über 15 Jahren Erfahrung in der viszeralen und craniosakralen Osteopathie verbindet Andrew
+                        wissenschaftliche Präzision mit intuitiver Heilkunst. Sein Fokus liegt auf der Ganzheitlichkeit
+                        des Fasziensystems.
                     </p>
                     <button class="btn-flow" style="margin-top: 2rem;">Andrew buchen</button>
                 </div>
@@ -135,17 +147,17 @@
                 <div class="portrait-3d" id="member-2-p">
                     <div class="aura" style="--aura-color: #E8C77F;"></div>
                     <div class="portrait-frame">
-                        <div style="text-align: center; color: rgba(255,255,255,0.2);">
-                            <span style="font-size: 8rem;">👩‍⚕️</span><br>
-                            FOTOREALISTISCHES PORTRÄT<br>ELENA SANDS
-                        </div>
+                        <img src="assets/images/Screenshot 2026-03-26 141327.png" alt="Elena Sands - Sport-Osteopathin"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
                     </div>
                 </div>
                 <div class="member-info">
                     <span class="role">Sport-Osteopathin</span>
                     <h2>Elena Sands</h2>
                     <p class="bio">
-                        Elena ist Spezialistin für parietale Osteopathie und Bewegungsphysiologie. Sie begleitet Profisportler zurück zur Höchstleistung und hilft Alltagsathleten, ihren natürlichen Bewegungsflow wiederzufinden.
+                        Elena ist Spezialistin für parietale Osteopathie und Bewegungsphysiologie. Sie begleitet
+                        Profisportler zurück zur Höchstleistung und hilft Alltagsathleten, ihren natürlichen
+                        Bewegungsflow wiederzufinden.
                     </p>
                     <button class="btn-flow" style="margin-top: 2rem;">Elena buchen</button>
                 </div>
@@ -160,7 +172,8 @@
                 <div class="logo-orb" style="margin-bottom: 1.5rem;">
                     <span>HARMONY FLOW</span>
                 </div>
-                <p style="opacity: 0.7; font-size: 0.9rem;">Die Osteopathie der Zukunft. Menschlich, wissenschaftlich und voller Energie.</p>
+                <p style="opacity: 0.7; font-size: 0.9rem;">Die Osteopathie der Zukunft. Menschlich, wissenschaftlich
+                    und voller Energie.</p>
             </div>
             <div class="footer-col">
                 <h4>Navigation</h4>
@@ -203,7 +216,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    
+
     <script src="js/three-scenes.js"></script>
     <script src="js/main.js"></script>
     <script>
@@ -216,10 +229,10 @@
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
+
                 const rotateX = (y - centerY) / 20;
                 const rotateY = (centerX - x) / 20;
-                
+
                 gsap.to(p, {
                     rotationX: rotateX,
                     rotationY: rotateY,
@@ -227,7 +240,7 @@
                     ease: "power2.out"
                 });
             });
-            
+
             p.addEventListener('mouseleave', () => {
                 gsap.to(p, {
                     rotationX: 0,
@@ -239,4 +252,5 @@
         });
     </script>
 </body>
+
 </html>

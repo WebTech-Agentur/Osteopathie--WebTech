@@ -160,5 +160,5 @@ const initBodyExplorer = () => {
 // Initialize everything
 window.addEventListener('load', () => {
     initSpineOrb();
-    initBodyExplorer();
+    // initBodyExplorer(); // Body figure removed per user request
 });

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt & Flow | Harmony Flow 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .contact-layout {
@@ -57,40 +58,76 @@
             border-radius: 12px;
             color: var(--warm-sand);
             font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-align: left;
         }
-        .ai-chat {
-            height: 600px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 2rem;
+        .form-input:hover {
+            background: rgba(172, 138, 90, 0.05);
+            border-color: rgba(172, 138, 90, 0.3);
+            transform: translateY(-2px);
         }
-        .chat-messages {
-            flex-grow: 1;
-            overflow-y: auto;
+        .form-input.selected {
+            background: var(--accent-gold, #6B4F3A);
+            color: #F5EFE6;
+            border-color: #F5EFE6;
+            box-shadow: 0 0 20px rgba(107, 79, 58, 0.3);
+            transform: scale(1.02);
+        }
+        /* FAQ Styles */
+        .faq-section {
+            margin-top: 5rem;
+        }
+        .faq-item {
             margin-bottom: 1rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 2rem;
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            padding-right: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold-accent);
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
-        .chat-bubble {
-            padding: 1rem 1.5rem;
-            border-radius: 20px;
-            max-width: 80%;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        .faq-question:hover {
+            background: rgba(107, 79, 58, 0.05);
         }
-        .bubble-bot {
-            background: var(--deep-forest);
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: rgba(255, 255, 255, 0.01);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            padding: 0 2rem;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 2rem 1.5rem;
+        }
+        .faq-item.active {
+            border-color: var(--aqua-flow);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
             color: var(--aqua-flow);
-            border-bottom-left-radius: 2px;
         }
-        .bubble-user {
-            align-self: flex-end;
-            background: var(--glass-white);
-            color: var(--warm-sand);
-            border-bottom-right-radius: 2px;
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
         }
     </style>
 </head>
@@ -99,21 +136,21 @@
     <canvas id="particle-canvas"></canvas>
     <canvas id="bg-wave-canvas"></canvas>
 
-    <header class="header-glass glass-panel" id="main-header">
-        <div class="logo-orb">
-            <div class="logo-container" id="spine-orb-canvas"></div>
-            <span>HARMONY FLOW</span>
-        </div>
+    <header class="header-glass" id="main-header">
+        <a href="index.html" class="logo-orb">
+            <div class="logo-circle"></div>
+            <span class="logo-text">HARMONY FLOW</span>
+        </a>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">🌿 Energiefluss</a></li>
                 <li><a href="philosophie.html">🧬 Philosophie</a></li>
                 <li><a href="behandlungen.html">✨ Behandlungen</a></li>
-                <li><a href="team.html">👥 Das Team</a></li>
+                <li><a href="team.html">👥 Team</a></li>
                 <li><a href="kontakt.html" class="active">✉️ Kontakt</a></li>
             </ul>
         </nav>
-        <button class="btn-flow" onclick="window.location.href='kontakt.html'">Jetzt in den Flow</button>
+        <button class="btn-flow" onclick="window.location.href='kontakt.html'">JETZT IN DEN FLOW</button>
     </header>
 
     <main class="contact-layout">
@@ -122,54 +159,97 @@
             <h1 style="font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold-accent); margin-bottom: 2rem;">
                 Dein <span style="color: var(--warm-sand);">Termin</span>
             </h1>
-            <div class="booking-flow glass-panel">
-                <div class="step-indicator">
-                    <div class="dot active"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
+            <div class="booking-flow glass-panel" id="booking-container">
+                <form id="appointment-form" action="https://formsubmit.co/info@webtech-agentur.de" method="POST">
+                    <!-- Config for FormSubmit -->
+                    <input type="hidden" name="_subject" value="Neue Buchung von Harmony Flow">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
 
-                <div class="booking-step active" id="step-1">
-                    <h3>Was bewegt dich?</h3>
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-                        <button class="form-input" style="cursor:pointer; text-align:left;">🦴 Parietale Blockade</button>
-                        <button class="form-input" style="cursor:pointer; text-align:left;">🌀 Organische Spannung</button>
-                        <button class="form-input" style="cursor:pointer; text-align:left;">🧘 Stress & Kopfschmerz</button>
-                        <button class="form-input" style="cursor:pointer; text-align:left;">🏃 Sport-Optimierung</button>
+                    <div class="step-indicator">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
                     </div>
-                    <button class="btn-flow" style="margin-top:2rem;" onclick="nextStep(2)">Weiter</button>
-                </div>
 
-                <div class="booking-step" id="step-2">
-                    <h3>Wann passt es dir?</h3>
-                    <input type="date" class="form-input">
-                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem;">
-                        <button class="form-input">09:00</button>
-                        <button class="form-input">11:30</button>
-                        <button class="form-input">14:00</button>
+                    <div class="booking-step active" id="step-1">
+                        <h3>Was bewegt dich?</h3>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                            <!-- Adding hidden input for the type of treatment -->
+                            <input type="hidden" name="behandlung" id="hidden-behandlung">
+                            <button type="button" class="form-input" onclick="setSelection('behandlung', this)">🦴 Parietale Blockade</button>
+                            <button type="button" class="form-input" onclick="setSelection('behandlung', this)">🌀 Organische Spannung</button>
+                            <button type="button" class="form-input" onclick="setSelection('behandlung', this)">🧘 Stress & Kopfschmerz</button>
+                            <button type="button" class="form-input" onclick="setSelection('behandlung', this)">🏃 Sport-Optimierung</button>
+                        </div>
+                        <button type="button" class="btn-flow" style="margin-top:2rem;" onclick="nextStep(2)">Weiter</button>
                     </div>
-                    <button class="btn-flow" style="margin-top:2rem;" onclick="nextStep(3)">Weiter</button>
-                </div>
 
-                <div class="booking-step" id="step-3">
-                    <h3>Fast geschafft...</h3>
-                    <input type="text" placeholder="Name" class="form-input">
-                    <input type="email" placeholder="E-Mail" class="form-input">
-                    <button class="btn-flow" style="margin-top:2rem;" onclick="alert('Energiefluss gebucht! Wir freuen uns auf dich.')">Absenden</button>
-                </div>
+                    <div class="booking-step" id="step-2">
+                        <h3>Wann passt es dir?</h3>
+                        <input type="date" name="datum" class="form-input" style="margin-bottom: 1rem;" required>
+                        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem;">
+                            <input type="hidden" name="uhrzeit" id="hidden-uhrzeit">
+                            <button type="button" class="form-input" onclick="setSelection('uhrzeit', this)" style="text-align:center;">09:00</button>
+                            <button type="button" class="form-input" onclick="setSelection('uhrzeit', this)" style="text-align:center;">11:30</button>
+                            <button type="button" class="form-input" onclick="setSelection('uhrzeit', this)" style="text-align:center;">14:00</button>
+                        </div>
+                        <button type="button" class="btn-flow" style="margin-top:2rem;" onclick="nextStep(3)">Weiter</button>
+                    </div>
+
+                    <div class="booking-step" id="step-3">
+                        <h3>Fast geschafft...</h3>
+                        <input type="text" name="name" placeholder="Name" class="form-input" required>
+                        <input type="email" name="email" placeholder="E-Mail" class="form-input" required>
+                        <button type="button" class="btn-flow" style="margin-top:2rem;" onclick="submitBooking(event)">Absenden</button>
+                    </div>
+                </form>
             </div>
         </div>
 
-        <!-- AI Chat Section -->
-        <div style="margin-top: 5rem;">
-            <h2 style="font-family: var(--font-serif); font-size: 2.22rem; margin-bottom: 1rem; color: var(--aqua-flow);">Frag den Osteo-Bot</h2>
-            <div class="ai-chat glass-panel">
-                <div class="chat-messages" id="chat-box">
-                    <div class="chat-bubble bubble-bot">Hallo! Ich bin dein digitaler Flow-Begleiter. Hast du Fragen zu unseren Techniken oder deinen Beschwerden?</div>
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 style="font-family: var(--font-serif); font-size: 2.22rem; margin-bottom: 2rem; color: var(--gold-accent);">Fragen & Antworten</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Zahlt meine Krankenkasse die Behandlung?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Viele gesetzliche Krankenkassen bezuschussen Osteopathie, sofern eine ärztliche Empfehlung vorliegt. Private Kassen übernehmen die Kosten oft vollständig über die Heilpraktiker-Gebührenordnung (GebüH).</p>
+                    </div>
                 </div>
-                <div style="display: flex; gap: 1rem;">
-                    <input type="text" id="chat-input" class="form-input" placeholder="Nachricht...">
-                    <button class="btn-flow" id="chat-send">Senden</button>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Wie lange dauert eine Sitzung?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Eine klassische Erstbehandlung dauert ca. 60 Minuten. Für viszerale oder spezialisierte Verfahren wie die Sport-Osteopathie planen wir teilweise 75 Minuten ein, um eine ganzheitliche Analyse zu gewährleisten.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Muss ich ärztliche Befunde mitbringen?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ja, falls vorhanden, bringen Sie gerne aktuelle MRT-Bilder, Röntgenaufnahmen oder Berichte mit. Dies hilft uns, ein präziseres Bild Ihres energetischen und strukturellen Zustands zu gewinnen.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Gibt es Parkmöglichkeiten vor Ort?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Direkt vor unserer Praxis im Gewerbegebiet Kronacher Straße finden Sie ausreichend kostenfreie Kundenparkplätze. Der Zugang zur Praxis ist barrierefrei.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -239,33 +319,77 @@
                 if(i < step) d.classList.add('active');
                 else d.classList.remove('active');
             });
+
+            // Smooth scroll up within panel
+            document.querySelector('.booking-flow').scrollTop = 0;
         }
 
-        // Simple Chatbot Interaction
-        const chatBox = document.getElementById('chat-box');
-        const chatInput = document.getElementById('chat-input');
-        const chatSend = document.getElementById('chat-send');
-
-        function addMessage(text, isBot = true) {
-            const div = document.createElement('div');
-            div.className = `chat-bubble ${isBot ? 'bubble-bot' : 'bubble-user'}`;
-            div.innerText = text;
-            chatBox.appendChild(div);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        chatSend.addEventListener('click', () => {
-            const val = chatInput.value;
-            if(!val) return;
-            addMessage(val, false);
-            chatInput.value = '';
+        function selectChoice(element) {
+            // Remove selected from all buttons in the SAME grid/container
+            const parent = element.parentElement;
+            parent.querySelectorAll('.form-input').forEach(btn => btn.classList.remove('selected'));
             
-            setTimeout(() => {
-                let response = "Interessant. Die Osteopathie sieht hier oft einen Zusammenhang zwischen Beckenstellung und Nacken. Andrew Flow könnte das am Dienstag untersuchen.";
-                if(val.toLowerCase().includes('preis')) response = "Eine Erstbehandlung kostet 120€. Wir nehmen uns 60 Minuten Zeit für dich.";
-                addMessage(response);
-            }, 1000);
-        });
+            // Add selected to current
+            element.classList.add('selected');
+
+            // Optional: Subtle haptic feeling
+            if (window.navigator.vibrate) window.navigator.vibrate(5);
+        }
+
+        function setSelection(type, element) {
+            selectChoice(element);
+            // Save value to hidden input for the form
+            document.getElementById(`hidden-${type}`).value = element.innerText;
+        }
+
+        function submitBooking(event) {
+            event.preventDefault();
+            const container = document.getElementById('booking-container');
+            const submitBtn = event.target;
+            
+            // Add loading state
+            submitBtn.innerText = "Versende Energie...";
+            submitBtn.disabled = true;
+
+            // Gather Form Data
+            const form = document.getElementById('appointment-form');
+            const formData = new FormData(form);
+
+            // Fetch to FormSubmit.co (Silent, so we stay on page)
+            fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(() => {
+                // Success Reveal
+                container.innerHTML = `
+                    <div style="text-align:center; padding: 4rem 2rem; animation: fadeIn 1s ease;">
+                        <span style="font-size: 5rem; display:block; margin-bottom: 2rem;">✨</span>
+                        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--gold-accent); margin-bottom: 1rem;">Gespndet!</h2>
+                        <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+                            Deine Anfrage ist im Flow und landet direkt bei uns.<br>
+                            Wir melden uns in Kürze zur Bestätigung.
+                        </p>
+                        <button class="btn-flow" style="margin-top: 3rem;" onclick="window.location.reload()">Neue Anfrage</button>
+                    </div>
+                `;
+            }).catch(err => {
+                alert("Hoopla! Der Energiefluss ist unterbrochen (Netzwerkfehler). Bitte versuche es erneut.");
+                submitBtn.innerText = "Absenden";
+                submitBtn.disabled = false;
+            });
+        }
+
+        function toggleFAQ(element) {
+            const item = element.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all others
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            
+            // Toggle current
+            if(!isActive) item.classList.add('active');
+        }
     </script>
 </body>
 </html>

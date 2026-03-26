@@ -222,5 +222,20 @@ function animateBackgrounds() {
     requestAnimationFrame(animateBackgrounds);
 }
 
+// ORGAN CYCLE LOGIC (HERO)
+const initOrganCycle = () => {
+    const items = document.querySelectorAll('.organ-cycle-item');
+    if (items.length === 0) return;
+    
+    let currentIndex = 0;
+    
+    setInterval(() => {
+        items[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % items.length;
+        items[currentIndex].classList.add('active');
+    }, 2000);
+};
+
 initParticles();
 animateBackgrounds();
+initOrganCycle();
