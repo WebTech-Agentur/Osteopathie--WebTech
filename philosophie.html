@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophie | Harmony Flow 2026</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #F5EFE6;
+            --accent-gold: #6B4F3A;
+            --text-main: #1C1C1C;
+            --text-muted: #4A4035;
+            --glass: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(107, 79, 58, 0.15);
+            --beige-dark: #E8DECE;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* THE FLOATING PILL HEADER FROM INDEX.HTML */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(24px) saturate(150%);
+            -webkit-backdrop-filter: blur(24px) saturate(150%);
+            border: 1px solid rgba(100, 80, 60, 0.18);
+            border-radius: 100px;
+        }
+
+        .header-glass {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            height: 70px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2.5rem;
+            border-radius: 100px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(24px) saturate(150%);
+            -webkit-backdrop-filter: blur(24px) saturate(150%);
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(100, 80, 60, 0.18);
+        }
+
+        .header-glass.scrolled {
+            top: 1rem;
+            width: 95%;
+            height: 60px;
+            background: rgba(245, 239, 230, 0.95);
+            box-shadow: 0 8px 32px rgba(107, 79, 58, 0.15);
+        }
+
+        .logo-orb {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+        }
+
+        .logo-container {
+            width: 40px;
+            height: 40px;
+            background: rgba(107, 79, 58, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(232, 199, 127, 0.4);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            opacity: 0.65;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            opacity: 1;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .btn-flow {
+            background: #6B4F3A;
+            color: #F5EFE6;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .btn-flow:hover {
+            background: #4A4035;
+            box-shadow: 0 10px 20px rgba(107, 79, 58, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at center, #E8DECE 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* SECTIONS */
+        .section {
+            min-height: 100vh;
+            padding: 10vh 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .text-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .text-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 1rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* VISUALS */
+        .visual-container {
+            height: 500px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(107, 79, 58, 0.08);
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 5rem 10%;
+            background: var(--beige-dark);
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: var(--text-main);
+        }
+
+        .btn-booking {
+            background: var(--accent-gold);
+            color: white;
+            padding: 1.5rem 4rem;
+            border: none;
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            margin-top: 2rem;
+            box-shadow: 0 10px 20px rgba(107, 79, 58, 0.2);
+        }
+
+        .btn-booking:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: #4A4035;
+            box-shadow: 0 20px 40px rgba(107, 79, 58, 0.3);
+        }
+
+        @media (max-width: 900px) {
+            .content-card { grid-template-columns: 1fr; gap: 3rem; }
+            .text-content h2 { font-size: 2.5rem; }
+            .visual-container { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-glass glass-panel" id="main-header">
+        <div class="logo-orb">
+            <div class="logo-container" id="spine-orb-canvas"></div>
+            <span>HARMONY FLOW</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">🌿 Energiefluss</a></li>
+                <li><a href="philosophie.html" class="active">🧬 Philosophie</a></li>
+                <li><a href="behandlungen.html">✨ Behandlungen</a></li>
+                <li><a href="team.html">👥 Das Team</a></li>
+                <li><a href="kontakt.html">✉️ Kontakt</a></li>
+            </ul>
+        </nav>
+        <button class="btn-flow" onclick="window.location.href='kontakt.html'">Jetzt in den Flow</button>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>Unsere Philosophie</h1>
+            <p>Die Architektur des Lebens</p>
+        </div>
+
+        <section class="section">
+            <div class="content-card">
+                <div class="text-content">
+                    <h2>01 UNITY<br>Das Ökosystem</h2>
+                    <p>Der Mensch ist keine Ansammlung von Einzelteilen, sondern ein hochkomplexes Ökosystem aus Körper, Geist und Seele. Wir suchen nach dem globalen Rhythmus, der alle biologischen Systeme verbindet.</p>
+                    <div class="tags">
+                        <span>#Holistic</span>
+                        <span>#GlobalFocus</span>
+                    </div>
+                </div>
+                <div class="visual-container" id="container-unity"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="content-card" style="direction: rtl;">
+                <div class="text-content" style="direction: ltr;">
+                    <h2>02 REGENERATION<br>Der innere Arzt</h2>
+                    <p>Ihr Körper trägt den Bauplan der Heilung bereits in sich. Unsere Hände geben lediglich den präzisen Impuls, um blockierte Ressourcen freizusetzen und die natürliche Selbstregulation zu aktivieren.</p>
+                    <div class="tags">
+                        <span>#AutoHealing</span>
+                        <span>#InnerPower</span>
+                    </div>
+                </div>
+                <div class="visual-container" id="container-healing"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="content-card">
+                <div class="text-content">
+                    <h2>03 ARCHITECTURE<br>Form & Funktion</h2>
+                    <p>Struktur regiert die Funktion. Wir begreifen Ihren Körper als architektonisches Meisterwerk: Wenn das Fundament stabil ist, können biologische Prozesse mühelos fließen. Wir korrigieren die Statik.</p>
+                    <div class="tags">
+                        <span>#BioArchitecture</span>
+                        <span>#Balance</span>
+                    </div>
+                </div>
+                <div class="visual-container" id="container-structure"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="content-card" style="direction: rtl;">
+                <div class="text-content" style="direction: ltr;">
+                    <h2>04 FLOW<br>Breath of Life</h2>
+                    <p>Hinter der sichtbaren Bewegung liegt die flüssige Intelligenz des Lebens. Wir arbeiten mit den feinstofflichen Rhythmen hinter dem Gewebe, um Ihren pulsierenden Ur-Rhythmus spürbar zu machen.</p>
+                    <div class="tags">
+                        <span>#Vitality</span>
+                        <span>#PrimaryBreath</span>
+                    </div>
+                </div>
+                <div class="visual-container" id="container-vitality"></div>
+            </div>
+        </section>
+
+        <section style="text-align: center; padding: 10vh 5%;">
+            <h2 style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 1rem;">Bereit für Balance?</h2>
+            <button class="btn-booking" onclick="window.location.href='kontakt.html'">Termin online buchen</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Harmony Flow | Bamberg</p>
+        <div style="margin-top: 1.5rem; opacity: 0.6; font-size: 0.8rem;">
+            <a href="impressum.html" style="color: var(--text-main); margin-right: 1.5rem; text-decoration: none;">Impressum</a>
+            <a href="datenschutz.html" style="color: var(--text-main); text-decoration: none;">Datenschutz</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script>
+        const initSpineOrb = () => {
+            if (typeof THREE === 'undefined') return;
+            const container = document.getElementById('spine-orb-canvas');
+            if (!container) return;
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+            camera.position.z = 2.5;
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(40, 40);
+            container.appendChild(renderer.domElement);
+            const geo = new THREE.SphereGeometry(1, 32, 32);
+            const mat = new THREE.MeshPhongMaterial({ color: 0x6B4F3A, transparent: true, opacity: 0.4, wireframe: true });
+            const orb = new THREE.Mesh(geo, mat);
+            scene.add(orb);
+            const light = new THREE.PointLight(0xFFFFFF, 1.5);
+            light.position.set(5, 5, 5);
+            scene.add(light);
+            const animate = () => {
+                requestAnimationFrame(animate);
+                orb.rotation.y += 0.02; orb.rotation.x += 0.01;
+                renderer.render(scene, camera);
+            };
+            animate();
+        };
+
+        const setup = (id, draw) => {
+            const container = document.getElementById(id);
+            if(!container) return;
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            container.appendChild(canvas);
+            let state = { time: 0, mouse: {x:0, y:0, active:false} };
+            const resize = () => {
+                const r = container.getBoundingClientRect();
+                canvas.width = r.width * (window.devicePixelRatio||1);
+                canvas.height = r.height * (window.devicePixelRatio||1);
+                ctx.scale(window.devicePixelRatio||1, window.devicePixelRatio||1);
+            };
+            window.addEventListener('resize', resize);
+            resize();
+            container.addEventListener('mousemove', e => {
+                const r = container.getBoundingClientRect();
+                state.mouse.x = e.clientX - r.left; state.mouse.y = e.clientY - r.top;
+                state.mouse.active = true;
+            });
+            container.addEventListener('mouseleave', () => state.mouse.active = false);
+            const animate = () => {
+                state.time += 0.02;
+                ctx.clearRect(0,0, canvas.width, canvas.height);
+                draw(ctx, canvas.width/(window.devicePixelRatio||1), canvas.height/(window.devicePixelRatio||1), state);
+                requestAnimationFrame(animate);
+            };
+            animate();
+        };
+
+        setup('container-unity', (ctx, w, h, s) => {
+            ctx.strokeStyle = 'rgba(172, 138, 90, 0.4)'; ctx.fillStyle = '#AC8A5A'; ctx.textAlign="center";
+            const cx = w/2, cy = h/2;
+            ctx.beginPath(); ctx.arc(cx, cy, 40+Math.sin(s.time)*10, 0, Math.PI*2); ctx.stroke();
+            if(!s.mouse.active) { ctx.font = "12px Outfit"; ctx.fillText("MOVE MOUSE", cx, h-30); }
+            for(let i=0; i<30; i++) {
+                const a = (i/30)*Math.PI*2 + s.time*0.5;
+                const r = 130 + Math.sin(s.time+i)*30;
+                const x = cx + Math.cos(a)*r, y = cy + Math.sin(a)*r;
+                ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x, y); ctx.globalAlpha = 0.15; ctx.stroke(); ctx.globalAlpha = 1;
+                ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI*2); ctx.fill();
+                const d = Math.sqrt((x-s.mouse.x)**2 + (y-s.mouse.y)**2);
+                if(d < 120) { ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(s.mouse.x, s.mouse.y); ctx.stroke(); if(i%6==0) ctx.fillText("NETWORK", x,y-10); }
+            }
+        });
+
+        setup('container-healing', (ctx, w, h, s) => {
+            const gap = 45; const cols = Math.floor(w/gap), rows = Math.floor(h/gap);
+            ctx.textAlign="center"; ctx.font="bold 12px Outfit";
+            if(!s.mouse.active) { ctx.fillStyle = "rgba(172, 138, 90, 0.4)"; ctx.fillText("TOUCH TO HEAL", w/2, h-30); }
+            for(let i=0; i<=cols; i++) {
+                for(let j=0; j<=rows; j++) {
+                    const x = (w-cols*gap)/2 + i*gap, y = (h-rows*gap)/2 + j*gap;
+                    const d = Math.sqrt((x-s.mouse.x)**2 + (y-s.mouse.y)**2);
+                    const heal = d < 140;
+                    ctx.fillStyle = `rgba(172, 138, 90, ${heal ? 1 : 0.2})`;
+                    ctx.beginPath(); ctx.arc(x, y, heal ? 8+Math.sin(s.time*6)*3 : 2, 0, Math.PI*2); ctx.fill();
+                    if(heal && i==Math.floor(cols/2) && j==Math.floor(rows/2)) { ctx.fillStyle="#fff"; ctx.fillText("REGENERATE", x, y-25); }
+                }
+            }
+        });
+
+        setup('container-structure', (ctx, w, h, s) => {
+            const count = 10; const gap = 38; ctx.textAlign="center";
+            if(!s.mouse.active) { ctx.fillStyle = "rgba(172, 138, 90, 0.4)"; ctx.fillText("ALIGN CENTER", w/2, h-30); }
+            ctx.strokeStyle = '#AC8A5A'; ctx.lineWidth = 2;
+            for(let i=0; i<count; i++) {
+                const align = Math.max(0, 1 - Math.abs(s.mouse.x - w/2) / 200);
+                const x = w/2 + Math.sin(s.time*1.8+i)*30*(1-align);
+                const y = (h-count*gap)/2 + i*gap;
+                ctx.globalAlpha = 0.2 + align*0.8;
+                ctx.strokeRect(x-70, y, 140, 18);
+                if(align > 0.92 && i==5) { ctx.fillStyle="#fff"; ctx.fillText("BALANCED", x+100, y+14); }
+            }
+        });
+
+        setup('container-vitality', (ctx, w, h, s) => {
+            const cx = w/2, cy = h/2, b = (Math.sin(s.time*1.2)+1)/2;
+            ctx.textAlign="center";
+            for(let i=0; i<4; i++) {
+                const p = (s.time*0.4+i/4)%1;
+                ctx.strokeStyle = `rgba(172, 138, 90, ${1-p})`; ctx.lineWidth = 1+ (1-p)*5;
+                ctx.beginPath(); ctx.arc(cx, cy, p*240, 0, Math.PI*2); ctx.stroke();
+            }
+            const g = ctx.createRadialGradient(cx,cy,0, cx,cy, 80+b*40);
+            g.addColorStop(0, 'rgba(172, 138, 90, 0.9)'); g.addColorStop(1, 'transparent');
+            ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, 120+b*30, 0, Math.PI*2); ctx.fill();
+            if(b>0.85) { ctx.fillStyle="#fff"; ctx.font="bold 16px Outfit"; ctx.fillText("VITAL FLOW", cx, cy+6); }
+        });
+
+        initSpineOrb();
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmony Flow 2026 | Osteopathie der Zukunft</title>
+    <meta name="description"
+        content="Erleben Sie Osteopathie neu. Interaktive 3D-Analyse, ganzheitliche Heilung und modernste techniken für Ihren Körperflow.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Background Canvases -->
+    <canvas id="particle-canvas"></canvas>
+    <canvas id="bg-wave-canvas"></canvas>
+
+    <!-- Morphing Orb Header -->
+    <header class="header-glass glass-panel" id="main-header">
+        <div class="logo-orb">
+            <div class="logo-container" id="spine-orb-canvas"></div>
+            <span>HARMONY FLOW</span>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">🌿 Energiefluss</a></li>
+                <li><a href="philosophie.html">🧬 Philosophie</a></li>
+                <li><a href="behandlungen.html">✨ Behandlungen</a></li>
+                <li><a href="team.html">👥 Das Team</a></li>
+                <li><a href="kontakt.html">✉️ Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <button class="btn-flow" onclick="window.location.href='kontakt.html'">Jetzt in den Flow</button>
+
+        <div class="mobile-toggle" id="mobile-toggle">
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <!-- Body Flow Explorer Hero -->
+    <section class="hero" id="home">
+        <canvas id="body-canvas"></canvas>
+        <div class="hero-content">
+            <h1 id="hero-title">DEIN KÖRPER WEISS.<br>WIR HÖREN ZU.</h1>
+            <p class="hero-slogan" id="hero-slogan">Harmonie der Strukturen | Kraft des Fließens</p>
+        </div>
+
+        <!-- Interactive Right Panel -->
+        <aside class="info-panel glass-panel" id="body-info-panel">
+            <button class="close-panel" id="close-panel">&times;</button>
+            <div class="info-content">
+                <h2 id="panel-title">Kiefer</h2>
+                <p id="panel-desc">Der Kiefer ist oft ein Speicher für emotionalen Stress. Blockaden hier können sich
+                    bis in den unteren Rücken auswirken.</p>
+                <div class="video-loop" id="panel-video">
+                    <!-- Placeholder for loop video -->
+                    <div
+                        style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 0.8rem;">
+                        [ VIDEO: Cranio-Sakraler Fluss ]
+                    </div>
+                </div>
+                <button class="btn-flow" style="width: 100%;" onclick="window.location.href='behandlungen.html'">Diese
+                    Blockade lösen</button>
+            </div>
+        </aside>
+    </section>
+
+    <!-- Transition Section: Slogan Reveal -->
+    <section class="slogan-reveal" style="padding: 15vh 10%; text-align: center; background: var(--beige-dark); position: relative;">
+        <h2 style="font-family: var(--font-serif); font-size: 3.5rem; color: var(--accent-primary); opacity: 0; margin-bottom: 3rem;"
+            id="reveal-text">
+            Heilung ist kein Ereignis, sondern ein Prozess des Wiedererinnerns.
+        </h2>
+        <div id="reveal-btn-wrap" style="opacity: 0; transform: translateY(20px); transition: all 1s ease 0.5s;">
+            <button class="btn-flow" onclick="window.location.href='behandlungen.html'">Jetzt Methoden entdecken →</button>
+        </div>
+    </section>
+
+    <!-- Next-Gen Healing Experience (Service Overview) -->
+    <section class="healing-experience" style="background: var(--page-bg); padding: 12vh 5%;">
+        <div class="experience-header">
+            <h2>Ihr Weg zur Heilung</h2>
+            <p>Präzise Methoden für Ihre ganzheitliche Gesundheit.</p>
+        </div>
+        
+        <div class="orb-grid">
+            <!-- CRANIO -->
+            <a href="behandlungen.html#cranio" class="healing-orb-card" style="--orb-color: rgba(100, 200, 255, 0.1); --orb-glow: rgba(100, 200, 255, 0.3);">
+                <div class="floating-label">Nervensystem</div>
+                <div class="orb-bg"></div>
+                <div class="orb-icon-circle">🧠</div>
+                <h3>Cranio-<br>Sakral</h3>
+                <div class="orb-info">
+                    <span class="price">Ab 120 €</span>
+                    <span class="time">60 MINUTEN</span>
+                </div>
+            </a>
+
+            <!-- VISZERAL -->
+            <a href="behandlungen.html#viszeral" class="healing-orb-card" style="--orb-color: rgba(255, 100, 100, 0.1); --orb-glow: rgba(255, 100, 100, 0.3);">
+                <div class="floating-label">Organe</div>
+                <div class="orb-bg"></div>
+                <div class="orb-icon-circle">🫀</div>
+                <h3>Viszeral</h3>
+                <div class="orb-info">
+                    <span class="price">Ab 140 €</span>
+                    <span class="time">75 MINUTEN</span>
+                </div>
+            </a>
+
+            <!-- PARIETAL -->
+            <a href="behandlungen.html#parietal" class="healing-orb-card" style="--orb-color: rgba(172, 138, 90, 0.1); --orb-glow: rgba(172, 138, 90, 0.3);">
+                <div class="floating-label">Struktur</div>
+                <div class="orb-bg"></div>
+                <div class="orb-icon-circle">🦴</div>
+                <h3>Parietal</h3>
+                <div class="orb-info">
+                    <span class="price">Ab 110 €</span>
+                    <span class="time">60 MINUTEN</span>
+                </div>
+            </a>
+
+            <!-- SPORT -->
+            <a href="behandlungen.html#sport" class="healing-orb-card" style="--orb-color: rgba(0, 229, 201, 0.2); --orb-glow: rgba(0, 229, 201, 0.4);">
+                <div class="floating-label">Performance</div>
+                <div class="orb-bg"></div>
+                <div class="orb-icon-circle">🏅</div>
+                <h3>Sport-Ost.</h3>
+                <div class="orb-info">
+                    <span class="price">Ab 130 €</span>
+                    <span class="time">75 MINUTEN</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-orb" style="margin-bottom: 1.5rem;">
+                    <span>HARMONY FLOW</span>
+                </div>
+                <p style="opacity: 0.7; font-size: 0.9rem;">Die Osteopathie der Zukunft. Menschlich, wissenschaftlich
+                    und voller Energie.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul style="list-style: none; opacity: 0.8; font-size: 0.9rem; line-height: 2;">
+                    <li><a href="index.html" style="color: inherit; text-decoration: none;">Startseite</a></li>
+                    <li><a href="philosophie.html" style="color: inherit; text-decoration: none;">Philosophie</a></li>
+                    <li><a href="behandlungen.html" style="color: inherit; text-decoration: none;">Behandlungen</a></li>
+                    <li><a href="team.html" style="color: inherit; text-decoration: none;">Das Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <p style="opacity: 0.8; font-size: 0.9rem;">
+                    Gewerbegebiet Kronacher Straße<br>
+                    96052 Bamberg<br>
+                    Tel: 15566284478<br>
+                    hallo@harmony-flow.de
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Netzwerk</h4>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <span style="cursor: pointer; opacity: 0.6;">IG</span>
+                    <span style="cursor: pointer; opacity: 0.6;">LI</span>
+                    <span style="cursor: pointer; opacity: 0.6;">YT</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Harmony Flow. Alle Rechte vorbehalten.</p>
+            <div style="display: flex; gap: 2rem;">
+                <a href="impressum.html" style="color: inherit; text-decoration: none;">Impressum</a>
+                <a href="datenschutz.html" style="color: inherit; text-decoration: none;">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+    <script src="js/three-scenes.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

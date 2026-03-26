@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt & Flow | Harmony Flow 2026</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-layout {
+            padding: 12vh 10% 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .booking-flow {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            min-height: 500px;
+        }
+        .booking-step {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        .booking-step.active {
+            display: flex;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .step-indicator {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .dot {
+            width: 40px;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+        .dot.active {
+            background: var(--aqua-flow);
+        }
+        .form-input {
+            width: 100%;
+            padding: 1.2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--warm-sand);
+            font-family: inherit;
+        }
+        .ai-chat {
+            height: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-right: 1rem;
+        }
+        .chat-bubble {
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            max-width: 80%;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .bubble-bot {
+            background: var(--deep-forest);
+            color: var(--aqua-flow);
+            border-bottom-left-radius: 2px;
+        }
+        .bubble-user {
+            align-self: flex-end;
+            background: var(--glass-white);
+            color: var(--warm-sand);
+            border-bottom-right-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+    <canvas id="bg-wave-canvas"></canvas>
+
+    <header class="header-glass glass-panel" id="main-header">
+        <div class="logo-orb">
+            <div class="logo-container" id="spine-orb-canvas"></div>
+            <span>HARMONY FLOW</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">🌿 Energiefluss</a></li>
+                <li><a href="philosophie.html">🧬 Philosophie</a></li>
+                <li><a href="behandlungen.html">✨ Behandlungen</a></li>
+                <li><a href="team.html">👥 Das Team</a></li>
+                <li><a href="kontakt.html" class="active">✉️ Kontakt</a></li>
+            </ul>
+        </nav>
+        <button class="btn-flow" onclick="window.location.href='kontakt.html'">Jetzt in den Flow</button>
+    </header>
+
+    <main class="contact-layout">
+        <!-- Booking Section -->
+        <div>
+            <h1 style="font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold-accent); margin-bottom: 2rem;">
+                Dein <span style="color: var(--warm-sand);">Termin</span>
+            </h1>
+            <div class="booking-flow glass-panel">
+                <div class="step-indicator">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+
+                <div class="booking-step active" id="step-1">
+                    <h3>Was bewegt dich?</h3>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                        <button class="form-input" style="cursor:pointer; text-align:left;">🦴 Parietale Blockade</button>
+                        <button class="form-input" style="cursor:pointer; text-align:left;">🌀 Organische Spannung</button>
+                        <button class="form-input" style="cursor:pointer; text-align:left;">🧘 Stress & Kopfschmerz</button>
+                        <button class="form-input" style="cursor:pointer; text-align:left;">🏃 Sport-Optimierung</button>
+                    </div>
+                    <button class="btn-flow" style="margin-top:2rem;" onclick="nextStep(2)">Weiter</button>
+                </div>
+
+                <div class="booking-step" id="step-2">
+                    <h3>Wann passt es dir?</h3>
+                    <input type="date" class="form-input">
+                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem;">
+                        <button class="form-input">09:00</button>
+                        <button class="form-input">11:30</button>
+                        <button class="form-input">14:00</button>
+                    </div>
+                    <button class="btn-flow" style="margin-top:2rem;" onclick="nextStep(3)">Weiter</button>
+                </div>
+
+                <div class="booking-step" id="step-3">
+                    <h3>Fast geschafft...</h3>
+                    <input type="text" placeholder="Name" class="form-input">
+                    <input type="email" placeholder="E-Mail" class="form-input">
+                    <button class="btn-flow" style="margin-top:2rem;" onclick="alert('Energiefluss gebucht! Wir freuen uns auf dich.')">Absenden</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Chat Section -->
+        <div style="margin-top: 5rem;">
+            <h2 style="font-family: var(--font-serif); font-size: 2.22rem; margin-bottom: 1rem; color: var(--aqua-flow);">Frag den Osteo-Bot</h2>
+            <div class="ai-chat glass-panel">
+                <div class="chat-messages" id="chat-box">
+                    <div class="chat-bubble bubble-bot">Hallo! Ich bin dein digitaler Flow-Begleiter. Hast du Fragen zu unseren Techniken oder deinen Beschwerden?</div>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <input type="text" id="chat-input" class="form-input" placeholder="Nachricht...">
+                    <button class="btn-flow" id="chat-send">Senden</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-orb" style="margin-bottom: 1.5rem;">
+                    <span>HARMONY FLOW</span>
+                </div>
+                <p style="opacity: 0.7; font-size: 0.9rem;">Die Osteopathie der Zukunft. Menschlich, wissenschaftlich und voller Energie.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul style="list-style: none; opacity: 0.8; font-size: 0.9rem; line-height: 2;">
+                    <li><a href="index.html" style="color: inherit; text-decoration: none;">Startseite</a></li>
+                    <li><a href="philosophie.html" style="color: inherit; text-decoration: none;">Philosophie</a></li>
+                    <li><a href="behandlungen.html" style="color: inherit; text-decoration: none;">Behandlungen</a></li>
+                    <li><a href="team.html" style="color: inherit; text-decoration: none;">Das Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <p style="opacity: 0.8; font-size: 0.9rem;">
+                    Gewerbegebiet Kronacher Straße<br>
+                    96052 Bamberg<br>
+                    Tel: 15566284478<br>
+                    hallo@harmony-flow.de
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Netzwerk</h4>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <span style="cursor: pointer; opacity: 0.6;">IG</span>
+                    <span style="cursor: pointer; opacity: 0.6;">LI</span>
+                    <span style="cursor: pointer; opacity: 0.6;">YT</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Harmony Flow. Alle Rechte vorbehalten.</p>
+            <div style="display: flex; gap: 2rem;">
+                <a href="impressum.html" style="color: inherit; text-decoration: none;">Impressum</a>
+                <a href="datenschutz.html" style="color: inherit; text-decoration: none;">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    
+    <script src="js/three-scenes.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Booking Flow Logic
+        function nextStep(step) {
+            document.querySelectorAll('.booking-step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step-${step}`).classList.add('active');
+            
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((d, i) => {
+                if(i < step) d.classList.add('active');
+                else d.classList.remove('active');
+            });
+        }
+
+        // Simple Chatbot Interaction
+        const chatBox = document.getElementById('chat-box');
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+
+        function addMessage(text, isBot = true) {
+            const div = document.createElement('div');
+            div.className = `chat-bubble ${isBot ? 'bubble-bot' : 'bubble-user'}`;
+            div.innerText = text;
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        chatSend.addEventListener('click', () => {
+            const val = chatInput.value;
+            if(!val) return;
+            addMessage(val, false);
+            chatInput.value = '';
+            
+            setTimeout(() => {
+                let response = "Interessant. Die Osteopathie sieht hier oft einen Zusammenhang zwischen Beckenstellung und Nacken. Andrew Flow könnte das am Dienstag untersuchen.";
+                if(val.toLowerCase().includes('preis')) response = "Eine Erstbehandlung kostet 120€. Wir nehmen uns 60 Minuten Zeit für dich.";
+                addMessage(response);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

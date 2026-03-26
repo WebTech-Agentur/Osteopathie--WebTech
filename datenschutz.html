@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung | Harmony Flow 2026</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .legal-content {
+            padding: 15vh 10% 5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .legal-panel {
+            padding: 4rem;
+            line-height: 1.8;
+            color: var(--warm-sand);
+        }
+        .legal-panel h2 {
+            font-family: var(--font-serif);
+            color: var(--gold-accent);
+            margin: 2.5rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        .legal-panel p, .legal-panel ul {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+    <canvas id="bg-wave-canvas"></canvas>
+
+    <header class="header-glass glass-panel" id="main-header">
+        <div class="logo-orb">
+            <div class="logo-container" id="spine-orb-canvas"></div>
+            <span>HARMONY FLOW</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">🌿 Energiefluss</a></li>
+                <li><a href="philosophie.html">🧬 Philosophie</a></li>
+                <li><a href="behandlungen.html">✨ Behandlungen</a></li>
+                <li><a href="team.html">👥 Das Team</a></li>
+                <li><a href="kontakt.html">✉️ Kontakt</a></li>
+            </ul>
+        </nav>
+        <button class="btn-flow" onclick="window.location.href='kontakt.html'">Jetzt in den Flow</button>
+    </header>
+
+    <main class="legal-content">
+        <div class="legal-panel glass-panel">
+            <h1 style="font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold-accent); margin-bottom: 3rem;">Datenschutz</h1>
+            
+            <h2>1. Datenschutz auf einen Blick</h2>
+            <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+
+            <h2>2. Datenerfassung auf unserer Website</h2>
+            <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+
+            <h2>3. Plugins und Tools</h2>
+            <p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Web Fonts, die von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in ihren Browsercache, um Texte und Schriftarten korrekt anzuzeigen.</p>
+
+            <h2>4. Ihre Rechte</h2>
+            <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen.</p>
+
+            <h2>5. Analyse-Tools</h2>
+            <p>Beim Besuch unserer Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit Cookies und mit sogenannten Analyseprogrammen. Die Analyse Ihres Surf-Verhaltens erfolgt in der Regel anonym; das Surf-Verhalten kann nicht zu Ihnen zurückverfolgt werden.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-orb" style="margin-bottom: 1.5rem;">
+                    <span>HARMONY FLOW</span>
+                </div>
+                <p style="opacity: 0.7; font-size: 0.9rem;">Die Osteopathie der Zukunft. Menschlich, wissenschaftlich und voller Energie.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Erreichbarkeit</h4>
+                <p style="opacity: 0.8; font-size: 0.9rem;">
+                    Gewerbegebiet Kronacher Straße<br>
+                    96052 Bamberg<br>
+                    Tel: 15566284478
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Rechtliches</h4>
+                <ul style="list-style: none; opacity: 0.8; font-size: 0.9rem; line-height: 2;">
+                    <li><a href="impressum.html" style="color: var(--gold-accent);">Impressum</a></li>
+                    <li><a href="datenschutz.html" style="color: var(--gold-accent);">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Harmony Flow. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="js/three-scenes.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
