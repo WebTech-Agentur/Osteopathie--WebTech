@@ -2,8 +2,10 @@
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smooth: true,
-    mouseMultiplier: 1,
+    smoothWheel: true,
+    wheelMultiplier: 1, // Reduced to avoid jitter
+    touchMultiplier: 2,
+    infinite: false,
 });
 
 function raf(time) {
@@ -15,24 +17,28 @@ requestAnimationFrame(raf);
 // GSAP Registering
 gsap.registerPlugin(ScrollTrigger);
 
-// HEADER ANIMATION ON SCROLL
 const header = document.getElementById('main-header');
+let lastScrollY = 0;
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    const currentScrollY = window.scrollY;
+    if (Math.abs(currentScrollY - lastScrollY) < 10) return; // Only update if significant scroll
+    
+    if (currentScrollY > 50) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
     }
-});
+    lastScrollY = currentScrollY;
+}, { passive: true }); // Use passive for performance
 
 // HERO TITLE ANIMATION
 if (document.getElementById("hero-title")) {
     gsap.to("#hero-title", {
         opacity: 1,
         y: 0,
-        duration: 1.5,
-        ease: "power4.out",
-        delay: 0.5
+        duration: 1.0,
+        ease: "power3.out",
+        delay: 0.1
     });
 }
 
@@ -166,7 +172,8 @@ class Particle {
 
 function initParticles() {
     particles = [];
-    for (let i = 0; i < 150; i++) {
+    const count = window.innerWidth < 900 ? 30 : 50; // Dynamic count based on screen size
+    for (let i = 0; i < count; i++) {
         particles.push(new Particle());
     }
 }
@@ -191,12 +198,14 @@ function drawWave() {
     
     wCtx.strokeStyle = '#6B4F3A';
     wCtx.lineWidth = 1;
-    wCtx.beginPath();
     
-    const waves = 3;
+    const waves = 2; // Reduced wave count
     for(let j = 0; j < waves; j++) {
-        const offset = j * 100;
-        for(let i = 0; i < wCanvas.width; i+=2) {
+        const offset = j * 150;
+        wCtx.beginPath();
+        
+        // Coarser step (i += 40) for significantly less math per frame
+        for(let i = 0; i <= wCanvas.width + 40; i += 40) {
             const x = i;
             const y = wCanvas.height/2 + 
                       Math.sin(i * 0.005 + wTime + j) * 80 + 
@@ -205,9 +214,9 @@ function drawWave() {
             if(i === 0) wCtx.moveTo(x, y + offset - (waves * 50));
             else wCtx.lineTo(x, y + offset - (waves * 50));
         }
+        wCtx.stroke();
     }
-    wCtx.stroke();
-    wTime += 0.01;
+    wTime += 0.008; // Slower time step for calmer movement
 }
 
 function animateBackgrounds() {
@@ -233,8 +242,39 @@ const initOrganCycle = () => {
         items[currentIndex].classList.remove('active');
         currentIndex = (currentIndex + 1) % items.length;
         items[currentIndex].classList.add('active');
-    }, 2000);
+    }, 1200);
 };
+
+// NEW SECTION ANIMATIONS
+gsap.utils.toArray('.process-step').forEach((step, i) => {
+    gsap.from(step, {
+        scrollTrigger: {
+            trigger: step,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        delay: i * 0.15,
+        ease: "power2.out"
+    });
+});
+
+gsap.utils.toArray('.testimonial-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+        },
+        opacity: 0,
+        scale: 0.95,
+        duration: 1,
+        delay: i * 0.2,
+        ease: "power3.out"
+    });
+});
 
 initParticles();
 animateBackgrounds();

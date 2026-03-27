@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team | Harmony Flow 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/style.css?v=2026.1.1">
     <style>
         .team-container {
             padding: 12vh 10%;
@@ -127,8 +130,8 @@
                 <div class="portrait-3d" id="member-1-p">
                     <div class="aura" style="--aura-color: #6B4F3A;"></div>
                     <div class="portrait-frame">
-                        <img src="assets/images/Screenshot 2026-03-26 135313.png" alt="Dr. Andrew Flow - Osteopath"
-                            style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+                        <img src="assets/images/team-andrew.png" alt="Dr. Andrew Flow - Osteopath"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;" loading="lazy">
                     </div>
                 </div>
                 <div class="member-info">
@@ -147,8 +150,8 @@
                 <div class="portrait-3d" id="member-2-p">
                     <div class="aura" style="--aura-color: #E8C77F;"></div>
                     <div class="portrait-frame">
-                        <img src="assets/images/Screenshot 2026-03-26 141327.png" alt="Elena Sands - Sport-Osteopathin"
-                            style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+                        <img src="assets/images/team-elena.png" alt="Elena Sands - Sport-Osteopathin"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;" loading="lazy">
                     </div>
                 </div>
                 <div class="member-info">
@@ -160,6 +163,32 @@
                         Bewegungsflow wiederzufinden.
                     </p>
                     <button class="btn-flow" style="margin-top: 2rem;">Elena buchen</button>
+                </div>
+            </div>
+        </section>
+        <section class="block">
+            <h2 class="title" style="text-align: center;">Wobei ich dich unterstütze</h2>
+
+            <div class="grid">
+                <div class="card glass-panel support-card">
+                    <div class="card-icon">🦴</div>
+                    <h3>Rückenschmerzen</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 0.5rem;">Ganzheitliche Ansätze für Wirbelsäule und Gelenke.</p>
+                </div>
+                <div class="card glass-panel support-card">
+                    <div class="card-icon">🧘</div>
+                    <h3>Stress & Erschöpfung</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 0.5rem;">Wiederherstellung des inneren Gleichgewichts.</p>
+                </div>
+                <div class="card glass-panel support-card">
+                    <div class="card-icon">🌿</div>
+                    <h3>Verspannungen</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 0.5rem;">Lösen tiefer muskulärer Blockaden.</p>
+                </div>
+                <div class="card glass-panel support-card">
+                    <div class="card-icon">🏃</div>
+                    <h3>Sportverletzungen</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 0.5rem;">Prävention und Rehabilitation für Athleten.</p>
                 </div>
             </div>
         </section>
@@ -217,8 +246,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
-    <script src="js/three-scenes.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/three-scenes.js?v=2026.1.1" defer></script>
+    <script src="js/main.js?v=2026.1.1" defer></script>
     <script>
         // Magnetic Portrait Effect
         const portraits = document.querySelectorAll('.portrait-3d');

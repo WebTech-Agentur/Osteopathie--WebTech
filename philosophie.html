@@ -5,591 +5,343 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Philosophie | Harmony Flow 2026</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/style.css">
+    
     <style>
         :root {
-            --bg-dark: #F5EFE6;
-            --accent-gold: #6B4F3A;
-            --text-main: #1C1C1C;
-            --text-muted: #4A4035;
-            --glass: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(107, 79, 58, 0.15);
-            --beige-dark: #E8DECE;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --philo-gold: #AC8A5A;
+            --philo-dark: #1C1C1C;
+            --philo-bg: #F5EFE6;
+            --philo-glass: rgba(255, 255, 255, 0.4);
+            --philo-accent: #6B4F3A;
+            --philo-glow: rgba(172, 138, 90, 0.3);
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Outfit', sans-serif;
+            background-color: var(--philo-bg);
+            color: var(--philo-dark);
             overflow-x: hidden;
-            line-height: 1.6;
+            font-family: 'Outfit', sans-serif;
         }
 
-        /* HERO - INTERACTIVE HUB */
-        .hero {
+        /* Hero Phase: The Beginning of Flow */
+        .philo-hero {
+            height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 180px 10% 120px;
-            min-height: 100vh;
+            justify-content: center;
             position: relative;
-            background: radial-gradient(circle at 70% 50%, rgba(107, 79, 58, 0.08) 0%, transparent 50%);
-        }
-
-        /* TEXT */
-        .hero-text {
-            max-width: 550px;
+            background: radial-gradient(circle at 50% 50%, rgba(172, 138, 90, 0.05) 0%, transparent 70%);
             z-index: 10;
         }
 
-        .hero-text h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(3.5rem, 8vw, 5.5rem);
-            line-height: 1;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            max-width: 480px;
-        }
-
-        /* BUTTON */
-        .cta-philosophie {
-            padding: 16px 36px;
-            border-radius: 50px;
-            border: none;
-            background: linear-gradient(135deg, #6e5845, #3d2f24);
-            color: white;
-            font-family: var(--font-primary);
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(61, 47, 36, 0.25);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-transform: uppercase;
-        }
-
-        .cta-philosophie:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(61, 47, 36, 0.35);
-        }
-
-        /* SYSTEM HUB */
-        .hero-system-container {
-            position: relative;
-            width: 500px;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            perspective: 1000px;
-        }
-
-        .hero-system-visual {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* CORE */
-        .hero-core {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6e5845, #3d2f24);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: var(--font-serif);
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        .hero-title-wrap {
+            text-align: center;
             z-index: 20;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .hero-core::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid rgba(172, 138, 90, 0.4);
-            animation: corePulse 3s infinite;
+        .philo-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 12vw, 9rem);
+            line-height: 0.9;
+            color: var(--philo-accent);
+            margin-bottom: 2rem;
+            letter-spacing: -3px;
         }
 
-        @keyframes corePulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.6); opacity: 0; }
+        .hero-tag {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6rem;
+            color: var(--philo-gold);
+            font-weight: 600;
+            opacity: 0.8;
         }
 
-        /* NODES */
-        .system-node {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
+        /* Chapter Sections */
+        .philo-section {
+            min-height: 120vh;
+            padding: 20vh 8%;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-main);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            z-index: 15;
-        }
-
-        .system-node:hover {
-            background: #fff;
-            transform: scale(1.15) translateY(-5px);
-            border-color: var(--accent-gold);
-            box-shadow: 0 15px 35px rgba(107, 79, 58, 0.15);
-        }
-
-        /* POSITIONS */
-        .node-unity { top: 0; left: 50%; transform: translate(-50%, -20%); }
-        .node-regen { right: 0; top: 50%; transform: translate(20%, -50%); }
-        .node-arch { bottom: 0; left: 50%; transform: translate(-50%, 20%); }
-        .node-flow { left: 0; top: 50%; transform: translate(-20%, -50%); }
-
-        /* LINES */
-        .system-line {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 250px;
-            height: 1px;
-            background: linear-gradient(90deg, var(--accent-gold) 0%, transparent 100%);
-            transform-origin: left center;
-            opacity: 0.2;
             z-index: 5;
         }
 
-        .line-1 { transform: rotate(-90deg); }
-        .line-2 { transform: rotate(0deg); }
-        .line-3 { transform: rotate(90deg); }
-        .line-4 { transform: rotate(180deg); }
-
-        /* INFO REVEAL (FLOATING) */
-        .hero-info-reveal {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 600px;
-            padding: 1.5rem 2rem;
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            border: 1px solid var(--glass-border);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            transition: all 0.5s ease;
-            z-index: 30;
-            opacity: 0;
-            transform: translate(-50%, 20px);
-        }
-
-        .hero-info-reveal.active {
-            opacity: 1;
-            transform: translate(-50%, 0);
-        }
-
-        .mouse-glow {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(172, 138, 90, 0.1), transparent 70%);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            transition: opacity 1s ease;
-        }
-
-        @media (max-width: 1100px) {
-            .hero { padding-top: 150px; flex-direction: column; text-align: center; }
-            .hero-text { margin-bottom: 5rem; }
-            .hero-text p { margin-left: auto; margin-right: auto; }
-            .hero-system-container { width: 400px; height: 400px; }
-        }
-
-        /* SECTIONS */
-        .section {
-            min-height: 100vh;
-            padding: 10vh 10%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .content-card {
+        .philo-card-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
             align-items: center;
-            max-width: 1400px;
             width: 100%;
+            max-width: 1400px;
         }
 
-        .text-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--accent-gold);
+        .philo-section:nth-child(even) .philo-card-layout {
+            grid-template-columns: 1fr 1.2fr;
+        }
+
+        .philo-section:nth-child(even) .philo-visual-wrap {
+            order: 2;
+        }
+
+        /* Text Styles */
+        .philo-text {
+            color: var(--philo-dark);
+        }
+
+        .philo-chapter-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--philo-gold);
             margin-bottom: 2rem;
+            display: block;
+            opacity: 0.5;
+        }
+
+        .philo-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: var(--philo-accent);
+            margin-bottom: 2.5rem;
             line-height: 1.1;
         }
 
-        .text-content p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
+        .philo-text p {
+            font-size: 1.35rem;
+            line-height: 1.8;
+            color: #4a4035;
+            margin-bottom: 3rem;
+            font-weight: 300;
         }
 
-        .tags {
-            display: flex;
-            gap: 1rem;
-            font-weight: 600;
-            font-size: 0.8rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .philo-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            color: var(--philo-gold);
+            border-left: 3px solid var(--philo-gold);
+            padding-left: 2rem;
+            margin-top: 3rem;
         }
 
-        .visual-container {
-            height: 550px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 40px;
+        /* Visual Wrap */
+        .philo-visual-wrap {
             position: relative;
+            height: 650px;
+            width: 100%;
+            border-radius: 60px;
             overflow: hidden;
-            box-shadow: 0 40px 100px rgba(107, 79, 58, 0.08);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+            background: #fff;
         }
 
-        /* UNITY COMPONENT STYLES */
-        .unity-hub {
-            position: relative;
-            width: 320px;
-            height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .unity-hub::before {
-            content: "";
-            position: absolute;
+        .philo-img {
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(110,88,69,0.15) 1px, transparent 1px);
-            background-size: 35px 35px;
-            opacity: 0.5;
-            z-index: 0;
+            object-fit: cover;
+            transform: scale(1.1); /* To allow parallax */
         }
 
-        .unity-core {
+        .visual-overlay {
             position: absolute;
-            width: 110px;
-            height: 110px;
-            background: linear-gradient(135deg, #6e5845, #3d2f24);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(245, 239, 230, 0.1));
+            pointer-events: none;
             z-index: 5;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
-        .unity-core:hover { transform: scale(1.1); }
-
-        .unity-node {
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.4s ease;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            font-weight: 600;
-            z-index: 5;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
-        }
-
-        .unity-node:hover { transform: scale(1.1); background: #fff; border-color: var(--accent-gold); }
-        .un-body { top: 0; left: 50%; transform: translateX(-50%); }
-        .un-mind { right: 0; top: 50%; transform: translateY(-50%); }
-        .un-soul { bottom: 0; left: 50%; transform: translateX(-50%); }
-
-        .unity-line {
-            position: absolute;
-            background: rgba(172, 138, 90, 0.25);
-            width: 120px;
-            height: 2px;
-            transform-origin: left center;
-            z-index: 1;
-        }
-        .ul-1 { top: 50%; left: 50%; transform: rotate(-90deg); }
-        .ul-2 { top: 50%; left: 50%; }
-        .ul-3 { top: 50%; left: 50%; transform: rotate(90deg); }
-
-        .info-reveal-box {
-            margin-top: 2rem;
+        /* Unity: Digital Network */
+        .unity-viz {
             width: 100%;
-            max-width: 450px;
-            min-height: 90px;
-            padding: 1.25rem;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #fff 0%, #F5EFE6 100%);
+        }
+        
+        #unity-network {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Healing: Pulsing Resonance */
+        .healing-viz {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            position: relative;
+        }
+
+        .healing-orb {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--philo-gold), var(--philo-accent));
+            border-radius: 50%;
+            box-shadow: 0 0 50px var(--philo-glow);
+            z-index: 2;
+            animation: orbFloat 4s ease-in-out infinite;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            border: 2px solid var(--philo-gold);
+            border-radius: 50%;
+            opacity: 0;
+            animation: pulseWave 4s infinite;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+
+        @keyframes pulseWave {
+            0% { width: 100px; height: 100px; opacity: 0.6; }
+            100% { width: 500px; height: 500px; opacity: 0; }
+        }
+
+        /* Architecture: Tensegrity Grid */
+        .arch-viz {
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafafa;
+        }
+
+        .arch-grid-3d {
+            width: 300px;
+            height: 300px;
+            transform-style: preserve-3d;
+            position: relative;
+            transition: transform 0.1s ease;
+        }
+
+        .grid-plane {
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(172, 138, 90, 0.2);
+            background-image: linear-gradient(rgba(172, 138, 90, 0.1) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(172, 138, 90, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .plane-top { transform: translateZ(50px); }
+        .plane-mid { transform: translateZ(0); opacity: 0.5; }
+        .plane-bot { transform: translateZ(-50px); opacity: 0.2; }
+
+        /* Flow: Wave Frequencies */
+        .flow-viz {
+            width: 100%;
+            height: 100%;
+            background: #1c1c1c;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flow-viz canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Floating Nodes / Micro-Interactions */
+        .philo-hotspot {
+            position: absolute;
+            background: var(--philo-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            color: var(--philo-dark);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: help;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            z-index: 10;
+        }
+
+        .philo-hotspot:hover {
+            background: var(--philo-accent);
+            color: white;
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        .hs-1 { top: 20%; left: 10%; }
+        .hs-2 { bottom: 25%; right: 15%; }
+
+        /* Smooth BG Particles */
+        #philo-bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* Footer CTA */
+        .philo-final-cta {
+            padding: 15vh 10%;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        /* REGENERATION COMPONENT STYLES */
-        .regen-circle {
-            position: relative;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 20px 50px rgba(107, 79, 58, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: calmBreath 8s infinite ease-in-out;
-        }
-
-        @keyframes calmBreath {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .regen-core {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #6e5845, #3d2f24);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: var(--philo-accent);
             color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 10;
         }
 
-        .regen-point {
-            position: absolute;
-            width: 65px;
-            height: 65px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: 0.4s ease;
-            z-index: 10;
-        }
-        .rp-1 { top: -15px; left: 50%; transform: translateX(-50%); }
-        .rp-2 { right: -15px; top: 50%; transform: translateY(-50%); }
-        .rp-3 { bottom: -15px; left: 50%; transform: translateX(-50%); }
-        .rp-4 { left: -15px; top: 50%; transform: translateY(-50%); }
-
-        /* ARCHITECTURE COMPONENT STYLES */
-        .arch-grid {
-            position: relative;
-            width: 320px;
-            height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .arch-core {
-            position: absolute;
-            width: 110px;
-            height: 110px;
-            background: linear-gradient(135deg, #6e5845, #3d2f24);
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        .philo-final-cta h2 {
             font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.4s ease-in-out;
-            z-index: 5;
+            font-size: 5rem;
+            margin-bottom: 3rem;
         }
 
-        .arch-block {
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(61, 47, 36, 0.25);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.4s ease;
-            font-weight: 600;
-            z-index: 5;
-        }
-        .ab-1 { top: 0; left: 0; }
-        .ab-2 { top: 0; right: 0; }
-        .ab-3 { bottom: 0; left: 0; }
-        .ab-4 { bottom: 0; right: 0; }
-
-        .arch-line {
-            position: absolute;
-            background: rgba(61, 47, 36, 0.25);
-            z-index: 1;
-        }
-        .al-h { width: 100%; height: 2px; top: 50%; left: 0; }
-        .al-v { height: 100%; width: 2px; left: 50%; top: 0; }
-
-        /* FLOW COMPONENT STYLES */
-        .flow-system {
-            position: relative;
-            width: 320px;
-            height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: floatFlow 6s ease-in-out infinite;
+        .btn-philo-booking {
+            display: inline-block;
+            padding: 20px 50px;
+            background: white;
+            color: var(--philo-accent);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        @keyframes floatFlow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+        .btn-philo-booking:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        .flow-core {
-            position: absolute;
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #6e5845, #3d2f24);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            cursor: pointer;
-            z-index: 10;
-            animation: flowCorePulse 3s infinite ease-in-out;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        @keyframes flowCorePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-
-        .flow-ring {
-            position: absolute;
-            border: 2px solid rgba(172, 138, 90, 0.2);
-            border-radius: 50%;
-            animation: flowRingBreathe 6s infinite ease-in-out;
-            z-index: 1;
-        }
-        .fr-1 { width: 180px; height: 180px; }
-        .fr-2 { width: 260px; height: 260px; animation-delay: 1.5s; }
-
-        @keyframes flowRingBreathe { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.15); opacity: 0.2; } }
-
-        .flow-node {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.4s ease;
-            font-weight: 600;
-            z-index: 10;
-        }
-        .fn-1 { top: 0; left: 50%; transform: translateX(-50%); }
-        .fn-2 { right: 0; top: 50%; transform: translateY(-50%); }
-        .fn-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
-        .fn-4 { left: 0; top: 50%; transform: translateY(-50%); }
-
-        @media (max-width: 900px) {
-            .content-card { grid-template-columns: 1fr; gap: 3rem; }
-            .text-content h2 { font-size: 2.5rem; }
-            .visual-container { height: auto; padding: 3rem 0; min-height: 500px; }
-            .content-card[style*="direction: rtl"] { direction: ltr !important; }
-            .content-card[style*="direction: rtl"] .text-content { direction: ltr !important; }
+        /* Mobile Adjustments */
+        @media (max-width: 1100px) {
+            .philo-card-layout { grid-template-columns: 1fr !important; gap: 4rem; }
+            .philo-text h2 { font-size: 3rem; }
+            .philo-visual-wrap { height: 450px; }
+            .philo-section:nth-child(even) .philo-visual-wrap { order: 0; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Glass (from style.css) -->
     <header class="header-glass" id="main-header">
         <a href="index.html" class="logo-orb">
             <div class="logo-circle"></div>
@@ -607,271 +359,382 @@
         <button class="btn-flow" onclick="window.location.href='kontakt.html'">JETZT IN DEN FLOW</button>
     </header>
 
+    <canvas id="philo-bg-canvas"></canvas>
+
     <main>
-        <div class="hero">
-            <div class="mouse-glow" id="hero-glow"></div>
-            
-            <div class="hero-text">
-                <h1>Ein System.<br>Kein Zufall.</h1>
-                <p>Der Mensch ist ein fein abgestimmtes Zusammenspiel aus Struktur, Rhythmus und innerer Intelligenz. Entdecken Sie die Prinzipien unserer Arbeit.</p>
-                <button class="cta-philosophie" onclick="document.querySelector('.section').scrollIntoView({behavior: 'smooth'})">Philosophie entdecken</button>
-            </div>
-
-            <div class="hero-system-container">
-                <div class="hero-system-visual">
-                    <div class="system-line line-1"></div>
-                    <div class="system-line line-2"></div>
-                    <div class="system-line line-3"></div>
-                    <div class="system-line line-4"></div>
-                    
-                    <div class="hero-core" onclick="showHeroText('core')">
-                        <span>SYSTEM</span>
-                    </div>
-                    
-                    <div class="system-node node-unity" onclick="showHeroText('unity')">UNITY</div>
-                    <div class="system-node node-regen" onclick="showHeroText('regen')">REGEN</div>
-                    <div class="system-node node-arch" onclick="showHeroText('arch')">ARCH</div>
-                    <div class="system-node node-flow" onclick="showHeroText('flow')">FLOW</div>
-                </div>
-            </div>
-
-            <div class="hero-info-reveal" id="hero-info">
-                Bewege die Maus oder klicke auf die Prinzipien.
-            </div>
-        </div>
-
-        <section class="section">
-            <div class="content-card">
-                <div class="text-content">
-                    <h2>01 UNITY<br>Das Ökosystem</h2>
-                    <p>Der Mensch ist keine Ansammlung von Einzelteilen, sondern ein hochkomplexes Ökosystem aus Körper, Geist und Seele.</p>
-                    <div class="tags"><span>#Holistic</span><span>#GlobalFocus</span></div>
-                </div>
-                <div class="visual-container">
-                    <div class="unity-hub">
-                        <div class="unity-line ul-1"></div>
-                        <div class="unity-line ul-2"></div>
-                        <div class="unity-line ul-3"></div>
-                        <div class="unity-core" onclick="updateInfo('unity', 'core')">UNITY</div>
-                        <div class="unity-node un-body" onclick="updateInfo('unity', 'body')">Körper</div>
-                        <div class="unity-node un-mind" onclick="updateInfo('unity', 'mind')">Geist</div>
-                        <div class="unity-node un-soul" onclick="updateInfo('unity', 'soul')">Seele</div>
-                    </div>
-                    <div class="info-reveal-box" id="info-unity">
-                        Der Mensch ist ein verbundenes Ökosystem. Klicken Sie auf die Elemente.
+        <!-- HERO PHASE -->
+        <section class="philo-hero">
+            <div class="hero-title-wrap">
+                <span class="hero-tag">Die Kunst des Seins</span>
+                <h1>Hinter dem<br>Sichtbaren.</h1>
+                <div class="scroll-indicator" style="margin-top: 5rem; opacity: 0.4;">
+                    <div style="width: 1px; height: 100px; background: var(--philo-gold); margin: 0 auto; position: relative; overflow: hidden;">
+                        <div id="scroll-line-anim" style="width: 100%; height: 100%; background: var(--philo-accent); position: absolute; top: -100%;"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="content-card" style="direction: rtl;">
-                <div class="text-content" style="direction: ltr;">
-                    <h2>02 REGENERATION<br>Der innere Arzt</h2>
-                    <p>Ihr Körper trägt den Bauplan der Heilung bereits in sich. Unsere Hände geben lediglich den präzisen Impuls.</p>
-                    <div class="tags"><span>#AutoHealing</span><span>#InnerPower</span></div>
+        <!-- CHAPTER 01: UNITY -->
+        <section class="philo-section" id="unity">
+            <div class="philo-card-layout">
+                <div class="philo-text">
+                    <span class="philo-chapter-num">01</span>
+                    <h2>UNITY:<br>Das Netz des Lebens</h2>
+                    <p>In der Osteopathie begreifen wir den menschlichen Organismus als eine unteilbare Einheit. Kein Teil existiert für sich allein – jede Bewegung im Kleinen hallt im Großen wider. Wir behandeln nicht das Symptom, sondern das System.</p>
+                    <div class="philo-quote">"Der Körper ist eine Apotheke, die alles Notwendige bereithält – wir müssen nur lernen, die Rezepte zu lesen."</div>
                 </div>
-                <div class="visual-container">
-                    <div class="regen-circle">
-                        <div class="regen-core" onclick="updateInfo('regen', 'core')">✨</div>
-                        <div class="regen-point rp-1" onclick="updateInfo('regen', 'ruhe')">🧘</div>
-                        <div class="regen-point rp-2" onclick="updateInfo('regen', 'energie')">⚡</div>
-                        <div class="regen-point rp-3" onclick="updateInfo('regen', 'heilung')">💚</div>
-                        <div class="regen-point rp-4" onclick="updateInfo('regen', 'balance')">🌿</div>
+                <div class="philo-visual-wrap">
+                    <div class="unity-viz">
+                        <svg id="unity-network" viewBox="0 0 600 650"></svg>
                     </div>
-                    <div class="info-reveal-box" id="info-regen">
-                        Entdecken Sie die Mechanismen Ihrer inneren Regeneration.
-                    </div>
+                    <div class="visual-overlay"></div>
+                    <div class="philo-hotspot hs-1">Mikrobiom</div>
+                    <div class="philo-hotspot hs-2">Zelluläre Ebene</div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="content-card">
-                <div class="text-content">
-                    <h2>03 ARCHITECTURE<br>Form & Funktion</h2>
-                    <p>Struktur regiert die Funktion. Wir begreifen Ihren Körper als architektonisches Meisterwerk.</p>
-                    <div class="tags"><span>#BioArchitecture</span><span>#Balance</span></div>
+        <!-- CHAPTER 02: REGENERATION -->
+        <section class="philo-section" id="regeneration">
+            <div class="philo-card-layout">
+                <div class="philo-visual-wrap">
+                    <div class="healing-viz">
+                        <div class="healing-orb"></div>
+                        <div class="pulse-ring" style="animation-delay: 0s;"></div>
+                        <div class="pulse-ring" style="animation-delay: 1s;"></div>
+                        <div class="pulse-ring" style="animation-delay: 2s;"></div>
+                    </div>
+                    <div class="visual-overlay"></div>
+                    <div class="philo-hotspot hs-1">Homöostase</div>
+                    <div class="philo-hotspot hs-2">Parasympathikus</div>
                 </div>
-                <div class="visual-container">
-                    <div class="arch-grid">
-                        <div class="arch-line al-h"></div>
-                        <div class="arch-line al-v"></div>
-                        <div class="arch-core" onclick="updateInfo('arch', 'core')">SYSTEM</div>
-                        <div class="arch-block ab-1" onclick="updateInfo('arch', 'form')">Form</div>
-                        <div class="arch-block ab-2" onclick="updateInfo('arch', 'function')">Funktion</div>
-                        <div class="arch-block ab-3" onclick="updateInfo('arch', 'structure')">Struktur</div>
-                        <div class="arch-block ab-4" onclick="updateInfo('arch', 'flow')">Fluss</div>
-                    </div>
-                    <div class="info-reveal-box" id="info-arch">
-                        Klicken Sie auf die Elemente der körperlichen Statik.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="content-card" style="direction: rtl;">
-                <div class="text-content" style="direction: ltr;">
-                    <h2>04 FLOW<br>Breath of Life</h2>
-                    <p>Hinter der sichtbaren Bewegung liegt die flüssige Intelligenz des Lebens. Wir arbeiten mit feinstofflichen Rhythmen.</p>
-                    <div class="tags"><span>#Vitality</span><span>#PrimaryBreath</span></div>
-                </div>
-                <div class="visual-container">
-                    <div class="flow-system">
-                        <div class="flow-ring fr-1"></div>
-                        <div class="flow-ring fr-2"></div>
-                        <div class="flow-core" onclick="updateInfo('flow', 'core')">FLOW</div>
-                        <div class="flow-node fn-1" onclick="updateInfo('flow', 'rhythm')">Rhythmus</div>
-                        <div class="flow-node fn-2" onclick="updateInfo('flow', 'energy')">Energie</div>
-                        <div class="flow-node fn-3" onclick="updateInfo('flow', 'breath')">Atem</div>
-                        <div class="flow-node fn-4" onclick="updateInfo('flow', 'intelligence')">Intelligenz</div>
-                    </div>
-                    <div class="info-reveal-box" id="info-flow">
-                        Hinter Bewegung liegt ein tiefer Rhythmus. Entdecken Sie ihn.
-                    </div>
+                <div class="philo-text">
+                    <span class="philo-chapter-num">02</span>
+                    <h2>HEILUNG:<br>Der innere Bauplan</h2>
+                    <p>Ihr Körper trägt den Bauplan der vollkommenen Gesundheit bereits in sich. Er ist programmiert auf Selbstkorrektur und Erneuerung. Unsere Hände setzen lediglich den präzisen Impuls, um die blockierten Heilungskräfte wieder zu entfesseln.</p>
+                    <p>Wir schaffen den Raum, in dem der 'innere Arzt' seine Arbeit aufnehmen kann. In der Stille findet die tiefste Regeneration statt.</p>
                 </div>
             </div>
         </section>
 
-        <section style="text-align: center; padding: 10vh 5%;">
-            <h2 style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 1rem;">Bereit für Balance?</h2>
-            <button class="btn-booking" onclick="window.location.href='kontakt.html'">Termin online buchen</button>
+        <!-- CHAPTER 03: ARCHITECTURE -->
+        <section class="philo-section" id="architecture">
+            <div class="philo-card-layout">
+                <div class="philo-text">
+                    <span class="philo-chapter-num">03</span>
+                    <h2>STRUKTUR:<br>Form & Funktion</h2>
+                    <p>Struktur regiert die Funktion. Wir betrachten den Körper als architektonisches Meisterwerk der Natur. Wenn das Fundament (die Anatomie) im Lot ist, können die Funktionen (Physiologie) ihrer Bestimmung ungehindert folgen.</p>
+                    <p>Wir richten die Statik neu aus – für eine Bewegung, die sich wieder mühelos und wahrhaftig anfühlt.</p>
+                </div>
+                <div class="philo-visual-wrap">
+                    <div class="arch-viz" id="arch-container">
+                        <div class="arch-grid-3d" id="arch-grid">
+                            <div class="grid-plane plane-top"></div>
+                            <div class="grid-plane plane-mid"></div>
+                            <div class="grid-plane plane-bot"></div>
+                        </div>
+                    </div>
+                    <div class="visual-overlay"></div>
+                    <div class="philo-hotspot hs-1">Biomechanik</div>
+                    <div class="philo-hotspot hs-2">Tensegrity</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 04: FLOW -->
+        <section class="philo-section" id="flow">
+            <div class="philo-card-layout">
+                <div class="philo-visual-wrap">
+                    <div class="flow-viz">
+                        <canvas id="flow-canvas"></canvas>
+                    </div>
+                    <div class="visual-overlay"></div>
+                    <div class="philo-hotspot hs-1">Liquor Fluss</div>
+                    <div class="philo-hotspot hs-2">Vitaler Rhythmus</div>
+                </div>
+                <div class="philo-text">
+                    <span class="philo-chapter-num">04</span>
+                    <h2>VITALITÄT:<br>Breath of Life</h2>
+                    <p>Hinter der grobstofflichen Bewegung liegt ein tiefer, pulsierender Rhythmus – der Atem des Lebens. Die Zirkulation der Fluida ist der Träger unserer Lebensenergie. Wenn alles fließt, ist Gesundheit der natürliche Zustand.</p>
+                    <div class="philo-quote">"Find it, fix it and leave it alone." – A.T. Still</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="philo-final-cta">
+            <h2>Sind Sie bereit für<br>Ihren neuen Flow?</h2>
+            <a href="kontakt.html" class="btn-philo-booking">JETZT TERMIN SICHERN</a>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Harmony Flow | Bamberg</p>
-        <div style="margin-top: 1.5rem; opacity: 0.6; font-size: 0.8rem;">
-            <a href="impressum.html" style="color: var(--text-main); margin-right: 1.5rem; text-decoration: none;">Impressum</a>
-            <a href="datenschutz.html" style="color: var(--text-main); text-decoration: none;">Datenschutz</a>
+    <footer style="background: #1c1c1c; color: #fff; padding: 5rem 10% 2rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 4rem;">
+            <div>
+                <h3 style="font-family: 'Playfair Display'; font-size: 2rem; margin-bottom: 2rem;">Harmony Flow</h3>
+                <p style="opacity: 0.6; max-width: 300px;">Ganzheitliche Osteopathie für Ihre Balance in Bamberg.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1.5rem; letter-spacing: 2px;">NAVIGATION</h4>
+                <ul style="list-style: none; opacity: 0.8; line-height: 2.5;">
+                    <li><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+                    <li><a href="philosophie.html" style="color: white; text-decoration: none;">Philosophie</a></li>
+                    <li><a href="behandlungen.html" style="color: white; text-decoration: none;">Behandlungen</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1.5rem; letter-spacing: 2px;">RECHTLICHES</h4>
+                <ul style="list-style: none; opacity: 0.8; line-height: 2.5;">
+                    <li><a href="impressum.html" style="color: white; text-decoration: none;">Impressum</a></li>
+                    <li><a href="datenschutz.html" style="color: white; text-decoration: none;">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; opacity: 0.4; font-size: 0.8rem;">
+            &copy; 2026 Harmony Flow | Design by Luxury Tech
         </div>
     </footer>
 
+    <!-- GSAP & Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    
     <script>
-        const contentData = {
-            unity: {
-                core: "Echte Gesundheit entsteht durch das synergetische Zusammenspiel aller Ebenen. Nichts existiert isoliert.",
-                body: "Die physische Basis: Unsere Hände arbeiten mit der Architektur aus Knochen, Faszien und Organen.",
-                mind: "Das Steuerzentrum: Wir adressieren das Nervensystem, um mentale und psychosomatische Muster zu lösen.",
-                soul: "Die vitale Essenz: Der 'Breath of Life' verbindet alle Schichten zu einer schwingenden Einheit."
-            },
-            regen: {
-                core: "Der 'innere Arzt' beschreibt die biologische Intelligenz Ihres Körpers, die rund um die Uhr arbeitet.",
-                ruhe: "Parasympathische Dominanz: In tiefen Entspannungsphasen werden Reparaturmechanismen aktiv.",
-                energie: "Energiefluss wird durch Lösung mechanischer Blockaden wiederhergestellt – Vitalität kehrt zurück.",
-                heilung: "Heilung ist ein autogener Prozess. Die Osteopathie schafft lediglich den Raum dafür.",
-                balance: "Homöostase ist das Ziel: Das perfekte Gleichgewicht aller inneren Systeme."
-            },
-            arch: {
-                core: "Form und Funktion bilden eine unbezwingbare Einheit im gesunden System.",
-                form: "Die biologische Geometrie: Wir bewahren die natürliche Integrität des Gewebes.",
-                function: "Die Mechanik des Lebens: Optimale Funktion setzt uneingeschränkte Beweglichkeit voraus.",
-                structure: "Das Fundament: Wir begreifen den Körper als architektonisches Gesamtkunstwerk.",
-                flow: "Dynamische Balance: Wenn Struktur und Funktion harmonieren, fließt Lebensenergie ungehindert."
-            },
-            flow: {
-                core: "Der 'Ur-Rhythmus' ist der pulsierende Motor des Lebens in jedem Gewebe.",
-                rhythm: "Alles folgt Zyklen. Wir synchronisieren Ihre inneren Uhren für maximale Vitalität.",
-                energy: "Flüssiges Licht: Die Zirkulation der Fluida ist der Schlüssel zu gesundem Gewebe.",
-                breath: "Der 'Breath of Life' ist die ordnende Kraft, die alles am Leben erhält.",
-                intelligence: "Inhärente Selbstkorrektur: Die Intelligenz des Gewebes findet den Weg zur Gesundheit."
-            }
-        };
+        gsap.registerPlugin(ScrollTrigger);
 
-        function updateInfo(section, type) {
-            const box = document.getElementById(`info-${section}`);
-            if (!box) return;
-            box.style.opacity = 0;
-            setTimeout(() => {
-                box.innerHTML = contentData[section][type];
-                box.style.opacity = 1;
-                box.style.borderColor = "#6B4F3A";
-            }, 200);
-        }
-
-        // Hero Interaction & GSAP Animations
-        const heroInfo = document.getElementById("hero-info");
-        const heroGlow = document.getElementById("hero-glow");
-        const systemNodes = document.querySelectorAll(".system-node");
-        const systemContainer = document.querySelector(".hero-system-container");
-
-        // Initial Reveal
-        gsap.from(".hero-text h1", { opacity: 0, y: 50, duration: 1, delay: 0.2, ease: "power4.out" });
-        gsap.from(".hero-text p", { opacity: 0, y: 30, duration: 1, delay: 0.4, ease: "power4.out" });
-        gsap.from(".cta-philosophie", { opacity: 0, y: 20, duration: 1, delay: 0.6, ease: "power4.out" });
-        
-        gsap.from(".hero-core", { scale: 0, opacity: 0, duration: 1.2, delay: 0.5, ease: "back.out(1.7)" });
-        gsap.from(".system-node", { 
-            scale: 0, 
-            opacity: 0, 
-            duration: 0.8, 
-            stagger: 0.1, 
-            delay: 1, 
-            ease: "back.out(1.7)" 
-        });
-
-        // Mouse Move Effects
-        document.addEventListener("mousemove", (e) => {
-            // Glow follows mouse
-            if (heroGlow) {
-                gsap.to(heroGlow, {
-                    left: e.clientX,
-                    top: e.clientY + window.scrollY,
-                    duration: 0.8,
-                    ease: "power2.out"
-                });
-            }
-
-            // Subtle Parallax for System Hub
-            if (systemContainer) {
-                const moveX = (e.clientX - window.innerWidth / 2) * 0.015;
-                const moveY = (e.clientY - window.innerHeight / 2) * 0.015;
-                
-                gsap.to(".hero-system-visual", {
-                    x: moveX,
-                    y: moveY,
-                    rotationY: moveX * 0.5,
-                    rotationX: -moveY * 0.5,
-                    duration: 1,
-                    ease: "power2.out"
-                });
-            }
-        });
-
-        function showHeroText(type) {
-            const texts = {
-                core: "Alles ist verbunden – der Mensch funktioniert als unteilbare, lebendige Einheit.",
-                unity: "Das Ökosystem: Jede Zelle steht im ständigen Dialog mit dem gesamten Organismus.",
-                regen: "Der innere Arzt: Wir laden Ihre Selbstheilungskräfte ein, wieder aktiv zu werden.",
-                arch: "Form & Funktion: Struktur regiert biologische Prozesse – wir richten sie neu aus.",
-                flow: "Der Ur-Rhythmus: Die flüssige Intelligenz Ihres Körpers trägt den Bauplan der Gesundheit."
-            };
-
-            heroInfo.classList.remove("active");
-            
-            setTimeout(() => {
-                heroInfo.innerHTML = texts[type];
-                heroInfo.classList.add("active");
-                
-                // Highlight the line
-                const nodeColors = {
-                    unity: "#6e5845",
-                    regen: "#6e5845",
-                    arch: "#6e5845",
-                    flow: "#6e5845",
-                    core: "#3d2f24"
-                };
-                
-                heroInfo.style.borderColor = nodeColors[type] || "var(--glass-border)";
-            }, 300);
-        }
-
+        // Header Scrolled State
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
             if (window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         });
+
+        // Hero Reveal
+        gsap.from(".philo-hero h1", { 
+            opacity: 0, 
+            y: 100, 
+            duration: 1.5, 
+            ease: "expo.out",
+            delay: 0.3
+        });
+        gsap.from(".hero-tag", { 
+            opacity: 0, 
+            y: 20, 
+            duration: 1, 
+            ease: "power2.out",
+            delay: 0.8
+        });
+        
+        // Scroll Indicator Anim
+        gsap.to("#scroll-line-anim", {
+            top: "100%",
+            duration: 1.5,
+            repeat: -1,
+            ease: "power1.inOut"
+        });
+
+        // Section Animations
+        const sections = document.querySelectorAll('.philo-section');
+        sections.forEach(sec => {
+            const text = sec.querySelector('.philo-text');
+            const visual = sec.querySelector('.philo-visual-wrap');
+            const hotspots = sec.querySelectorAll('.philo-hotspot');
+
+            // Text Fade In
+            gsap.from(text, {
+                opacity: 0,
+                x: sec.classList.contains('philo-section-even') ? 50 : -50,
+                duration: 1.2,
+                scrollTrigger: {
+                    trigger: sec,
+                    start: "top 70%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            // Visual Parallax & Zoom
+            gsap.from(visual, {
+                opacity: 0,
+                scale: 0.9,
+                duration: 1.5,
+                ease: "expo.out",
+                scrollTrigger: {
+                    trigger: sec,
+                    start: "top 80%",
+                }
+            });
+
+            // Hotspots reveal
+            gsap.from(hotspots, {
+                opacity: 0,
+                scale: 0,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: "back.out(1.7)",
+                scrollTrigger: {
+                    trigger: sec,
+                    start: "top 50%",
+                }
+            });
+        });
+
+        // 1. UNITY NETWORK LOGIC
+        const svg = document.getElementById('unity-network');
+        const points = [];
+        const lines = [];
+        const numPoints = 15;
+
+        for (let i = 0; i < numPoints; i++) {
+            const p = {
+                x: Math.random() * 600,
+                y: Math.random() * 650,
+                originX: 0,
+                originY: 0,
+                circle: document.createElementNS("http://www.w3.org/2000/svg", "circle")
+            };
+            p.originX = p.x;
+            p.originY = p.y;
+            p.circle.setAttribute("r", Math.random() * 6 + 2);
+            p.circle.setAttribute("fill", "#AC8A5A");
+            p.circle.style.opacity = Math.random() * 0.5 + 0.3;
+            svg.appendChild(p.circle);
+            points.push(p);
+        }
+
+        // Draw connections
+        for (let i = 0; i < points.length; i++) {
+            for (let j = i + 1; j < points.length; j++) {
+                if (Math.random() > 0.7) {
+                    const l = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    l.setAttribute("stroke", "#AC8A5A");
+                    l.setAttribute("stroke-width", "1");
+                    l.style.opacity = "0.15";
+                    svg.appendChild(l);
+                    lines.push({ p1: points[i], p2: points[j], line: l });
+                }
+            }
+        }
+
+        function animateUnity() {
+            points.forEach(p => {
+                p.x = p.originX + Math.sin(Date.now() * 0.001 + points.indexOf(p)) * 20;
+                p.y = p.originY + Math.cos(Date.now() * 0.001 + points.indexOf(p)) * 20;
+                p.circle.setAttribute("cx", p.x);
+                p.circle.setAttribute("cy", p.y);
+            });
+            lines.forEach(l => {
+                l.line.setAttribute("x1", l.p1.x);
+                l.line.setAttribute("y1", l.p1.y);
+                l.line.setAttribute("x2", l.p2.x);
+                l.line.setAttribute("y2", l.p2.y);
+            });
+            requestAnimationFrame(animateUnity);
+        }
+        animateUnity();
+
+        // 3. ARCHITECTURE 3D TILT
+        const archContainer = document.getElementById('arch-container');
+        const archGrid = document.getElementById('arch-grid');
+
+        archContainer.addEventListener('mousemove', (e) => {
+            const rect = archContainer.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            
+            gsap.to(archGrid, {
+                rotationY: x * 40,
+                rotationX: -y * 40,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+
+        archContainer.addEventListener('mouseleave', () => {
+            gsap.to(archGrid, { rotationY: 0, rotationX: 0, duration: 1 });
+        });
+
+        // 4. FLOW WAVE LOGIC
+        const fCanvas = document.getElementById('flow-canvas');
+        const fCtx = fCanvas.getContext('2d');
+        let fW, fH;
+
+        function fResize() {
+            fW = fCanvas.width = fCanvas.parentElement.offsetWidth;
+            fH = fCanvas.height = fCanvas.parentElement.offsetHeight;
+        }
+        window.addEventListener('resize', fResize);
+        fResize();
+
+        function drawFlow() {
+            fCtx.clearRect(0, 0, fW, fH);
+            fCtx.strokeStyle = "#AC8A5A";
+            fCtx.lineWidth = 2;
+            fCtx.globalAlpha = 0.3;
+
+            for (let j = 0; j < 5; j++) {
+                fCtx.beginPath();
+                for (let i = 0; i < fW; i++) {
+                    const y = fH / 2 + Math.sin(i * 0.01 + Date.now() * 0.002 + j) * (20 + j * 15);
+                    if (i === 0) fCtx.moveTo(i, y);
+                    else fCtx.lineTo(i, y);
+                }
+                fCtx.stroke();
+            }
+            requestAnimationFrame(drawFlow);
+        }
+        drawFlow();
+
+        // Background Liquid Animation (Canvas)
+        const canvas = document.getElementById('philo-bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.r = Math.random() * 2 + 1;
+                this.life = Math.random() * 0.5 + 0.5;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(172, 138, 90, ${this.life * 0.2})`;
+                ctx.fill();
+            }
+        }
+
+        const particles = Array.from({ length: 50 }, () => new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
     </script>
 </body>
 </html>

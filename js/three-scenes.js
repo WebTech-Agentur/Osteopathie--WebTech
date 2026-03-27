@@ -157,8 +157,153 @@ const initBodyExplorer = () => {
     animate();
 };
 
+// ---------------------------------------------------------
+// 3. UNITY SYSTEM VIZ (HOLISTIC SYSTEM)
+// ---------------------------------------------------------
+const initUnitySystem = () => {
+    const canvas = document.getElementById('unity-system-canvas');
+    if (!canvas) return;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    camera.position.z = 12;
+
+    const pointsCount = 100;
+    const pointsGeom = new THREE.BufferGeometry();
+    const positions = new Float32Array(pointsCount * 3);
+    const velocities = new Float32Array(pointsCount * 3);
+    
+    // Human coordinates (approximate silhouette)
+    for (let i = 0; i < pointsCount; i++) {
+        const isHuman = i < 40;
+        if (isHuman) {
+            // Head, Thorax, Pelvis, Arms, Legs nodes
+            const head = i < 5;
+            const thorax = i >= 5 && i < 15;
+            const pelvis = i >= 15 && i < 25;
+            if (head) { positions[i*3] = (Math.random()-0.5)*0.8; positions[i*3+1] = 3.5 + (Math.random()-0.5)*0.8; }
+            else if (thorax) { positions[i*3] = (Math.random()-0.5)*1.2; positions[i*3+1] = 1.5 + (Math.random()-0.5)*1.5; }
+            else if (pelvis) { positions[i*3] = (Math.random()-0.5)*1; positions[i*3+1] = -0.5 + (Math.random()-0.5)*1; }
+            else { positions[i*3] = (Math.random()-0.5)*4; positions[i*3+1] = (Math.random()-0.5)*8; }
+        } else {
+            // Surrounding "field" nodes
+            positions[i*3] = (Math.random() - 0.5) * 15;
+            positions[i*3+1] = (Math.random() - 0.5) * 15;
+        }
+        positions[i*3+2] = (Math.random() - 0.5) * 3;
+        velocities[i*3] = (Math.random() - 0.5) * 0.01;
+        velocities[i*3+1] = (Math.random() - 0.5) * 0.01;
+        velocities[i*3+2] = (Math.random() - 0.5) * 0.01;
+    }
+
+    pointsGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const pointsMat = new THREE.PointsMaterial({ size: 0.1, color: 0x6B4F3A, transparent: true, opacity: 0.8 });
+    const pointsMesh = new THREE.Points(pointsGeom, pointsMat);
+    scene.add(pointsMesh);
+
+    // Line System for connections
+    const segments = pointsCount * pointsCount;
+    const linePositions = new Float32Array(segments * 6);
+    const lineColors = new Float32Array(segments * 6);
+    const lineGeom = new THREE.BufferGeometry();
+    lineGeom.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+    lineGeom.setAttribute('color', new THREE.BufferAttribute(lineColors, 3));
+    const lineMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.2 });
+    const linesMesh = new THREE.LineSegments(lineGeom, lineMat);
+    scene.add(linesMesh);
+
+    // Interaction mouse
+    const mouse = new THREE.Vector2(-10, -10);
+    const target = new THREE.Vector3();
+    const raycaster = new THREE.Raycaster();
+
+    window.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    });
+
+    const animate = () => {
+        requestAnimationFrame(animate);
+
+        const posAttr = pointsGeom.attributes.position;
+        const lineAttr = lineGeom.attributes.position;
+        const colorAttr = lineGeom.attributes.color;
+        let lineIndex = 0;
+
+        raycaster.setFromCamera(mouse, camera);
+        const mousePlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+        raycaster.ray.intersectPlane(mousePlane, target);
+
+        for (let i = 0; i < pointsCount; i++) {
+            const ix = posAttr.getX(i);
+            const iy = posAttr.getY(i);
+            const iz = posAttr.getZ(i);
+
+            // Brownian motion
+            posAttr.setX(i, ix + velocities[i*3]);
+            posAttr.setY(i, iy + velocities[i*3+1]);
+            posAttr.setZ(i, iz + velocities[i*3+2]);
+
+            // Interact with mouse
+            const dx = ix - target.x;
+            const dy = iy - target.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < 4) {
+                const force = (4 - dist) * 0.01;
+                posAttr.setX(i, ix + (dx/dist) * force);
+                posAttr.setY(i, iy + (dy/dist) * force);
+            }
+
+            // Draw connections
+            for (let j = i + 1; j < pointsCount; j++) {
+                const jx = posAttr.getX(j);
+                const jy = posAttr.getY(j);
+                const jz = posAttr.getZ(j);
+
+                const dix = ix - jx;
+                const diy = iy - jy;
+                const d = Math.sqrt(dix*dix + diy*diy);
+
+                if (d < 3.5) {
+                    lineAttr.setXYZ(lineIndex, ix, iy, iz);
+                    lineAttr.setXYZ(lineIndex + 1, jx, jy, jz);
+                    
+                    const alpha = 1.0 - (d / 3.5);
+                    lineColors[lineIndex * 3] = lineColors[lineIndex * 3 + 1] = lineColors[lineIndex * 3 + 2] = alpha * 0.4;
+                    lineColors[(lineIndex + 1) * 3] = lineColors[(lineIndex + 1) * 3 + 1] = lineColors[(lineIndex + 1) * 3 + 2] = alpha * 0.4;
+
+                    lineIndex += 2;
+                }
+            }
+        }
+        
+        posAttr.needsUpdate = true;
+        lineAttr.needsUpdate = true;
+        colorAttr.needsUpdate = true;
+        lineGeom.setDrawRange(0, lineIndex);
+
+        renderer.render(scene, camera);
+    };
+
+    const resize = () => {
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        if (canvas.width !== width || canvas.height !== height) {
+            renderer.setSize(width, height, false);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        }
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    animate();
+};
+
 // Initialize everything
 window.addEventListener('load', () => {
     initSpineOrb();
-    // initBodyExplorer(); // Body figure removed per user request
+    initUnitySystem();
 });
