@@ -45,13 +45,13 @@
 <body>
 
     <nav id="mainNav">
-        <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+        <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
         <div class="nav-links">
             <a href="index.html" class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 12L12 3L21 12M5 10V20H19V10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span>Home</span>
+                <span>Start</span>
             </a>
             <a href="was-ist-osteopathie.html" class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -86,103 +86,117 @@
     </nav>
 
     <main>
-        <!-- CREATIVE HERO SECTION -->
-        <section class="creative-hero" style="position: relative; padding: 200px 10% 120px; display: flex; align-items: center; justify-content: center; min-height: 70vh; background: radial-gradient(circle at top right, rgba(139, 168, 137, 0.1), transparent 40%);">
-            <div class="zen-circle" style="position: absolute; width: 600px; height: 600px; border: 1px solid rgba(139, 168, 137, 0.2); border-radius: 50%; animation: rotateZen 20s linear infinite;"></div>
-            <div class="zen-circle" style="position: absolute; width: 550px; height: 550px; border: 1px dashed rgba(212, 163, 115, 0.2); border-radius: 50%; animation: rotateZen 15s linear infinite reverse;"></div>
-            
-            <div style="position: relative; z-index: 2; text-align: center; max-width: 900px;">
-                <span style="font-family: 'Playfair Display'; font-style: italic; color: var(--accent); font-size: 1.2rem; letter-spacing: 2px;">Begleitung & Vertrauen</span>
-                <h1 style="font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; margin: 1rem 0 2rem; position: relative; mix-blend-mode: multiply;">
-                    Vom <span style="color: var(--primary);">Erstgespräch</span> <br>
-                    <span style="font-weight: 300; font-family: 'Montserrat', sans-serif; font-size: 0.5em; vertical-align: middle; margin: 0 1rem; color: #eee; display: inline-block; width: 60px; height: 1px; background: #636E72; position: relative; top: -10px;"></span> zur Genesung.
-                </h1>
-                <div style="display: flex; gap: 2rem; align-items: flex-start; text-align: left; margin-top: 3rem;">
-                    <div style="flex: 1; border-left: 2px solid var(--accent); padding-left: 2rem;">
-                        <p style="font-size: 1.1rem; color: var(--text-light); line-height: 1.8;">Wir möchten, dass Sie sich bei uns gut aufgehoben fühlen. Unser Prozess ist darauf ausgelegt, nicht nur Symptome zu lindern, sondern die wirklichen Ursachen zu verstehen.</p>
-                    </div>
-                    <div style="flex: 1; background: rgba(253, 252, 248, 0.5); backdrop-filter: blur(5px); padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
-                        <p style="font-size: 0.9rem; font-weight: 500;">In 4 Phasen zur Einheit. <br><span style="color: var(--primary);">Hier erfahren Sie, wie wir gemeinsam an Ihrer Gesundheit arbeiten.</span></p>
-                    </div>
-                </div>
+        <!-- CONCEPT HERO (ORBITAL STARFIELD) -->
+        <section class="concept-hero" id="conceptHero">
+            <!-- Background Orbit System -->
+            <div class="orbital-bg-system" id="orbitalSystem">
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
             </div>
             
-            <style>
-                @keyframes rotateZen { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-            </style>
-        </section>
-
-        <!-- LAYERED BODY-FOCUS SECTION -->
-        <section class="layered-focus" id="focusSlider">
-            <div class="focus-visual">
-                <img src="body_focus_head.png" class="layer-img active" data-step="1">
-                <img src="body_focus_spine.png" class="layer-img" data-step="2">
-                <img src="body_focus_hands.png" class="layer-img" data-step="3">
-                <img src="body_focus_whole_person.png" class="layer-img" data-step="4">
-                <div class="glass-effect"></div>
-            </div>
+            <!-- Stardust Particle System -->
+            <canvas id="starfieldCanvas" class="particle-canvas"></canvas>
             
-            <div class="focus-content">
-                <div class="focus-nav">
-                    <div class="focus-dot active" onclick="setFocusStep(1)"></div>
-                    <div class="focus-dot" onclick="setFocusStep(2)"></div>
-                    <div class="focus-dot" onclick="setFocusStep(3)"></div>
-                    <div class="focus-dot" onclick="setFocusStep(4)"></div>
-                </div>
+            <!-- Glow Focus -->
+            <div class="glow-focus-box"></div>
+            <div class="starfield-glow"></div>
 
-                <div class="focus-text-box">
-                    <div class="focus-step-content active" data-step="1">
-                        <div class="focus-step-num">01</div>
-                        <h3>Anamnese</h3>
-                        <p>Wir blicken hinter die Oberfläche. Im Erstgespräch erfassen wir nicht nur Ihre aktuellen Symptome, sondern die gesamte Geschichte Ihres Körpers – von alten Verletzungen bis hin zu emotionalen Belastungen.</p>
-                    </div>
-                    <div class="focus-step-content" data-step="2">
-                        <div class="focus-step-num">02</div>
-                        <h3>Struktur & Befund</h3>
-                        <p>Das Fundament Ihrer Gesundheit. Wir untersuchen die Wirbelsäule und das muskuloskelettale System auf Blockaden und Spannungen, die den freien Fluss Ihrer Energie behindern.</p>
-                    </div>
-                    <div class="focus-step-content" data-step="3">
-                        <div class="focus-step-num">03</div>
-                        <h3>Manuelle Therapie</h3>
-                        <p>Die Heilung durch Berührung. Mit präzisen osteopathischen Techniken lösen wir Gewebespannungen und regen die Selbstheilungskräfte Ihrer Organe und Systeme an.</p>
-                    </div>
-                    <div class="focus-step-content" data-step="4">
-                        <div class="focus-step-num">04</div>
-                        <h3>Ganzheitliche Kraft</h3>
-                        <p>Wiederherstellung der Balance. Unser Ziel ist es, dass Sie sich als Ganzes wieder lichtvoll und frei bewegen können – im Einklang mit Ihrem inneren Rhythmus.</p>
-                    </div>
-                </div>
+            <div class="concept-hero-content">
+                <h1><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> Erstgespräch zur Genesung.</h1>
+                <div class="title-line"></div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem;">In 4 Phasen zur Einheit.</h2>
+                <p>Wir begleiten Sie auf dem Weg zur harmonischen Balance – transparent, einfühlsam und mit klarem Fokus auf Ihr Wohlbefinden.</p>
             </div>
         </section>
 
         <script>
-            function setFocusStep(step) {
-                // Update Dots
-                document.querySelectorAll('.focus-dot').forEach((dot, idx) => {
-                    dot.classList.toggle('active', idx + 1 === step);
-                });
-                
-                // Update Images
-                document.querySelectorAll('.layer-img').forEach((img) => {
-                    img.classList.toggle('active', parseInt(img.dataset.step) === step);
-                });
-                
-                // Update Text
-                document.querySelectorAll('.focus-step-content').forEach((content) => {
-                    content.classList.toggle('active', parseInt(content.dataset.step) === step);
+            // Orbital Parallax & Particle System
+            const hero = document.getElementById('conceptHero');
+            const orbitalSystem = document.getElementById('orbitalSystem');
+            const orbitLines = document.querySelectorAll('.orbit-line');
+            const canvas = document.getElementById('starfieldCanvas');
+            const ctx = canvas.getContext('2d');
+
+            setTimeout(() => hero.classList.add('visible'), 500);
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 1,
+                    speedX: Math.random() * 0.5 - 0.25,
+                    speedY: Math.random() * 0.5 - 0.25,
+                    glow: Math.random() > 0.5
                 });
             }
 
-            // X-Ray Mouse Follow Effect
-            const focusView = document.querySelector('.focus-visual');
-            focusView.addEventListener('mousemove', (e) => {
-                const rect = focusView.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                focusView.style.setProperty('--x', x + '%');
-                focusView.style.setProperty('--y', y + '%');
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p.glow ? 'rgba(139, 168, 137, 0.4)' : 'rgba(212, 163, 115, 0.2)';
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            hero.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.05;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.05;
+                
+                orbitLines.forEach((line, index) => {
+                    const depth = (index + 1) * 0.2;
+                    line.style.transform = `translate(calc(-50% + ${moveX * depth}px), calc(-50% + ${moveY * depth}px))`;
+                });
             });
         </script>
+
+        <!-- MINIMALIST TIMELINE (ABLAUF) -->
+        <section class="timeline-section">
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-num">01</span>
+                    <h3>Anamnese</h3>
+                    <p><strong>Der Dialog.</strong> Wir hören Ihre Geschichte und entschlüsseln die Zusammenhänge Ihres Körpers. Gemeinsam finden wir den Ursprung Ihrer Beschwerden.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-num">02</span>
+                    <h3>Befundung</h3>
+                    <p><strong>Das Spüren.</strong> Mit feinsinniger Berührung lokalisieren wir Spannungen und Blockaden – von der Oberfläche bis in die Tiefe Ihrer Organe.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-num">03</span>
+                    <h3>Behandlung</h3>
+                    <p><strong>Das Lösen.</strong> Gezielte osteopathische Impulse lösen Restriktionen und aktivieren Ihre natürliche Selbstheilungskräfte für nachhaltige Genesung.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-num">04</span>
+                    <h3>Integration</h3>
+                    <p><strong>Die Balance.</strong> Wir verankern die neue Leichtigkeit in Ihrem Alltag, damit Ihr System langfristig im harmonischen Gleichgewicht bleibt.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- TRANSPARENCY SCALE SECTION -->
         <section class="scale-container">
@@ -246,93 +260,46 @@
             </div>
         </section>
 
-        <!-- FASCIA FLOW FAQ SECTION -->
-        <section class="fascia-faq">
-            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 5rem; position: relative; z-index: 2;">Harmonie im Detail</h2>
+        <!-- FAQ STACK SECTION -->
+        <section class="faq-stack-section">
+            <h2 style="text-align: center; font-size: 3.5rem; color: var(--primary);">Häufige Fragen</h2>
+            <p style="text-align: center; color: var(--text-light); max-width: 600px; margin: 1rem auto 0;">Klicken Sie auf die oberste Karte, um tiefer in die Details unserer Behandlung einzutauchen.</p>
             
-            <svg class="fascia-svg" style="position: absolute; left: 50%; top: 0; width: 100px; height: 100%; transform: translateX(-50%); z-index: 1;" preserveAspectRatio="none">
-                <path id="fasciaPath" d="M50,0 Q50,500 50,1000" stroke="rgba(139, 168, 137, 0.3)" stroke-width="2" fill="none" />
-            </svg>
-            
-            <div class="node-container">
-                <!-- Node 1: Time -->
-                <div style="position: relative;">
-                    <div class="knowledge-node" onclick="toggleNode(this)">
-                        <svg class="node-icon" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 6V12L16 14" />
-                        </svg>
-                        <span class="node-label">Sitzungsdauer</span>
-                    </div>
-                    <div class="answer-card">
-                        <h3>Dauer der Behandlung</h3>
-                        <p style="margin-top: 1rem; color: var(--text-light);">Im Durchschnitt planen wir für jede Behandlung etwa 55-60 Minuten ein, um Körper und Geist ausreichend Raum zu geben.</p>
-                        <span class="close-btn" onclick="closeNode(this)">verstehen</span>
-                    </div>
+            <div class="stack-container" id="faqStack">
+                <!-- Card 3: Clothing -->
+                <div class="faq-card" style="z-index: 1;">
+                    <span class="card-step">Schicht 03</span>
+                    <h3>Was soll ich anziehen?</h3>
+                    <p class="answer">Bequeme Unterwäsche ist ideal. Bringen Sie gerne ein großes Handtuch mit, damit Sie sich während der Behandlung rundum wohlfühlen.</p>
                 </div>
-
-                <!-- Node 2: Sessions -->
-                <div style="position: relative;">
-                    <div class="knowledge-node" onclick="toggleNode(this)">
-                        <svg class="node-icon" viewBox="0 0 24 24">
-                            <path d="M12 4 L18 8 L12 12 L6 8 Z" />
-                            <path d="M6 12 L12 16 L18 12" />
-                            <path d="M6 16 L12 20 L18 16" />
-                        </svg>
-                        <span class="node-label">Anzahl Termine</span>
-                    </div>
-                    <div class="answer-card">
-                        <h3>Frequenz & Kontinuität</h3>
-                        <p style="margin-top: 1rem; color: var(--text-light);">Oft tritt nach 2-3 Terminen eine deutliche Besserung ein. Akute Fälle benötigen meist weniger Zeit als chronische Muster.</p>
-                        <span class="close-btn" onclick="closeNode(this)">verstehen</span>
-                    </div>
+                <!-- Card 2: Frequency -->
+                <div class="faq-card" style="z-index: 2;">
+                    <span class="card-step">Schicht 02</span>
+                    <h3>Wie viele Termine?</h3>
+                    <p class="answer">Oft reichen 2 bis 3 Sitzungen aus, um eine deutliche Besserung zu erzielen. Wir passen den Behandlungsplan ganz individuell an Ihre Bedürfnisse an.</p>
                 </div>
-
-                <!-- Node 3: Clothing -->
-                <div style="position: relative;">
-                    <div class="knowledge-node" onclick="toggleNode(this)">
-                        <svg class="node-icon" viewBox="0 0 24 24">
-                            <path d="M4 4 h16 v16 h-16 z M4 8 h16 M8 4 v16 M16 4 v16" />
-                        </svg>
-                        <span class="node-label">Kleidung</span>
-                    </div>
-                    <div class="answer-card">
-                        <h3>Wohlbefinden</h3>
-                        <p style="margin-top: 1rem; color: var(--text-light);">Die Untersuchung erfolgt meist in bequemer Unterwäsche. Bringen Sie gerne ein großes Handtuch mit.</p>
-                        <span class="close-btn" onclick="closeNode(this)">verstehen</span>
-                    </div>
-                </div>
-
-                <!-- Node 4: Recipe -->
-                <div style="position: relative;">
-                    <div class="knowledge-node" onclick="toggleNode(this)">
-                        <svg class="node-icon" viewBox="0 0 24 24">
-                            <path d="M14 2 H6 a2 2 0 0 0 -2 2 v16 a2 2 0 0 0 2 2 h12 a2 2 0 0 0 2 -2 V8 Z" />
-                            <polyline points="14 2 14 8 20 8" />
-                            <path d="M12 12 v4 M12 18 h.01" />
-                        </svg>
-                        <span class="node-label">Ärztliches Rezept</span>
-                    </div>
-                    <div class="answer-card">
-                        <h3>Bürokratie & Erstattung</h3>
-                        <p style="margin-top: 1rem; color: var(--text-light);">Für gesetzlich Versicherte verlangen viele Kassen eine ärztliche Empfehlung (Privatrezept), um die Kosten zu erstatten.</p>
-                        <span class="close-btn" onclick="closeNode(this)">verstehen</span>
-                    </div>
+                <!-- Card 1: Duration -->
+                <div class="faq-card" style="z-index: 3;" onclick="revealCard(this)">
+                    <span class="card-step">Schicht 01</span>
+                    <h3>Dauer der Sitzung?</h3>
+                    <p class="answer">Wir nehmen uns 55 bis 60 Minuten Zeit für Sie. Ruhe, Qualität und ein tiefes Verständnis stehen dabei für uns an oberster Stelle.</p>
+                    <div class="reveal-hint">Klicken zum Aufdecken</div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+                <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
                 <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Praxis für ganzheitliche Gesundheit & manuelle Therapie.</p>
             </div>
             <div class="footer-section">
                 <h3>Navigation</h3>
                 <ul style="font-size: 0.9rem;">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Start</a></li>
                     <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
                     <li><a href="ueber-mich.html">Über mich</a></li>
                     <li><a href="kontakt.html">Kontakt</a></li>
@@ -347,36 +314,24 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Osteopathie Flow. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
+            &copy; 2026 Osteopathie im Fluss. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
         </div>
     </footer>
 
     <script>
-        function toggleNode(node) {
-            const path = document.getElementById('fasciaPath');
-            const isActive = node.classList.contains('active');
-            
-            document.querySelectorAll('.knowledge-node').forEach(n => n.classList.remove('active'));
-            
-            if(!isActive) {
-                node.classList.add('active');
-                // Bending Effect: Depending on if node is even or odd, bend left or right
-                const isEven = Array.from(document.querySelectorAll('.knowledge-node')).indexOf(node) % 2 === 0;
-                const bend = isEven ? 80 : 20; // Simplified bend logic
-                path.setAttribute('d', `M50,0 Q${bend},500 50,1000`);
-            } else {
-                path.setAttribute('d', 'M50,0 Q50,500 50,1000');
+        // FAQ STACK LOGIC
+        function revealCard(card) {
+            card.classList.add('fly-away');
+            // Die nächste Karte wird interaktiv
+            const nextCard = card.previousElementSibling;
+            if (nextCard && nextCard.classList.contains('faq-card')) {
+                nextCard.setAttribute('onclick', 'revealCard(this)');
+                nextCard.querySelector('.answer').parentElement.classList.add('revealed');
+                nextCard.innerHTML += '<span style="margin-top: 2rem; font-size: 0.8rem; color: var(--primary); opacity: 0.6;">Klicken zum Aufdecken</span>';
             }
         }
 
-        function closeNode(btn) {
-            const card = btn.closest('.answer-card');
-            const node = card.previousElementSibling;
-            node.classList.remove('active');
-            document.getElementById('fasciaPath').setAttribute('d', 'M50,0 Q50,500 50,1000');
-        }
-    </script>
-    <script>
+        // Header Scroll Effect
         const mainNav = document.getElementById('mainNav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) mainNav.classList.add('scrolled');

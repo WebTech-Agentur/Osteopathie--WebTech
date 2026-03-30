@@ -80,13 +80,13 @@
 <body>
 
     <nav id="mainNav">
-        <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+        <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
         <div class="nav-links">
             <a href="index.html" class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 12L12 3L21 12M5 10V20H19V10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span>Home</span>
+                <span>Start</span>
             </a>
             <a href="was-ist-osteopathie.html" class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -121,16 +121,92 @@
     </nav>
 
     <main>
-        <section class="about-hero" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 15rem 10% 0; align-items: center; margin-bottom: 7rem;">
-            <div class="img" style="height: 500px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
-                 <img src="portrait.png" alt="Osteopath Max Mustermann Portrait" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+        <!-- CONCEPT HERO (ORBITAL STARFIELD & PORTRAIT) -->
+        <section class="concept-hero" id="conceptHero">
+            <div class="orbital-bg-system" id="orbitalSystem">
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
             </div>
-            <div class="content">
-                <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Ein Herz für die <br><span style="color: var(--primary);">Natur des Heilens.</span></h1>
-                <p>Mein Name ist Max Mustermann. Durch meine jahrelange Erfahrung als Physiotherapeut und Heilpraktiker verstehe ich den menschlichen Körper nicht nur mechanisch, sondern als ein harmonisches Gesamtsystem.</p>
-                <p style="margin-top: 1rem;">Meine Philosophie: „Heilen heißt, die Einheit wiederherzustellen.“</p>
+            
+            <canvas id="starfieldCanvas" class="particle-canvas"></canvas>
+            
+            <div class="glow-focus-box"></div>
+            <div class="starfield-glow"></div>
+
+            <div class="concept-hero-content" style="max-width: 1000px;">
+                <h1><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> Herzen zur Heilung.</h1>
+                <div class="title-line"></div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem;">Vertrauen in die Hände.</h2>
+                
+                <div style="display: flex; gap: 4rem; align-items: center; margin-top: 4rem; text-align: left;">
+                    <div style="flex: 1; height: 400px; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.4);">
+                        <img src="portrait.png" alt="Osteopath Max Mustermann Portrait" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+                    </div>
+                    <div style="flex: 1;">
+                        <p style="font-size: 1.2rem; line-height: 1.9; color: var(--text-light);">Mein Name ist Max Mustermann. Durch meine jahrelange Erfahrung als Physiotherapeut und Heilpraktiker verstehe ich den menschlichen Körper nicht nur mechanisch, sondern als ein harmonisches Gesamtsystem.</p>
+                        <p style="margin-top: 1.5rem; font-style: italic; color: var(--primary);">Meine Philosophie: „Heilen heißt, die Einheit wiederherzustellen.“</p>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <script>
+            // Orbital Parallax & Particle System
+            const hero = document.getElementById('conceptHero');
+            const orbitLines = document.querySelectorAll('.orbit-line');
+            const canvas = document.getElementById('starfieldCanvas');
+            const ctx = canvas.getContext('2d');
+
+            setTimeout(() => hero.classList.add('visible'), 500);
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 1,
+                    speedX: Math.random() * 0.4 - 0.2,
+                    speedY: Math.random() * 0.4 - 0.2,
+                    glow: Math.random() > 0.5
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p.glow ? 'rgba(139, 168, 137, 0.4)' : 'rgba(212, 163, 115, 0.2)';
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            hero.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.05;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.05;
+                
+                orbitLines.forEach((line, index) => {
+                    const depth = (index + 1) * 0.2;
+                    line.style.transform = `translate(calc(-50% + ${moveX * depth}px), calc(-50% + ${moveY * depth}px))`;
+                });
+            });
+        </script>
 
         <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Mein Werdegang</h2>
         <section class="timeline">
@@ -177,13 +253,13 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+                <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
                 <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Praxis für ganzheitliche Gesundheit & manuelle Therapie.</p>
             </div>
             <div class="footer-section">
                 <h3>Navigation</h3>
                 <ul style="font-size: 0.9rem;">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Start</a></li>
                     <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
                     <li><a href="ueber-mich.html">Über mich</a></li>
                     <li><a href="kontakt.html">Kontakt</a></li>
@@ -198,7 +274,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Osteopathie Flow. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
+            &copy; 2026 Osteopathie im Fluss. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
         </div>
     </footer>
 

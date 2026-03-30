@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt & Terminanfrage | Osteopathie Flow</title>
+    <title>Kontakt & Terminanfrage | Osteopathie im Fluss</title>
     <meta name="description" content="Kontaktieren Sie uns jetzt für Ihre osteopathische Behandlung in Berlin-Mitte. Terminanfrage & Anfahrtsskizze Online.">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -64,13 +64,13 @@
 <body>
 
     <nav id="mainNav">
-        <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+        <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
         <div class="nav-links">
             <a href="index.html" class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 12L12 3L21 12M5 10V20H19V10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span>Home</span>
+                <span>Start</span>
             </a>
             <a href="was-ist-osteopathie.html" class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -105,15 +105,88 @@
     </nav>
 
     <main>
-        <section class="intro" style="text-align: center; padding: 15rem 10% 0; margin-bottom: 5rem;">
-            <h1 style="font-size: 3.5rem;">Sagen Sie <br><span style="color: var(--primary);">Hallo zu Ihrer Genesung.</span></h1>
-            <p style="max-width: 800px; margin: 2rem auto; font-size: 1.1rem;">Ob Terminbuchung oder Fragen zum Behandlungsablauf - wir sind für Sie da.</p>
+        <!-- CONCEPT HERO (ORBITAL STARFIELD) -->
+        <section class="concept-hero" id="conceptHero">
+            <div class="orbital-bg-system" id="orbitalSystem">
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+            </div>
+            
+            <canvas id="starfieldCanvas" class="particle-canvas"></canvas>
+            
+            <div class="glow-focus-box"></div>
+            <div class="starfield-glow"></div>
+
+            <div class="concept-hero-content">
+                <h1><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> ersten Schritt zur Genesung.</h1>
+                <div class="title-line"></div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem;">Wir sind für Sie da.</h2>
+                <p>Ob Terminbuchung oder Fragen zum Behandlungsablauf – wir begleiten Sie einfühlsam auf Ihrem Weg zu neuer Balance.</p>
+            </div>
         </section>
+
+        <script>
+            // Orbital Parallax & Particle System
+            const hero = document.getElementById('conceptHero');
+            const orbitLines = document.querySelectorAll('.orbit-line');
+            const canvas = document.getElementById('starfieldCanvas');
+            const ctx = canvas.getContext('2d');
+
+            setTimeout(() => hero.classList.add('visible'), 500);
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 1,
+                    speedX: Math.random() * 0.4 - 0.2,
+                    speedY: Math.random() * 0.4 - 0.2,
+                    glow: Math.random() > 0.5
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p.glow ? 'rgba(139, 168, 137, 0.4)' : 'rgba(212, 163, 115, 0.2)';
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            hero.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.05;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.05;
+                
+                orbitLines.forEach((line, index) => {
+                    const depth = (index + 1) * 0.2;
+                    line.style.transform = `translate(calc(-50% + ${moveX * depth}px), calc(-50% + ${moveY * depth}px))`;
+                });
+            });
+        </script>
 
         <section class="contact-grid">
             <div class="contact-info">
                 <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Unsere Praxis</h2>
-                <p><strong>Praxis Osteopathie Flow</strong></p>
+                <p><strong>Praxis Osteopathie im Fluss</strong></p>
                 <p>Mittelstraße 12</p>
                 <p>10117 Berlin-Mitte</p>
                 
@@ -182,13 +255,13 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+                <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
                 <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Praxis für ganzheitliche Gesundheit & manuelle Therapie.</p>
             </div>
             <div class="footer-section">
                 <h3>Navigation</h3>
                 <ul style="font-size: 0.9rem;">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Start</a></li>
                     <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
                     <li><a href="ueber-mich.html">Über mich</a></li>
                     <li><a href="kontakt.html">Kontakt</a></li>
@@ -203,7 +276,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Osteopathie Flow. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
+            &copy; 2026 Osteopathie im Fluss. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
         </div>
     </footer>
     <script>

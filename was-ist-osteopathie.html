@@ -46,13 +46,13 @@
 <body>
 
     <nav id="mainNav">
-        <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+        <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
         <div class="nav-links">
             <a href="index.html" class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 12L12 3L21 12M5 10V20H19V10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span>Home</span>
+                <span>Start</span>
             </a>
             <a href="was-ist-osteopathie.html" class="nav-item active">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -87,46 +87,173 @@
     </nav>
 
     <main>
-        <section class="intro" style="text-align: center; padding: 15rem 10% 0; margin-bottom: 5rem;">
-            <h1 style="font-size: 3.5rem;">Ein ganzheitliches <br><span style="color: var(--primary);">Konzept für Ihre Gesundheit.</span></h1>
-            <p style="max-width: 800px; margin: 2rem auto; font-size: 1.1rem;">Osteopathie ist mehr als das Lösen von Blockaden. Es ist die Kunst, das Gleichgewicht zwischen Körper, Geist und Organen wiederherzustellen.</p>
+        <!-- CONCEPT HERO (ORBITAL STARFIELD) -->
+        <section class="concept-hero" id="conceptHero">
+            <!-- Background Orbit System -->
+            <div class="orbital-bg-system" id="orbitalSystem">
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+            </div>
+            
+            <!-- Stardust Particle System -->
+            <canvas id="starfieldCanvas" class="particle-canvas"></canvas>
+            
+            <!-- Glow Focus -->
+            <div class="glow-focus-box"></div>
+            <div class="starfield-glow"></div>
+
+            <div class="concept-hero-content">
+                <h1><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> Symptom zur Ursache.</h1>
+                <div class="title-line"></div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem;">In 4 Phasen zur Einheit.</h2>
+                <p>Wir begleiten Sie auf dem Weg zur harmonischen Balance – durch ein tiefes Verständnis der Zusammenhänge Ihres Körpers.</p>
+            </div>
         </section>
 
-        <section class="pillars" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; padding: 0 10%; margin-bottom: 7rem;">
-            <div class="pillar-card">
-                <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">◈</div>
-                <h3>Parietale Osteopathie</h3>
-                <p style="font-size: 0.9rem; margin-top: 1rem;">Der Bewegungsapparat (Knochen, Gelenke, Sehnen, Faszien).</p>
+        <script>
+            // Orbital Parallax & Particle System
+            const hero = document.getElementById('conceptHero');
+            const orbitalSystem = document.getElementById('orbitalSystem');
+            const orbitLines = document.querySelectorAll('.orbit-line');
+            const canvas = document.getElementById('starfieldCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set visible class for title animation
+            setTimeout(() => hero.classList.add('visible'), 500);
+
+            // Resize canvas
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            // Particles (Stardust)
+            const particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 1,
+                    speedX: Math.random() * 0.5 - 0.25,
+                    speedY: Math.random() * 0.5 - 0.25,
+                    glow: Math.random() > 0.5
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p.glow ? 'rgba(139, 168, 137, 0.4)' : 'rgba(212, 163, 115, 0.2)';
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            // Mouse Interactivity (Parallax)
+            hero.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.05;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.05;
+                
+                orbitLines.forEach((line, index) => {
+                    const depth = (index + 1) * 0.2;
+                    line.style.transform = `translate(calc(-50% + ${moveX * depth}px), calc(-50% + ${moveY * depth}px))`;
+                });
+            });
+        </script>
+
+        <!-- DREIKLANG-RESONANZ (DIE DREI SÄULEN) -->
+        <section class="resonance-section">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Die Dreiklang-Resonanz</h2>
+            <p style="max-width: 700px; margin: 0 auto; color: var(--text-light);">Gesundheit ist ein ineinandergreifendes Ökosystem. Wir betrachten die drei Säulen Ihres Körpers nicht getrennt, sondern als harmonische Einheit.</p>
+
+            <div class="resonance-container">
+                <!-- Background Silhouette -->
+                <svg class="human-outline-svg" viewBox="0 0 200 500">
+                    <path d="M100,20 C115,20 120,40 120,60 C120,80 115,100 100,100 C85,100 80,80 80,60 C80,40 85,20 100,20 M120,60 Q180,60 180,150 L180,250 M80,60 Q20,60 20,150 L20,250 M100,100 L100,250 M100,250 L140,480 M100,250 L60,480" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+
+                <!-- Pillar 1: Parietal -->
+                <div class="resonance-card parietal">
+                    <div class="energy-point">◈</div>
+                    <span class="focus-label">Basis & Freiheit</span>
+                    <h3>Parietale Osteopathie</h3>
+                    <p><strong>Der Fokus:</strong> Das Gerüst Ihres Lebens. Wir betrachten nicht nur den Schmerz im Rücken, sondern das Zusammenspiel von Knochen, Gelenken und Faszien.</p>
+                    <div class="feeling-text">Stellen Sie sich vor, jede Bewegung fühlt sich wieder leicht an – wie ein perfekt geöltes Uhrwerk. Wir lösen die Blockaden, damit Ihr Fundament Sie wieder mühelos durch den Alltag trägt.</div>
+                </div>
+
+                <!-- Pillar 2: Visceral -->
+                <div class="resonance-card visceral">
+                    <div class="energy-point">◎</div>
+                    <span class="focus-label">Innere Balance</span>
+                    <h3>Viszerale Osteopathie</h3>
+                    <p><strong>Der Fokus:</strong> Der stille Rhythmus Ihrer Organe. Die Beweglichkeit von Magen, Leber und Darm ist untrennbar mit Ihrer Wirbelsäule verbunden.</p>
+                    <div class="feeling-text">Wenn Ihre innere Mitte frei atmen kann, fließt die Energie zurück in Ihren gesamten Körper. Wir geben Ihren Organen den Raum, den sie für ihre lebenswichtige Arbeit brauchen.</div>
+                </div>
+
+                <!-- Pillar 3: Craniosacral -->
+                <div class="resonance-card cranio">
+                    <div class="energy-point">◌</div>
+                    <span class="focus-label">Tiefe Ruhe</span>
+                    <h3>Craniosacrale Osteopathie</h3>
+                    <p><strong>Der Fokus:</strong> Der Puls Ihres Nervensystems. Vom Schädel bis zum Kreuzbein fließt die Lebensenergie, die Ihre Selbstheilungskräfte steuert.</p>
+                    <div class="feeling-text">Ein Moment des absoluten Ankommens. Durch feinste Impulse beruhigen wir das Nervensystem und drücken den „Reset-Knopf“ für Geist und Körper.</div>
+                </div>
             </div>
-            <div class="pillar-card">
-                <div style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem;">◎</div>
-                <h3>Viszerale Osteopathie</h3>
-                <p style="font-size: 0.9rem; margin-top: 1rem;">Die inneren Organe, ihre Mobilität und Verbindung zur Wirbelsäule.</p>
-            </div>
-            <div class="pillar-card">
-                <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">◌</div>
-                <h3>Craniosacrale Osteopathie</h3>
-                <p style="font-size: 0.9rem; margin-top: 1rem;">Das Nervensystem vom Schädel (Cranium) bis zum Kreuzbein (Sacrum).</p>
+
+            <div class="resonance-statement">
+                <p>"Gesundheit ist kein statischer Zustand, sondern ein dynamisches Gleichgewicht. In meiner Praxis führen wir diese drei Wege zusammen, um Ihre individuelle Harmonie wiederherzustellen."</p>
             </div>
         </section>
 
-        <section class="accordion" style="max-width: 800px; margin: 0 auto; padding: 0 10%;">
-            <div class="accordion-item">
-                <div class="accordion-title">Wie arbeitet ein Osteopath?</div>
-                <div class="accordion-content">
-                    Ein Osteopath stützt seine Arbeit auf fundiertes anatomisches Wissen und manuelle Geschicklichkeit. Durch sanfte Berührungen werden Gewebespannungen gespürt und Blockaden sanft gelöst. Ziel ist es, die Selbstheilungskräfte des Körpers zu aktivieren.
+        <!-- THE FLUID INSIGHT (BENTO GRID EXPLORER) -->
+        <section class="fluid-insight-section">
+            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 2rem;">Der fließende Einblick</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--text-light);">Wir ersetzen starre Fragen durch lebendige Statements. Entdecken Sie die Architektur Ihrer Genesung.</p>
+
+            <div class="bento-grid">
+                <!-- Card 1: Das Handwerk der Stille -->
+                <div class="bento-item">
+                    <img src="layer_parietal.png" class="bento-bg" alt="Parietale Osteopathie">
+                    <div class="bento-num">01</div>
+                    <div class="bento-glass-content">
+                        <h3>Das Handwerk der Stille</h3>
+                        <p>Keine Geräte. Nur das Gespür für Ihre Gewebespannung. Wir hören dort hin, wo Worte aufhören, und finden durch präzise manuelle Impulse den Weg zurück in Ihre Mobilität.</p>
+                        <a href="ablauf-kosten.html" class="bento-btn">Die Methode entdecken</a>
+                    </div>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-title">Wann ist Osteopathie sinnvoll?</div>
-                <div class="accordion-content">
-                    Von Rückenschmerzen, Kopfschmerzen und Migräne über Verdauungsbeschwerden bis hin zu Stresssymptomen – Osteopathie kann in fast jedem Lebensalter und bei vielen Beschwerdebildern unterstützend wirken.
+
+                <!-- Card 2: Das Signal verstehen -->
+                <div class="bento-item">
+                    <img src="layer_visceral.png" class="bento-bg" alt="Viszerale Osteopathie">
+                    <div class="bento-num">02</div>
+                    <div class="bento-glass-content">
+                        <h3>Das Signal verstehen</h3>
+                        <p>Ihr Körper flüstert, bevor er schreit. Von akuten Blockaden bis hin zu chronischer Erschöpfung – wir finden den richtigen Zeitpunkt für Ihren Reset.</p>
+                        <a href="kontakt.html" class="bento-btn">Symptom-Check</a>
+                    </div>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-title">Ganzheitliche manuelle Therapie</div>
-                <div class="accordion-content">
-                    Wir sehen den Körper als Einheit. Wenn die Schulter schmerzt, kann die Ursache in der Leber oder dem gegenüberliegenden Sprunggelenk liegen. Wir suchen nach diesen Fernwirkungen.
+
+                <!-- Card 3: Die System-Architektur -->
+                <div class="bento-item">
+                    <img src="layer_craniosacral.png" class="bento-bg" alt="Craniosacrale Osteopathie">
+                    <div class="bento-num">03</div>
+                    <div class="bento-glass-content">
+                        <h3>Die System-Architektur</h3>
+                        <p>Ein Netzwerk aus Fasern, Flüssigkeit und Energie. Wir therapieren nicht das Symptom, wir kalibrieren das gesamte System neu – für eine Harmonie, die bleibt.</p>
+                        <a href="was-ist-osteopathie.html" class="bento-btn">Das Ganze sehen</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -135,13 +262,13 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+                <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
                 <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Praxis für ganzheitliche Gesundheit & manuelle Therapie.</p>
             </div>
             <div class="footer-section">
                 <h3>Navigation</h3>
                 <ul style="font-size: 0.9rem;">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Start</a></li>
                     <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
                     <li><a href="ueber-mich.html">Über mich</a></li>
                     <li><a href="kontakt.html">Kontakt</a></li>
@@ -156,7 +283,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Osteopathie Flow. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
+            &copy; 2026 Osteopathie im Fluss. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
         </div>
     </footer>
 
