@@ -3,393 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt & Flow | Harmony Flow 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Kontakt & Terminanfrage | Osteopathie Flow</title>
+    <meta name="description" content="Kontaktieren Sie uns jetzt für Ihre osteopathische Behandlung in Berlin-Mitte. Terminanfrage & Anfahrtsskizze Online.">
+    <link rel="stylesheet" href="style.css">
     <style>
-        .contact-layout {
-            padding: 12vh 10% 5rem;
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8rem;
-            max-width: 1600px;
-            margin: 0 auto;
+            gap: 4rem;
+            padding: 0 10%;
+            margin-bottom: 7rem;
         }
-        .booking-flow {
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            min-height: 500px;
+        .contact-form-card {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
         }
-        .booking-step {
-            display: none;
-            flex-direction: column;
-            gap: 1.5rem;
-            animation: fadeIn 0.8s ease forwards;
-        }
-        .booking-step.active {
-            display: flex;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .step-indicator {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .dot {
-            width: 40px;
-            height: 4px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            transition: all 0.4s ease;
-        }
-        .dot.active {
-            background: var(--aqua-flow);
-        }
-        .form-input {
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .form-group input, .form-group textarea {
             width: 100%;
-            padding: 1.2rem;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            color: var(--warm-sand);
-            font-family: inherit;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            text-align: left;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
         }
-        .form-input:hover {
-            background: rgba(172, 138, 90, 0.05);
-            border-color: rgba(172, 138, 90, 0.3);
-            transform: translateY(-2px);
-        }
-        .form-input.selected {
-            background: var(--accent-gold, #6B4F3A);
-            color: #F5EFE6;
-            border-color: #F5EFE6;
-            box-shadow: 0 0 20px rgba(107, 79, 58, 0.3);
-            transform: scale(1.02);
-        }
-        /* FAQ Styles */
-        .faq-section {
-            margin-top: 5rem;
-        }
-        .faq-item {
-            margin-bottom: 1rem;
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.02);
-            transition: all 0.3s ease;
-        }
-        .faq-question {
+        .map-container {
             width: 100%;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: none;
-            border: none;
-            color: var(--gold-accent);
-            font-family: var(--font-serif);
-            font-size: 1.15rem;
-            text-align: left;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .faq-question:hover {
-            background: rgba(107, 79, 58, 0.05);
-        }
-        .faq-answer {
-            max-height: 0;
+            height: 400px;
+            background: #eee;
+            border-radius: 20px;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            background: rgba(255, 255, 255, 0.01);
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            padding: 0 2rem;
+            margin-bottom: 7rem;
         }
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            padding: 0 2rem 1.5rem;
+        .calendar-sim {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid #eee;
         }
-        .faq-item.active {
-            border-color: var(--aqua-flow);
-            background: rgba(255, 255, 255, 0.04);
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 1rem;
         }
-        .faq-icon {
-            transition: transform 0.3s ease;
-            font-size: 0.8rem;
-            color: var(--aqua-flow);
+        .cal-day {
+            padding: 10px;
+            text-align: center;
+            background: var(--base);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
         }
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
+        .cal-day:hover { background: var(--accent); color: white; }
+        .cal-day.active { background: var(--primary); color: white; }
     </style>
 </head>
 <body>
 
-    <canvas id="particle-canvas"></canvas>
-    <canvas id="bg-wave-canvas"></canvas>
+    <nav id="mainNav">
+        <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12L12 3L21 12M5 10V20H19V10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="was-ist-osteopathie.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2V22M8 5C8 5 10 6 12 6C14 6 16 5 16 5M8 10C8 10 10 11 12 11C14 11 16 10 16 10M8 15C8 15 10 16 12 16C14 16 16 15 16 15M8 20C8 20 10 21 12 21C14 21 16 20 16 20" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Konzept</span>
+            </a>
+            <a href="ueber-mich.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 21V19C6 16.7909 7.79086 15 10 15H14C16.2091 15 18 16.7909 18 19V21" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Über mich</span>
+            </a>
+            <a href="ablauf-kosten.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 11V6C18 4.89543 17.1046 4 16 4H8C6.89543 4 6 4.89543 6 6V18C6 19.1046 6.89543 20 8 20H12" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 18L17 20L21 16" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Ablauf</span>
+            </a>
+            <a href="kontakt.html" class="cta-button">Termin buchen</a>
+            <!-- MOBILE SCULPTURE -->
+            <div class="sculpture-container">
+                <svg viewBox="0 0 100 100">
+                    <circle class="sculpture-part" cx="50" cy="50" r="40" />
+                    <ellipse class="sculpture-part" cx="50" cy="50" rx="20" ry="40" />
+                    <ellipse class="sculpture-part" cx="50" cy="50" rx="40" ry="20" />
+                </svg>
+            </div>
+        </div>
+    </nav>
 
-    <header class="header-glass" id="main-header">
-        <a href="index.html" class="logo-orb">
-            <div class="logo-circle"></div>
-            <span class="logo-text">HARMONY FLOW</span>
-        </a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">🌿 Energiefluss</a></li>
-                <li><a href="philosophie.html">🧬 Philosophie</a></li>
-                <li><a href="behandlungen.html">✨ Behandlungen</a></li>
-                <li><a href="team.html">👥 Team</a></li>
-                <li><a href="kontakt.html" class="active">✉️ Kontakt</a></li>
-            </ul>
-        </nav>
-        <button class="btn-flow" onclick="window.location.href='kontakt.html'">JETZT IN DEN FLOW</button>
-    </header>
+    <main>
+        <section class="intro" style="text-align: center; padding: 15rem 10% 0; margin-bottom: 5rem;">
+            <h1 style="font-size: 3.5rem;">Sagen Sie <br><span style="color: var(--primary);">Hallo zu Ihrer Genesung.</span></h1>
+            <p style="max-width: 800px; margin: 2rem auto; font-size: 1.1rem;">Ob Terminbuchung oder Fragen zum Behandlungsablauf - wir sind für Sie da.</p>
+        </section>
 
-    <main class="contact-layout">
-        <!-- Booking Section -->
-        <div>
-            <h1 style="font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold-accent); margin-bottom: 2rem;">
-                Dein <span style="color: var(--warm-sand);">Termin</span>
-            </h1>
-            <div class="booking-flow glass-panel" id="booking-container">
-                <form id="appointment-form" action="https://formsubmit.co/info@webtech-agentur.de" method="POST">
-                    <!-- Config for FormSubmit -->
-                    <input type="hidden" name="_subject" value="Neue Buchung von Harmony Flow">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-
-                    <div class="step-indicator">
-                        <div class="dot active"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-
-                    <div class="booking-step active" id="step-1">
-                        <h3>Was bewegt dich?</h3>
-                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-                            <!-- Adding hidden input for the type of treatment -->
-                            <input type="hidden" name="behandlung" id="hidden-behandlung">
-                            <button type="button" class="form-input" onclick="setSelection('behandlung', this)">🦴 Parietale Blockade</button>
-                            <button type="button" class="form-input" onclick="setSelection('behandlung', this)">🌀 Organische Spannung</button>
-                            <button type="button" class="form-input" onclick="setSelection('behandlung', this)">🧘 Stress & Kopfschmerz</button>
-                            <button type="button" class="form-input" onclick="setSelection('behandlung', this)">🏃 Sport-Optimierung</button>
+        <section class="contact-grid">
+            <div class="contact-info">
+                <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Unsere Praxis</h2>
+                <p><strong>Praxis Osteopathie Flow</strong></p>
+                <p>Mittelstraße 12</p>
+                <p>10117 Berlin-Mitte</p>
+                
+                <div style="margin-top: 2rem;">
+                    <p><strong>E-Mail:</strong> info@osteopathie-flow.de</p>
+                    <p><strong>Telefon:</strong> 030 - 123 456 789</p>
+                </div>
+                
+                <div style="margin-top: 3rem;">
+                    <h3 style="margin-bottom: 1rem;">Termin-Simulator</h3>
+                    <div class="calendar-sim">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <strong>März 2026</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-light);">Alle Termine verfügbar</span>
                         </div>
-                        <button type="button" class="btn-flow" style="margin-top:2rem;" onclick="nextStep(2)">Weiter</button>
-                    </div>
-
-                    <div class="booking-step" id="step-2">
-                        <h3>Wann passt es dir?</h3>
-                        <input type="date" name="datum" class="form-input" style="margin-bottom: 1rem;" required>
-                        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem;">
-                            <input type="hidden" name="uhrzeit" id="hidden-uhrzeit">
-                            <button type="button" class="form-input" onclick="setSelection('uhrzeit', this)" style="text-align:center;">09:00</button>
-                            <button type="button" class="form-input" onclick="setSelection('uhrzeit', this)" style="text-align:center;">11:30</button>
-                            <button type="button" class="form-input" onclick="setSelection('uhrzeit', this)" style="text-align:center;">14:00</button>
+                        <div class="cal-grid">
+                            <div class="cal-day">M</div><div class="cal-day">D</div><div class="cal-day">M</div><div class="cal-day">D</div><div class="cal-day">F</div><div class="cal-day">S</div><div class="cal-day">S</div>
+                            <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div>
+                            <div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day active">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div>
                         </div>
-                        <button type="button" class="btn-flow" style="margin-top:2rem;" onclick="nextStep(3)">Weiter</button>
+                        <button class="cta-button" style="width: 100%; margin-top: 1.5rem; font-size: 0.8rem;">Termin reservieren</button>
                     </div>
+                </div>
+            </div>
 
-                    <div class="booking-step" id="step-3">
-                        <h3>Fast geschafft...</h3>
-                        <input type="text" name="name" placeholder="Name" class="form-input" required>
-                        <input type="email" name="email" placeholder="E-Mail" class="form-input" required>
-                        <button type="button" class="btn-flow" style="margin-top:2rem;" onclick="submitBooking(event)">Absenden</button>
+            <div class="contact-form-card">
+                <h2 style="margin-bottom: 2rem;">Kontaktformular</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label>Ihr Name</label>
+                        <input type="text" placeholder="Max Mustermann" required>
                     </div>
+                    <div class="form-group">
+                        <label>E-Mail Adresse</label>
+                        <input type="email" placeholder="max@beispiel.de" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Betreff</label>
+                        <input type="text" placeholder="Wunschtermin / Frage">
+                    </div>
+                    <div class="form-group">
+                        <label>Ihre Nachricht</label>
+                        <textarea rows="5" placeholder="Schreiben Sie uns..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Nachricht senden</button>
                 </form>
             </div>
-        </div>
+        </section>
 
-        <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2 style="font-family: var(--font-serif); font-size: 2.22rem; margin-bottom: 2rem; color: var(--gold-accent);">Fragen & Antworten</h2>
-            
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        Zahlt meine Krankenkasse die Behandlung?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Viele gesetzliche Krankenkassen bezuschussen Osteopathie, sofern eine ärztliche Empfehlung vorliegt. Private Kassen übernehmen die Kosten oft vollständig über die Heilpraktiker-Gebührenordnung (GebüH).</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        Wie lange dauert eine Sitzung?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Eine klassische Erstbehandlung dauert ca. 60 Minuten. Für viszerale oder spezialisierte Verfahren wie die Sport-Osteopathie planen wir teilweise 75 Minuten ein, um eine ganzheitliche Analyse zu gewährleisten.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        Muss ich ärztliche Befunde mitbringen?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Ja, falls vorhanden, bringen Sie gerne aktuelle MRT-Bilder, Röntgenaufnahmen oder Berichte mit. Dies hilft uns, ein präziseres Bild Ihres energetischen und strukturellen Zustands zu gewinnen.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        Gibt es Parkmöglichkeiten vor Ort?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Direkt vor unserer Praxis im Gewerbegebiet Kronacher Straße finden Sie ausreichend kostenfreie Kundenparkplätze. Der Zugang zur Praxis ist barrierefrei.</p>
-                    </div>
-                </div>
+        <!-- GOOGLE MAPS (Lazy Loaded) -->
+        <section style="padding: 0 10%;">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.6596131346083!2d13.3888599!3d52.5170365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851eb33979ea1%3A0x6bba847c209867!2sMittelstra%C3%9Fe%2012%2C%2010117%20Berlin!5e0!3m2!1sde!2sde!4v1711617415444!5m2!1sde!2sde" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div class="logo-orb" style="margin-bottom: 1.5rem;">
-                    <span>HARMONY FLOW</span>
-                </div>
-                <p style="opacity: 0.7; font-size: 0.9rem;">Die Osteopathie der Zukunft. Menschlich, wissenschaftlich und voller Energie.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+                <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Praxis für ganzheitliche Gesundheit & manuelle Therapie.</p>
             </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul style="list-style: none; opacity: 0.8; font-size: 0.9rem; line-height: 2;">
-                    <li><a href="index.html" style="color: inherit; text-decoration: none;">Startseite</a></li>
-                    <li><a href="philosophie.html" style="color: inherit; text-decoration: none;">Philosophie</a></li>
-                    <li><a href="behandlungen.html" style="color: inherit; text-decoration: none;">Behandlungen</a></li>
-                    <li><a href="team.html" style="color: inherit; text-decoration: none;">Das Team</a></li>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
+                    <li><a href="ueber-mich.html">Über mich</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Kontakt</h4>
-                <p style="opacity: 0.8; font-size: 0.9rem;">
-                    Gewerbegebiet Kronacher Straße<br>
-                    96052 Bamberg<br>
-                    Tel: 15566284478<br>
-                    hallo@harmony-flow.de
-                </p>
-            </div>
-            <div class="footer-col">
-                <h4>Netzwerk</h4>
-                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                    <span style="cursor: pointer; opacity: 0.6;">IG</span>
-                    <span style="cursor: pointer; opacity: 0.6;">LI</span>
-                    <span style="cursor: pointer; opacity: 0.6;">YT</span>
-                </div>
+            <div class="footer-section">
+                <h3>Rechtliches</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Harmony Flow. Alle Rechte vorbehalten.</p>
-            <div style="display: flex; gap: 2rem;">
-                <a href="impressum.html" style="color: inherit; text-decoration: none;">Impressum</a>
-                <a href="datenschutz.html" style="color: inherit; text-decoration: none;">Datenschutz</a>
-            </div>
+            &copy; 2026 Osteopathie Flow. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
         </div>
     </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    
-    <script src="js/three-scenes.js"></script>
-    <script src="js/main.js"></script>
     <script>
-        // Booking Flow Logic
-        function nextStep(step) {
-            document.querySelectorAll('.booking-step').forEach(s => s.classList.remove('active'));
-            document.getElementById(`step-${step}`).classList.add('active');
-            
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach((d, i) => {
-                if(i < step) d.classList.add('active');
-                else d.classList.remove('active');
-            });
-
-            // Smooth scroll up within panel
-            document.querySelector('.booking-flow').scrollTop = 0;
-        }
-
-        function selectChoice(element) {
-            // Remove selected from all buttons in the SAME grid/container
-            const parent = element.parentElement;
-            parent.querySelectorAll('.form-input').forEach(btn => btn.classList.remove('selected'));
-            
-            // Add selected to current
-            element.classList.add('selected');
-
-            // Optional: Subtle haptic feeling
-            if (window.navigator.vibrate) window.navigator.vibrate(5);
-        }
-
-        function setSelection(type, element) {
-            selectChoice(element);
-            // Save value to hidden input for the form
-            document.getElementById(`hidden-${type}`).value = element.innerText;
-        }
-
-        function submitBooking(event) {
-            event.preventDefault();
-            const container = document.getElementById('booking-container');
-            const submitBtn = event.target;
-            
-            // Add loading state
-            submitBtn.innerText = "Versende Energie...";
-            submitBtn.disabled = true;
-
-            // Gather Form Data
-            const form = document.getElementById('appointment-form');
-            const formData = new FormData(form);
-
-            // Fetch to FormSubmit.co (Silent, so we stay on page)
-            fetch(form.action, {
-                method: "POST",
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).then(() => {
-                // Success Reveal
-                container.innerHTML = `
-                    <div style="text-align:center; padding: 4rem 2rem; animation: fadeIn 1s ease;">
-                        <span style="font-size: 5rem; display:block; margin-bottom: 2rem;">✨</span>
-                        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--gold-accent); margin-bottom: 1rem;">Gespndet!</h2>
-                        <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
-                            Deine Anfrage ist im Flow und landet direkt bei uns.<br>
-                            Wir melden uns in Kürze zur Bestätigung.
-                        </p>
-                        <button class="btn-flow" style="margin-top: 3rem;" onclick="window.location.reload()">Neue Anfrage</button>
-                    </div>
-                `;
-            }).catch(err => {
-                alert("Hoopla! Der Energiefluss ist unterbrochen (Netzwerkfehler). Bitte versuche es erneut.");
-                submitBtn.innerText = "Absenden";
-                submitBtn.disabled = false;
-            });
-        }
-
-        function toggleFAQ(element) {
-            const item = element.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Close all others
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            
-            // Toggle current
-            if(!isActive) item.classList.add('active');
-        }
+        const mainNav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) mainNav.classList.add('scrolled');
+            else mainNav.classList.remove('scrolled');
+        });
     </script>
+    <script src="particles.js"></script>
 </body>
 </html>

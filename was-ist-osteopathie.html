@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Was ist Osteopathie? | Die 3 Säulen der Therapie</title>
+    <meta name="description" content="Erfahren Sie alles über die drei Säulen der Osteopathie: Parietal (Bewegungsapparat), Viszeral (Organe) und Craniosacral (Nervensystem).">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pillar-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: var(--transition);
+        }
+        .pillar-card:hover { transform: translateY(-10px); }
+        .accordion-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        .accordion-title {
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        .accordion-item.active .accordion-title::after { content: '-'; }
+        .accordion-title::after { content: '+'; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+    <nav id="mainNav">
+        <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12L12 3L21 12M5 10V20H19V10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="was-ist-osteopathie.html" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2V22M8 5C8 5 10 6 12 6C14 6 16 5 16 5M8 10C8 10 10 11 12 11C14 11 16 10 16 10M8 15C8 15 10 16 12 16C14 16 16 15 16 15M8 20C8 20 10 21 12 21C14 21 16 20 16 20" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Konzept</span>
+            </a>
+            <a href="ueber-mich.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 21V19C6 16.7909 7.79086 15 10 15H14C16.2091 15 18 16.7909 18 19V21" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Über mich</span>
+            </a>
+            <a href="ablauf-kosten.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 11V6C18 4.89543 17.1046 4 16 4H8C6.89543 4 6 4.89543 6 6V18C6 19.1046 6.89543 20 8 20H12" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 18L17 20L21 16" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Ablauf</span>
+            </a>
+            <a href="kontakt.html" class="cta-button">Termin buchen</a>
+            <!-- MOBILE SCULPTURE -->
+            <div class="sculpture-container">
+                <svg viewBox="0 0 100 100">
+                    <circle class="sculpture-part" cx="50" cy="50" r="40" />
+                    <ellipse class="sculpture-part" cx="50" cy="50" rx="20" ry="40" />
+                    <ellipse class="sculpture-part" cx="50" cy="50" rx="40" ry="20" />
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="intro" style="text-align: center; padding: 15rem 10% 0; margin-bottom: 5rem;">
+            <h1 style="font-size: 3.5rem;">Ein ganzheitliches <br><span style="color: var(--primary);">Konzept für Ihre Gesundheit.</span></h1>
+            <p style="max-width: 800px; margin: 2rem auto; font-size: 1.1rem;">Osteopathie ist mehr als das Lösen von Blockaden. Es ist die Kunst, das Gleichgewicht zwischen Körper, Geist und Organen wiederherzustellen.</p>
+        </section>
+
+        <section class="pillars" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; padding: 0 10%; margin-bottom: 7rem;">
+            <div class="pillar-card">
+                <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">◈</div>
+                <h3>Parietale Osteopathie</h3>
+                <p style="font-size: 0.9rem; margin-top: 1rem;">Der Bewegungsapparat (Knochen, Gelenke, Sehnen, Faszien).</p>
+            </div>
+            <div class="pillar-card">
+                <div style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem;">◎</div>
+                <h3>Viszerale Osteopathie</h3>
+                <p style="font-size: 0.9rem; margin-top: 1rem;">Die inneren Organe, ihre Mobilität und Verbindung zur Wirbelsäule.</p>
+            </div>
+            <div class="pillar-card">
+                <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">◌</div>
+                <h3>Craniosacrale Osteopathie</h3>
+                <p style="font-size: 0.9rem; margin-top: 1rem;">Das Nervensystem vom Schädel (Cranium) bis zum Kreuzbein (Sacrum).</p>
+            </div>
+        </section>
+
+        <section class="accordion" style="max-width: 800px; margin: 0 auto; padding: 0 10%;">
+            <div class="accordion-item">
+                <div class="accordion-title">Wie arbeitet ein Osteopath?</div>
+                <div class="accordion-content">
+                    Ein Osteopath stützt seine Arbeit auf fundiertes anatomisches Wissen und manuelle Geschicklichkeit. Durch sanfte Berührungen werden Gewebespannungen gespürt und Blockaden sanft gelöst. Ziel ist es, die Selbstheilungskräfte des Körpers zu aktivieren.
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-title">Wann ist Osteopathie sinnvoll?</div>
+                <div class="accordion-content">
+                    Von Rückenschmerzen, Kopfschmerzen und Migräne über Verdauungsbeschwerden bis hin zu Stresssymptomen – Osteopathie kann in fast jedem Lebensalter und bei vielen Beschwerdebildern unterstützend wirken.
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-title">Ganzheitliche manuelle Therapie</div>
+                <div class="accordion-content">
+                    Wir sehen den Körper als Einheit. Wenn die Schulter schmerzt, kann die Ursache in der Leber oder dem gegenüberliegenden Sprunggelenk liegen. Wir suchen nach diesen Fernwirkungen.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+                <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Praxis für ganzheitliche Gesundheit & manuelle Therapie.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
+                    <li><a href="ueber-mich.html">Über mich</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Rechtliches</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Osteopathie Flow. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.accordion-title').forEach(title => {
+            title.addEventListener('click', () => {
+                const item = title.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+    <script>
+        const mainNav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) mainNav.classList.add('scrolled');
+            else mainNav.classList.remove('scrolled');
+        });
+    </script>
+    <script src="particles.js"></script>
+</body>
+</html>

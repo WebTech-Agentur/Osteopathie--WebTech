@@ -1,311 +1,201 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harmony Flow 2026 | Osteopathie der Zukunft</title>
-    <meta name="description"
-        content="Erleben Sie Osteopathie neu. Interaktive 3D-Analyse, ganzheitliche Heilung und modernste techniken für Ihren Körperflow.">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@100;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/style.css?v=2026.1.1">
+    <title>Osteopathie Berlin | Den Körper verstehen. Schmerz an der Wurzel lösen.</title>
+    <meta name="description" content="Ganzheitliche Osteopathie in Berlin. Wir verstehen Ihren Körper und lösen Schmerzen an der Wurzel. Jetzt Termin vereinbaren!">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- PRELOAD HERO CONTENT -->
+    <link rel="preload" as="image" href="hero-img.png">
 </head>
-
 <body>
 
-    <!-- Background Canvases -->
-    <canvas id="particle-canvas"></canvas>
-    <canvas id="bg-wave-canvas"></canvas>
-
-    <!-- Harmony Flow Refined Header -->
-    <header class="header-glass" id="main-header">
-        <a href="index.html" class="logo-orb">
-            <div class="logo-circle"></div>
-            <span class="logo-text">HARMONY FLOW</span>
-        </a>
-
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">🌿 Energiefluss</a></li>
-                <li><a href="philosophie.html">🧬 Philosophie</a></li>
-                <li><a href="behandlungen.html">✨ Behandlungen</a></li>
-                <li><a href="team.html">👥 Team</a></li>
-                <li><a href="kontakt.html">✉️ Kontakt</a></li>
-            </ul>
-        </nav>
-
-        <button class="btn-flow" onclick="window.location.href='kontakt.html'">JETZT IN DEN FLOW</button>
-    </header>
-
-    <!-- Body Flow Explorer Hero -->
-    <section class="hero" id="home">
-        <!-- Humanoid background removed per user request -->
-        <div class="hero-content">
-            <h1 id="hero-title">DEIN KÖRPER WEISS.<br>WIR HÖREN ZU.</h1>
-            <p class="hero-slogan" id="hero-slogan">Harmonie der Strukturen | Kraft des Fließens</p>
-        </div>
-
-        <!-- Dynamic Organ Cycle -->
-        <div class="organ-cycle-container">
-            <div class="organ-cycle-aura"></div>
-            <div class="organ-cycle-item active" data-organ="brain">
-                <span>🧠</span>
-                <span class="organ-label">Cranio</span>
-            </div>
-            <div class="organ-cycle-item" data-organ="lungs">
-                <span>🫁</span>
-                <span class="organ-label">Atem</span>
-            </div>
-            <div class="organ-cycle-item" data-organ="heart">
-                <span>🫀</span>
-                <span class="organ-label">Viszeral</span>
-            </div>
-            <div class="organ-cycle-item" data-organ="bone">
-                <span>🦴</span>
-                <span class="organ-label">Struktur</span>
+    <nav id="mainNav">
+        <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12L12 3L21 12M5 10V20H19V10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="was-ist-osteopathie.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2V22M8 5C8 5 10 6 12 6C14 6 16 5 16 5M8 10C8 10 10 11 12 11C14 11 16 10 16 10M8 15C8 15 10 16 12 16C14 16 16 15 16 15M8 20C8 20 10 21 12 21C14 21 16 20 16 20" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Konzept</span>
+            </a>
+            <a href="ueber-mich.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 21V19C6 16.7909 7.79086 15 10 15H14C16.2091 15 18 16.7909 18 19V21" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Über mich</span>
+            </a>
+            <a href="ablauf-kosten.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 11V6C18 4.89543 17.1046 4 16 4H8C6.89543 4 6 4.89543 6 6V18C6 19.1046 6.89543 20 8 20H12" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 18L17 20L21 16" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Ablauf</span>
+            </a>
+            <a href="kontakt.html" class="cta-button">Termin buchen</a>
+            <!-- MOBILE SCULPTURE -->
+            <div class="sculpture-container">
+                <svg viewBox="0 0 100 100">
+                    <circle class="sculpture-part" cx="50" cy="50" r="40" />
+                    <ellipse class="sculpture-part" cx="50" cy="50" rx="20" ry="40" />
+                    <ellipse class="sculpture-part" cx="50" cy="50" rx="40" ry="20" />
+                </svg>
             </div>
         </div>
+    </nav>
 
-        <!-- Interactive Right Panel -->
-        <aside class="info-panel glass-panel" id="body-info-panel">
-            <button class="close-panel" id="close-panel">&times;</button>
-            <div class="info-content">
-                <h2 id="panel-title">Kiefer</h2>
-                <p id="panel-desc">Der Kiefer ist oft ein Speicher für emotionalen Stress. Blockaden hier können sich
-                    bis in den unteren Rücken auswirken.</p>
-                <div class="video-loop" id="panel-video">
-                    <!-- Placeholder for loop video -->
-                    <div
-                        style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 0.8rem;">
-                        [ VIDEO: Cranio-Sakraler Fluss ]
-                    </div>
-                </div>
-                <button class="btn-flow" style="width: 100%;" onclick="window.location.href='behandlungen.html'">Diese
-                    Blockade lösen</button>
-            </div>
-        </aside>
-    </section>
-
-    <!-- Transition Section: Slogan Reveal -->
-    <section class="slogan-reveal" style="padding: 10vh 10%; text-align: center; background: var(--beige-dark);">
-        <h2 style="font-family: var(--font-serif); font-size: 3.5rem; color: var(--accent-primary); opacity: 0;"
-            id="reveal-text">
-            Heilung ist kein Ereignis, sondern ein Prozess des Wiedererinnerns.
-        </h2>
-    </section>
-
-    <!-- Quick Win Cards -->
-    <section class="quick-cards">
-        <div class="card glass-panel" id="card-1"
-            style="background-image: url('assets/images/photo-1699523229232-dce23cce2f22.avif'); background-size: cover; background-position: center;"
-            onclick="window.location.href='behandlungen.html#parietal'">
-            <div class="card-overlay"></div>
-            <div class="card-body">
-                <span class="card-icon"></span>
-                <h3>Faszien-Fokus</h3>
-                <p>Die Architektur des Lebens. Wir lösen Verklebungen, damit deine Energie wieder frei fließen kann.</p>
-                <span class="btn-secondary-text" style="color: #F5EFE6; margin-top: 1rem; border-bottom: 1px solid rgba(245,239,230,0.3); padding-bottom: 2px;">Mehr erfahren →</span>
-            </div>
-        </div>
-        <div class="card glass-panel" id="card-2"
-            style="background-image: url('assets/images/viszerale-kraft.png'); background-size: cover; background-position: center;"
-            onclick="window.location.href='behandlungen.html#viszeral'">
-            <div class="card-overlay"></div>
-            <div class="card-body">
-                <span class="card-icon"></span>
-                <h3>Viszerale Kraft</h3>
-                <p>Innere Balance. Die Mobilität deiner Organe ist der Schlüssel zu vitaler Gesundheit und Immunität.</p>
-                <span class="btn-secondary-text" style="color: #F5EFE6; margin-top: 1rem; border-bottom: 1px solid rgba(245,239,230,0.3); padding-bottom: 2px;">Mehr erfahren →</span>
-            </div>
-        </div>
-        <div class="card glass-panel" id="card-3"
-            style="background-image: url('assets/images/graceie-head-650878_1920.jpg'); background-size: cover; background-position: center;"
-            onclick="window.location.href='behandlungen.html#cranio'">
-            <div class="card-overlay"></div>
-            <div class="card-body">
-                <span class="card-icon"></span>
-                <h3>Cranio-Magie</h3>
-                <p>Tiefe Ruhe für das Nervensystem. Sanfte Impulse für maximale Regeneration des gesamten Körpers.</p>
-                <span class="btn-secondary-text" style="color: #F5EFE6; margin-top: 1rem; border-bottom: 1px solid rgba(245,239,230,0.3); padding-bottom: 2px;">Mehr erfahren →</span>
-            </div>
-        </div>
-        <div class="card glass-panel" id="card-4"
-            style="background-image: url('assets/images/photo-1731325632687-51e90609e700.avif'); background-size: cover; background-position: center;"
-            onclick="window.location.href='behandlungen.html#sport'">
-            <div class="card-overlay"></div>
-            <div class="card-body">
-                <span class="card-icon"></span>
-                <h3>Sport-Osteopathie</h3>
-                <p>Leistung durch Präzision. Optimiere deine Bewegungsabläufe und beuge Verletzungen vor.</p>
-                <span class="btn-secondary-text" style="color: #F5EFE6; margin-top: 1rem; border-bottom: 1px solid rgba(245,239,230,0.3); padding-bottom: 2px;">Mehr erfahren →</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Unity System Section -->
-    <section class="block" style="background: white; overflow: hidden; padding: 12rem 10%;">
-        <div class="philo-card-layout">
-            <div class="philo-text">
-                <span class="philo-chapter-num">Systemische Einheit</span>
-                <h2 style="font-family: var(--font-serif); font-size: 4rem; color: var(--gold-accent); margin-bottom: 2.5rem; line-height: 1.1;">Alles ist<br>verbunden.</h2>
-                <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 2rem;">Die interaktive Grafik lädt dazu ein, den Körper nicht als einzelne Teile zu betrachten, sondern als ein lebendiges, miteinander verbundenes System.</p>
-                <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.8;">Im Zentrum steht der Mensch – umgeben von feinen Linien und Verbindungen, die sich bei Bewegung sanft verändern. Jede Berührung, jede kleine Interaktion setzt etwas in Gang: Verbindungen reagieren, verschieben sich, verstärken sich oder werden ruhiger.</p>
-                <div class="philo-quote" style="margin-top: 3rem;">
-                    „Der Körper ist eine Apotheke, die alles Notwendige bereithält – wir müssen nur lernen, die Rezepte zu lesen.“
+    <main>
+        <section class="hero">
+            <canvas id="heroCanvas"></canvas>
+            <div class="hero-content-wrapper">
+                <span style="font-family: 'Playfair Display'; font-style: italic; color: var(--accent); font-size: 1.2rem; letter-spacing: 2px;">Praxis für ganzheitliche Heilung</span>
+                <h1>Den Körper verstehen.<br><span style="color: var(--primary);">Schmerz an der Wurzel lösen.</span></h1>
+                <p>Willkommen in Ihrer Quelle für Balance. Wir begleiten Sie auf dem Weg zu neuer Vitalität – durch präzise manuelle Therapie, die dort ansetzt, wo Heilung beginnt.</p>
+                <div class="hero-actions">
+                    <a href="#kompass" class="cta-button" onclick="window.triggerRipple(event.clientX, event.clientY)" style="background: transparent; border: 1px solid var(--primary); color: var(--primary);">Der Körper-Kompass</a>
+                    <a href="kontakt.html" class="cta-button">Direkt zum Termin</a>
                 </div>
             </div>
-            <div class="unity-viz-container" style="position: relative; height: 700px; background: radial-gradient(circle at center, #fff 0%, #fefcf9 100%); border-radius: 60px; overflow: hidden; box-shadow: 0 40px 100px rgba(100, 80, 60, 0.08);">
-                <canvas id="unity-system-canvas" style="width: 100%; height: 100%;"></canvas>
-                <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-accent); opacity: 0.5; pointer-events: none;">
-                    Interagiere mit dem System
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Treatment Process Section -->
-    <section class="process-section">
-        <div class="container">
-            <h2 class="title" style="color: var(--gold-accent); text-align: center;">Dein Weg zur Balance</h2>
-            <p style="text-align: center; opacity: 0.6; max-width: 600px; margin: 0 auto;">Vom ersten Gespräch bis zur tiefen Regeneration – wir begleiten dich Schritt für Schritt.</p>
-            
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h4>Anamnese</h4>
-                    <p>In einem ersten Gespräch verstehen wir deine Situation und die Geschichte deines Körpers.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h4>Analyse</h4>
-                    <p>Wir untersuchen Strukturen und Spannungsketten, um die Ursache deiner Beschwerden zu finden.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h4>Behandlung</h4>
-                    <p>Mit präzisen Impulsen lösen wir Blockaden und aktivieren die Selbstheilungskräfte.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <h4>Integration</h4>
-                    <p>Dein Körper erhält Zeit, die Impulse zu verarbeiten und nachhaltige Veränderung zu etablieren.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <h2 class="title" style="text-align: center;">Stimmen unserer Patienten</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Nach jahrelangen Rückenschmerzen fühlte ich mich schon nach der zweiten Sitzung wie neu geboren. Einzigartig!"</p>
-                <div class="testimonial-author">
-                    <img src="assets/images/testimonial-1.png" class="author-img" alt="Anna S.">
-                    <div class="author-info">
-                        <h5>Anna S.</h5>
-                        <span>Dauerhafte Patientin</span>
+        <!-- KÖRPER-KOMPASS SECTION -->
+        <section id="kompass" class="kompass-section" style="padding: 100px 5%; text-align: center; background: #fff;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Der Körper-Kompass</h2>
+                <p style="margin-bottom: 3rem; color: var(--text-light); max-width: 600px;">Klicken Sie auf eine Zone, um mehr über mögliche osteopathische Ansätze zu erfahren.</p>
+                
+                <div class="compass-wrapper" style="position: relative; width: 100%; max-width: 500px;">
+                    <!-- Minimalist Body SVG -->
+                    <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                        <path d="M100,50 C110,50 120,60 120,75 C120,90 110,100 100,100 C90,100 80,90 80,75 C80,60 90,50 100,50 Z" fill="#eee" class="zone" data-zone="Nacken" cursor="pointer" />
+                        <rect x="75" y="100" width="50" height="150" fill="#eee" class="zone" data-zone="Rücken" cursor="pointer" rx="10" />
+                        <rect x="40" y="110" width="30" height="120" fill="#eee" class="zone" data-zone="Hand/Arm" cursor="pointer" rx="15" />
+                        <rect x="130" y="110" width="30" height="120" fill="#eee" class="zone" data-zone="Hand/Arm" cursor="pointer" rx="15" />
+                        <rect x="75" y="250" width="20" height="130" fill="#eee" class="zone" data-zone="Beine" cursor="pointer" rx="10" />
+                        <rect x="105" y="250" width="20" height="130" fill="#eee" class="zone" data-zone="Beine" cursor="pointer" rx="10" />
+                    </svg>
+                    
+                    <div id="zone-info" style="margin-top: 2rem; padding: 2rem; background: var(--base); border-left: 4px solid var(--accent); border-radius: 8px; text-align: left; opacity: 0; transform: translateY(10px); transition: var(--transition);">
+                        <h3 id="zone-title" style="margin-bottom: 0.5rem; color: var(--primary);">Zone wählen</h3>
+                        <p id="zone-text" style="font-size: 0.9rem; color: var(--text-light);">Bitte klicken Sie auf eine Körperregion in der Grafik für Informationen.</p>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Stress und Erschöpfung hatten mich fest im Griff. In dieser Praxis habe ich meinen inneren Flow wiedergefunden."</p>
-                <div class="testimonial-author">
-                    <img src="assets/images/testimonial-2.png" class="author-img" alt="Markus L.">
-                    <div class="author-info">
-                        <h5>Markus L.</h5>
-                        <span>Unternehmer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Besonders als Sportler schätze ich die präzise Analyse und die schnellen Erfolge bei meinen Knieproblemen."</p>
-                <div class="testimonial-author">
-                    <img src="assets/images/testimonial-3.png" class="author-img" alt="Sarah K.">
-                    <div class="author-info">
-                        <h5>Sarah K.</h5>
-                        <span>Leichtathletin</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta" style="background-image: linear-gradient(rgba(20, 15, 12, 0.8), rgba(20, 15, 12, 0.8)), url('assets/images/cta-bg.png');">
-        <div class="cta-content">
-            <h2>Bereit für deinen Flow?</h2>
-            <p>Vereinbare jetzt dein kostenloses Erstgespräch und starte deine Reise zu schmerzfreier Beweglichkeit und innerer Ruhe.</p>
-            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-                <button class="btn-flow" onclick="window.location.href='kontakt.html'">JETZT TERMIN BUCHEN</button>
-                <button class="btn-flow" style="background: transparent; border: 1px solid white;" onclick="window.location.href='kontakt.html'">ERSTGESPRÄCH VEREINBAREN</button>
+        <!-- PHILOSOPHIE PREVIEW -->
+        <section class="philosophy-preview" style="padding: 100px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div class="content">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Ganzheitlich. Sanft. Wirksam.</h2>
+                <p style="margin-bottom: 1.5rem;">Osteopathie ist eine eigenständige, ganzheitliche Form der Medizin, in der Diagnostik und Behandlung mit den Händen erfolgen.</p>
+                <a href="was-ist-osteopathie.html" style="color: var(--primary); font-weight: 600; border-bottom: 1px solid var(--primary);">Mehr erfahren &rarr;</a>
             </div>
-        </div>
-    </section>
+            <div class="illustration" style="height: 400px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                <img src="hero-img.png" alt="Osteopathische Behandlung Illustration" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div class="logo-orb" style="margin-bottom: 1.5rem;">
-                    <span>HARMONY FLOW</span>
-                </div>
-                <p style="opacity: 0.7; font-size: 0.9rem;">Die Osteopathie der Zukunft. Menschlich, wissenschaftlich
-                    und voller Energie.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">Osteopathie <span style="font-weight: 300;">Flow</span></div>
+                <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Praxis für ganzheitliche Gesundheit & manuelle Therapie.</p>
             </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul style="list-style: none; opacity: 0.8; font-size: 0.9rem; line-height: 2;">
-                    <li><a href="index.html" style="color: inherit; text-decoration: none;">Startseite</a></li>
-                    <li><a href="philosophie.html" style="color: inherit; text-decoration: none;">Philosophie</a></li>
-                    <li><a href="behandlungen.html" style="color: inherit; text-decoration: none;">Behandlungen</a></li>
-                    <li><a href="team.html" style="color: inherit; text-decoration: none;">Das Team</a></li>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
+                    <li><a href="ueber-mich.html">Über mich</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Kontakt</h4>
-                <p style="opacity: 0.8; font-size: 0.9rem;">
-                    Gewerbegebiet Kronacher Straße<br>
-                    96052 Bamberg<br>
-                    Tel: 15566284478<br>
-                    hallo@harmony-flow.de
-                </p>
-            </div>
-            <div class="footer-col">
-                <h4>Netzwerk</h4>
-                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                    <span style="cursor: pointer; opacity: 0.6;">IG</span>
-                    <span style="cursor: pointer; opacity: 0.6;">LI</span>
-                    <span style="cursor: pointer; opacity: 0.6;">YT</span>
-                </div>
+            <div class="footer-section">
+                <h3>Rechtliches</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Harmony Flow. Alle Rechte vorbehalten.</p>
-            <div style="display: flex; gap: 2rem;">
-                <a href="impressum.html" style="color: inherit; text-decoration: none;">Impressum</a>
-                <a href="datenschutz.html" style="color: inherit; text-decoration: none;">Datenschutz</a>
-            </div>
+            &copy; 2026 Osteopathie Flow. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
         </div>
     </footer>
 
+    <script>
+        const zones = {
+            "Nacken": "Nackenschmerzen und Blockaden der Halswirbelsäule können oft durch sanfte manuelle Techniken gelöst werden, die den Lymphfluss und die Durchblutung fördern.",
+            "Rücken": "Rückenschmerzen sind oft komplex. Wir betrachten nicht nur die Wirbel, sondern auch die Faszien und inneren Organe, die oft die wahre Ursache für Verspannungen sind.",
+            "Hand/Arm": "Bei Schulter-Arm-Syndromen oder Handgelenksbeschwerden suchen wir nach Bewegungseinschränkungen entlang der gesamten motorischen Kette von der Wirbelsäule bis zur Fingerspitze.",
+            "Beine": "Beinhaltende Beschwerden, ob im Knie oder Hüfte, werden oft durch Statikprobleme im Becken verursacht. Wir balancieren Ihren Körperschwerpunkt aus."
+        };
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+        const zoneElements = document.querySelectorAll('.zone');
+        const infoBox = document.getElementById('zone-info');
+        const titleEl = document.getElementById('zone-title');
+        const textEl = document.getElementById('zone-text');
 
-    <script src="js/three-scenes.js?v=2026.1.1" defer></script>
-    <script src="js/main.js?v=2026.1.1" defer></script>
+        zoneElements.forEach(zone => {
+            zone.addEventListener('mouseenter', () => zone.style.fill = '#8BA889');
+            zone.addEventListener('mouseleave', () => {
+                if(titleEl.innerText !== zone.dataset.zone) zone.style.fill = '#eee';
+            });
+            zone.addEventListener('click', () => {
+                // Reset all
+                zoneElements.forEach(z => z.style.fill = '#eee');
+                // Set active
+                zone.style.fill = '#D4A373';
+                
+                titleEl.textContent = zone.dataset.zone;
+                textEl.textContent = zones[zone.dataset.zone];
+                
+                infoBox.style.opacity = '1';
+                infoBox.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Simple Fade-in animation on scroll
+        const faders = document.querySelectorAll('section');
+        const appearOptions = { threshold: 0.2 };
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            fader.style.opacity = '0';
+            fader.style.transform = 'translateY(30px)';
+            fader.style.transition = 'all 1s ease';
+            appearOnScroll.observe(fader);
+        });
+    </script>
+    <script>
+        // Header Scroll Effect
+        const mainNav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                mainNav.classList.add('scrolled');
+            } else {
+                mainNav.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script src="particles.js"></script>
+    <script src="hero-mesh.js"></script>
 </body>
-
 </html>
