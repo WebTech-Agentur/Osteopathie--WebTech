@@ -60,6 +60,96 @@
         }
         .cal-day:hover { background: var(--accent); color: white; }
         .cal-day.active { background: var(--primary); color: white; }
+
+        /* REFACTORED CONTACT CLASSES */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 6rem;
+            padding: 0 10%;
+            margin-bottom: 7rem;
+        }
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .contact-header-content { margin-bottom: 4rem; }
+        .booking-widget {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.04);
+            border: 1px solid #f0efeb;
+            overflow: hidden;
+            position: relative;
+        }
+        .booking-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .month-nav { display: flex; align-items: center; gap: 1rem; }
+        .month-nav button { background: none; border: none; cursor: pointer; color: var(--primary); padding: 5px; }
+        .booking-status-tag {
+            font-size: 0.75rem;
+            background: rgba(139, 168, 137, 0.1);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            min-width: 120px;
+            text-align: center;
+        }
+        .calendar-header { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 1rem; opacity: 0.5; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+        .time-selection-step { margin-top: 2rem; display: none; opacity: 0; transition: all 0.5s ease; border-top: 1px dashed #eee; padding-top: 2rem; }
+        .step-label { font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); }
+        .time-slot-container { display: flex; gap: 10px; flex-wrap: wrap; }
+        .selection-feedback-text { margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-light); text-align: center; min-height: 1.2rem; }
+        .booking-submit-btn { width: 100%; margin-top: 1.5rem; padding: 1.2rem; border-radius: 15px; font-size: 0.9rem; justify-content: center; }
+
+        .form-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .form-desc { color: var(--text-light); margin-bottom: 3rem; line-height: 1.8; }
+        .form-row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            background: #fdfcfb;
+            font-family: inherit;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .submit-btn { width: 100%; padding: 1.4rem; border-radius: 15px; justify-content: center; font-size: 1rem; }
+
+        /* MOBILE MEDIA QUERIES */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                padding: 0 5%;
+            }
+            .contact-header-content { text-align: center; }
+            .info-card-minimal { justify-content: center; }
+            .form-row-split { grid-template-columns: 1fr; }
+            .contact-form-card { padding: 2rem; }
+            .booking-widget { padding: 1.5rem; }
+            .form-title { font-size: 1.8rem; text-align: center; }
+            .form-desc { text-align: center; margin-bottom: 2rem; }
+            .map-section { padding: 0 5%; }
+        }
+
+        .map-section { padding: 0 10%; }
     </style>
 </head>
 <body>
@@ -107,7 +197,7 @@
 
     <main>
         <!-- CONCEPT HERO (ORBITAL STARFIELD) -->
-        <section class="concept-hero" id="conceptHero" style="justify-content: center; padding: 0 5%;">
+        <section class="concept-hero centered" id="conceptHero">
             <div class="orbital-bg-system" id="orbitalSystem">
                 <div class="orbit-line"></div>
                 <div class="orbit-line"></div>
@@ -120,11 +210,11 @@
             <div class="glow-focus-box"></div>
             <div class="starfield-glow"></div>
 
-            <div class="concept-hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 800px; margin: 0 auto;">
-                <h1 style="text-align: center;"><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> ersten Schritt zur Genesung.</h1>
-                <div class="title-line" style="margin-left: auto; margin-right: auto;"></div>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem; text-align: center;">Wir sind für Sie da.</h2>
-                <p style="text-align: center; margin: 0 auto;">Ob Terminbuchung oder Fragen zum Behandlungsablauf – wir begleiten Sie einfühlsam auf Ihrem Weg zu neuer Balance.</p>
+            <div class="concept-hero-content">
+                <h1><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> ersten Schritt zur Genesung.</h1>
+                <div class="title-line"></div>
+                <h2>Wir sind für Sie da.</h2>
+                <p>Ob Terminbuchung oder Fragen zum Behandlungsablauf – wir begleiten Sie einfühlsam auf Ihrem Weg zu neuer Balance.</p>
             </div>
         </section>
 
@@ -184,12 +274,12 @@
             });
         </script>
 
-        <section class="contact-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; padding: 0 10%; margin-bottom: 7rem;">
+        <section class="contact-grid">
             <!-- Left Panel: Info & Interactive Calendar -->
             <div class="contact-info">
-                <div style="margin-bottom: 4rem;">
-                    <span style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; color: var(--accent); display: block; margin-bottom: 1rem;">Persönlich</span>
-                    <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); margin-bottom: 2rem;">Unsere Praxis</h2>
+                <div class="contact-header-content">
+                    <span class="section-label">Persönlich</span>
+                    <h2>Unsere Praxis</h2>
                     
                     <div class="info-card-minimal" style="margin-bottom: 2.5rem; display: flex; gap: 1.5rem; align-items: flex-start;">
                         <div style="width: 50px; height: 50px; background: rgba(139, 168, 137, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0;">
@@ -212,42 +302,42 @@
                     </div>
                 </div>
                 
-                <div class="booking-widget" style="background: #fff; padding: 2.5rem; border-radius: 30px; box-shadow: 0 40px 80px rgba(0,0,0,0.04); border: 1px solid #f0efeb; overflow: hidden; position: relative;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem;">Termin-Simulator</h3>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <button onclick="changeMonth(-1)" style="background: none; border: none; cursor: pointer; color: var(--primary); padding: 5px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                            <span id="bookingStatus" style="font-size: 0.75rem; background: rgba(139, 168, 137, 0.1); color: var(--primary); padding: 0.4rem 1rem; border-radius: 50px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; min-width: 120px; text-align: center;">März 2026</span>
-                            <button onclick="changeMonth(1)" style="background: none; border: none; cursor: pointer; color: var(--primary); padding: 5px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                <div class="booking-widget">
+                    <div class="booking-header">
+                        <h3>Termin-Simulator</h3>
+                        <div class="month-nav">
+                            <button onclick="changeMonth(-1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                            <span id="bookingStatus" class="booking-status-tag">März 2026</span>
+                            <button onclick="changeMonth(1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
                         </div>
                     </div>
 
                     <!-- Step 1: Calendar Grid -->
                     <div id="stepCalendar">
-                        <div class="calendar-header" style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 1rem; opacity: 0.5; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;">
+                        <div class="calendar-header">
                             <div>M</div><div>D</div><div>M</div><div>D</div><div>F</div><div>S</div><div>S</div>
                         </div>
-                        <div class="calendar-grid" id="calGrid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;">
+                        <div class="calendar-grid" id="calGrid">
                             <!-- Generated Days -->
                         </div>
                     </div>
 
                     <!-- Step 2: Time Slots -->
-                    <div id="stepTime" style="margin-top: 2rem; display: none; opacity: 0; transition: all 0.5s ease; border-top: 1px dashed #eee; padding-top: 2rem;">
-                        <p style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light);">Verfügbare Uhrzeiten:</p>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <div class="time-slot" onclick="selectTime('09:00', this)" style="padding: 0.6rem 1.2rem; background: var(--base); border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">09:00</div>
-                            <div class="time-slot" onclick="selectTime('10:30', this)" style="padding: 0.6rem 1.2rem; background: var(--base); border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">10:30</div>
-                            <div class="time-slot" onclick="selectTime('14:00', this)" style="padding: 0.6rem 1.2rem; background: var(--base); border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">14:00</div>
-                            <div class="time-slot" onclick="selectTime('16:15', this)" style="padding: 0.6rem 1.2rem; background: var(--base); border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">16:15</div>
+                    <div id="stepTime" class="time-selection-step">
+                        <p class="step-label">Verfügbare Uhrzeiten:</p>
+                        <div class="time-slot-container">
+                            <div class="time-slot" onclick="selectTime('09:00', this)">09:00</div>
+                            <div class="time-slot" onclick="selectTime('10:30', this)">10:30</div>
+                            <div class="time-slot" onclick="selectTime('14:00', this)">14:00</div>
+                            <div class="time-slot" onclick="selectTime('16:15', this)">16:15</div>
                         </div>
                     </div>
 
-                    <div id="selectedDateText" style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-light); text-align: center; min-height: 1.2rem;">
+                    <div id="selectedDateText" class="selection-feedback-text">
                         Bitte wählen Sie einen Wunschtag.
                     </div>
 
-                    <button id="bookBtn" class="cta-button" style="width: 100%; margin-top: 1.5rem; padding: 1.2rem; border-radius: 15px; font-size: 0.9rem; justify-content: center; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);" disabled>
+                    <button id="bookBtn" class="cta-button booking-submit-btn" disabled>
                         Termin reservieren
                     </button>
                     
@@ -372,30 +462,31 @@
             </div>
 
             <!-- Right Panel: Contact Form -->
-            <div class="contact-form-card" style="background: #fff; padding: 4rem; border-radius: 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.06); border: 1px solid #f0efeb; align-self: flex-start; position: sticky; top: 100px;">
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem;">Schreiben Sie uns</h2>
-                <p style="color: var(--text-light); margin-bottom: 3rem; line-height: 1.8;">Haben Sie spezifische Fragen zur Therapie oder bevorzugen Sie eine persönliche Nachricht? Unser Team liest jede Anfrage sorgfältig.</p>
+            <div class="contact-form-card">
+                <span class="section-label">Schreiben Sie uns</span>
+                <h2 class="form-title">Kontaktanfrage</h2>
+                <p class="form-desc">Haben Sie spezifische Fragen zur Therapie oder bevorzugen Sie eine persönliche Nachricht? Unser Team liest jede Anfrage sorgfältig.</p>
                 
-                <form id="contactForm" onsubmit="event.preventDefault(); alert('Ihre Nachricht wurde erfolgreich übermittelt!');">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                <form>
+                    <div class="form-row-split">
                         <div class="form-group">
-                            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;">Name</label>
-                            <input type="text" placeholder="Max Mustermann" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fdfcfb;" required>
+                            <label>Name</label>
+                            <input type="text" placeholder="Max Mustermann" required>
                         </div>
                         <div class="form-group">
-                            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;">E-Mail</label>
-                            <input type="email" placeholder="beispiel@mail.de" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fdfcfb;" required>
+                            <label>E-Mail</label>
+                            <input type="email" placeholder="beispiel@mail.de" required>
                         </div>
                     </div>
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;">Betreff</label>
-                        <input type="text" placeholder="Frage zum Behandlungsablauf" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fdfcfb;">
+                    <div class="form-group">
+                        <label>Betreff</label>
+                        <input type="text" placeholder="Frage zum Behandlungsablauf">
                     </div>
-                    <div class="form-group" style="margin-bottom: 2.5rem;">
-                        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;">Nachricht</label>
-                        <textarea rows="5" placeholder="Wie können wir Ihnen helfen?" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fdfcfb; font-family: inherit;"></textarea>
+                    <div class="form-group">
+                        <label>Nachricht</label>
+                        <textarea rows="5" placeholder="Wie können wir Ihnen helfen?"></textarea>
                     </div>
-                    <button type="submit" class="cta-button" style="width: 100%; padding: 1.4rem; border-radius: 15px; justify-content: center; font-size: 1rem;">
+                    <button type="submit" class="cta-button submit-btn">
                         Nachricht absenden
                     </button>
                 </form>
@@ -403,7 +494,7 @@
         </section>
 
         <!-- GOOGLE MAPS (Lazy Loaded) -->
-        <section style="padding: 0 10%;">
+        <section class="map-section">
             <div class="map-container">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.65!2d13.3888!3d52.5170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e373f035901%3A0x6a21815e9a46c24!2sBerlin%20Mitte!5e0!3m2!1sde!2sde!4v1711617415444!5m2!1sde!2sde" 
@@ -428,9 +519,9 @@
                 <h3>Navigation</h3>
                 <ul style="font-size: 0.9rem;">
                     <li><a href="index.html">Start</a></li>
-                    <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
+                    <li><a href="was-ist-osteopathie.html">Konzept</a></li>
                     <li><a href="ueber-mich.html">Über mich</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="ablauf-kosten.html">Ablauf</a></li>
                 </ul>
             </div>
             <div class="footer-section">

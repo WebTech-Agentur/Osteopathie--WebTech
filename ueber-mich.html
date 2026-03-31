@@ -76,6 +76,115 @@
             border-radius: 20px;
             object-fit: cover;
         }
+
+        /* NEW PORTRAIT BOX STYLES */
+        .portrait-reveal-box {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+            text-align: left;
+            max-width: 1000px;
+        }
+        .portrait-frame {
+            flex: 1;
+            height: 450px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        .portrait-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+        .portrait-text {
+            flex: 1.2;
+            padding-left: 3rem;
+            border-left: 1px solid rgba(139, 168, 137, 0.2);
+        }
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .quote-text {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        .bio-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        /* MOBILE OVERRIDES */
+        @media (max-width: 900px) {
+            .portrait-reveal-box {
+                flex-direction: column;
+                gap: 3rem;
+                text-align: center;
+            }
+            .portrait-frame {
+                width: 100%;
+                height: 350px;
+            }
+            .portrait-text {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid rgba(139, 168, 137, 0.2);
+                padding-top: 3rem;
+            }
+            .quote-text {
+                font-size: 1.3rem;
+            }
+            .signature {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* MOBILE TIMELINE */
+        @media (max-width: 768px) {
+            .timeline::before, .timeline-progress {
+                left: 30px !important;
+                transform: none !important;
+            }
+            .timeline-item {
+                width: 100% !important;
+                left: 0 !important;
+                padding-left: 60px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+                margin-bottom: 3rem !important;
+            }
+            .timeline-dot {
+                left: 21px !important;
+                right: auto !important;
+            }
+            .timeline-item h3 {
+                font-size: 1.5rem !important;
+            }
+            .timeline-item p {
+                font-size: 0.95rem !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -123,7 +232,7 @@
 
     <main>
         <!-- CONCEPT HERO (ORBITAL STARFIELD & PORTRAIT) -->
-        <section class="concept-hero" id="conceptHero" style="justify-content: center; padding: 150px 5% 100px 5%; height: auto; min-height: 100vh;">
+        <section class="concept-hero centered" id="conceptHero">
             <div class="orbital-bg-system" id="orbitalSystem">
                 <div class="orbit-line"></div>
                 <div class="orbit-line"></div>
@@ -136,24 +245,24 @@
             <div class="glow-focus-box"></div>
             <div class="starfield-glow"></div>
 
-            <div class="concept-hero-content" style="max-width: 1000px; display: flex; flex-direction: column; align-items: center; margin-top: 5rem;">
-                <h1 style="text-align: center;"><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> Herzen zur Heilung.</h1>
-                <div class="title-line" style="margin-left: auto; margin-right: auto;"></div>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem; text-align: center;">Vertrauen in die Hände.</h2>
+            <div class="concept-hero-content">
+                <h1><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> Herzen zur Heilung.</h1>
+                <div class="title-line"></div>
+                <h2>Vertrauen in die Hände.</h2>
                 
-                <div style="display: flex; gap: 4rem; align-items: center; margin-top: 4rem; text-align: left;">
-                    <div style="flex: 1; height: 400px; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.4);">
-                        <img src="portrait.png" alt="Osteopath Max Mustermann Portrait" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+                <div class="portrait-reveal-box">
+                    <div class="portrait-frame">
+                        <img src="portrait.png" alt="Osteopath Max Mustermann Portrait">
                     </div>
-                    <div style="flex: 1; padding-left: 2rem; border-left: 1px solid rgba(139, 168, 137, 0.2);">
-                        <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; color: var(--accent); margin-bottom: 1rem;">Die Leitidee</p>
-                        <p style="font-size: 1.35rem; line-height: 1.7; color: var(--primary); font-weight: 500; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; font-style: italic;">
+                    <div class="portrait-text">
+                        <p class="section-label">Die Leitidee</p>
+                        <p class="quote-text">
                             „Der Körper ist kein starres Uhrwerk, das man repariert – er ist ein fließendes Ökosystem, das man verstehen muss.“
                         </p>
-                        <p style="font-size: 1.1rem; line-height: 1.9; color: var(--text-light); margin-bottom: 2rem;">
+                        <p class="bio-text">
                             Mein Name ist Max Mustermann. Durch meine jahrelange Erfahrung als Physiotherapeut und Heilpraktiker habe ich gelernt, dass eine echte Heilung niemals mechanisch verläuft. Meine Hände wurden zu meinem wichtigsten Diagnosewerkzeug: Sie helfen mir dabei, Blockaden im Gewebe gezielt aufzuspüren und die verloren gegangene Einheit in Ihrem System sanft wiederherzustellen.
                         </p>
-                        <p style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent); opacity: 0.8;">Ihr Max Mustermann</p>
+                        <p class="signature">Ihr Max Mustermann</p>
                     </div>
                 </div>
             </div>
@@ -388,9 +497,9 @@
                 <h3>Navigation</h3>
                 <ul style="font-size: 0.9rem;">
                     <li><a href="index.html">Start</a></li>
-                    <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
+                    <li><a href="was-ist-osteopathie.html">Konzept</a></li>
                     <li><a href="ueber-mich.html">Über mich</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="ablauf-kosten.html">Ablauf</a></li>
                 </ul>
             </div>
             <div class="footer-section">

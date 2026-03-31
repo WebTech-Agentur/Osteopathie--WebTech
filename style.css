@@ -1108,16 +1108,89 @@ footer {
 /* ORBITAL STARFIELD CONCEPT HERO */
 .concept-hero {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
-    flex-direction: row; /* Text links, Insights rechts */
+    flex-direction: row; /* Text left, Insights right on desktop */
     justify-content: space-between;
     align-items: center;
-    padding: 0 8% 0 0; /* Komplet auf der linken Seite am Rand (0px Padding Links) */
+    padding: 0 8%;
     overflow: hidden;
     background: #FDFCF8; /* Leinen-Beige */
     margin-bottom: 5rem;
+}
+
+@media (max-width: 992px) {
+    .concept-hero {
+        flex-direction: column;
+        justify-content: center;
+        padding: 100px 5% 50px 5%;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .concept-hero-content {
+        text-align: center;
+        max-width: 100%;
+        margin-bottom: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .concept-hero h1 {
+        text-align: center !important;
+        margin-left: 0 !important;
+        font-size: 3.5rem;
+    }
+
+    .concept-hero h2 {
+        text-align: center !important;
+        font-size: 2.2rem !important;
+    }
+
+    .hero-actions {
+        justify-content: center !important;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem !important;
+    }
+
+    .hero-actions .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .insight-card-container {
+        width: 100%;
+        height: 400px;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .insight-card {
+        width: 100%;
+        max-width: 380px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 40px) scale(0.95);
+    }
+
+    .insight-card.active {
+        transform: translate(-50%, 0) scale(1);
+    }
+
+    .insight-element {
+        width: 180px;
+        height: 180px;
+    }
+
+    .insight-card h3 {
+        font-size: 1.8rem;
+    }
+
+    .orbit-line:nth-child(4) { width: 500px; height: 500px; }
+    .starfield-glow { width: 500px; height: 500px; }
 }
 
 .concept-hero::after {
@@ -1255,10 +1328,43 @@ footer {
 }
 
 .concept-hero h1 {
-    font-size: clamp(3rem, 8vw, 5rem);
-    line-height: 1.1;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    line-height: 1.05;
     color: var(--primary);
     margin-bottom: 2rem;
+    text-align: left;
+}
+
+.concept-hero.centered {
+    justify-content: center;
+    padding: 0 5%;
+}
+
+.concept-hero.centered .concept-hero-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.concept-hero.centered h1,
+.concept-hero.centered h2 {
+    text-align: center;
+}
+
+.concept-hero.centered .title-line {
+    margin: 1rem auto 0;
+}
+
+.concept-hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-top: 3.5rem;
+    text-align: left;
+    line-height: 1.2;
+    font-weight: 300;
 }
 
 .title-line {
@@ -1271,6 +1377,13 @@ footer {
 
 .concept-hero.visible .title-line {
     width: 150px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5rem;
+    gap: 2rem;
 }
 
 .concept-hero p {
@@ -1290,4 +1403,109 @@ footer {
     background: radial-gradient(circle, rgba(212, 163, 115, 0.08) 0%, transparent 70%);
     z-index: -1;
     transform: translate(-50%, -50%);
+}
+
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 992px) {
+    .concept-hero {
+        flex-direction: column;
+        justify-content: center;
+        padding: 100px 5% 50px 5%;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .concept-hero-content {
+        text-align: center;
+        max-width: 100%;
+        margin-bottom: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .concept-hero h1 {
+        text-align: center !important;
+        margin-left: 0 !important;
+        font-size: 3rem; /* Slightly smaller for mobile */
+    }
+
+    .concept-hero h2 {
+        text-align: center !important;
+        font-size: 2rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .hero-actions {
+        justify-content: center !important;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem !important;
+        margin-top: 3rem !important;
+    }
+
+    .hero-actions .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: 1rem !important;
+    }
+    
+    .insight-card-container {
+        width: 100%;
+        height: 480px; /* Increased for longer texts like card 03 */
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .insight-card {
+        width: 100%;
+        max-width: 380px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 20px) scale(0.95);
+        padding: 0 1rem;
+    }
+
+    .insight-card.active {
+        transform: translate(-50%, 0) scale(1);
+    }
+
+    .insight-card h3 {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .insight-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .insight-element {
+        width: 160px;
+        height: 160px;
+        margin-bottom: -1rem;
+    }
+
+    /* Progress Indicator for mobile focus */
+    .insight-card.active::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 20%;
+        width: 60%;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: cardProgress 3s linear;
+        opacity: 0.6;
+    }
+
+    .orbit-line:nth-child(4) { width: 450px; height: 450px; }
+    .starfield-glow { width: 450px; height: 450px; }
+}
+
+@keyframes cardProgress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
 }
