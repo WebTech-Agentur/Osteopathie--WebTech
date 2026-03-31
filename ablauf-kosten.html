@@ -6,6 +6,7 @@
     <title>Ablauf & Kosten | Transparenz für Ihre Gesundheit</title>
     <meta name="description" content="Transparente Kosten & Informationen zum Ablauf einer osteopathischen Behandlung. Erstattung durch Krankenkassen & Erstgespräch.">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         .step-card {
             display: flex;
@@ -87,7 +88,7 @@
 
     <main>
         <!-- CONCEPT HERO (ORBITAL STARFIELD) -->
-        <section class="concept-hero" id="conceptHero">
+        <section class="concept-hero" id="conceptHero" style="justify-content: center; padding: 0 5%;">
             <!-- Background Orbit System -->
             <div class="orbital-bg-system" id="orbitalSystem">
                 <div class="orbit-line"></div>
@@ -103,11 +104,11 @@
             <div class="glow-focus-box"></div>
             <div class="starfield-glow"></div>
 
-            <div class="concept-hero-content">
-                <h1><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> Erstgespräch zur Genesung.</h1>
-                <div class="title-line"></div>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem;">In 4 Phasen zur Einheit.</h2>
-                <p>Wir begleiten Sie auf dem Weg zur harmonischen Balance – transparent, einfühlsam und mit klarem Fokus auf Ihr Wohlbefinden.</p>
+            <div class="concept-hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 800px; margin: 0 auto;">
+                <h1 style="text-align: center;"><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> Erstgespräch zur Genesung.</h1>
+                <div class="title-line" style="margin-left: auto; margin-right: auto;"></div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem; text-align: center;">In 4 Phasen zur Einheit.</h2>
+                <p style="text-align: center; margin: 0 auto;">Wir begleiten Sie auf dem Weg zur harmonischen Balance – transparent, einfühlsam und mit klarem Fokus auf Ihr Wohlbefinden.</p>
             </div>
         </section>
 
@@ -168,96 +169,186 @@
             });
         </script>
 
-        <!-- MINIMALIST TIMELINE (ABLAUF) -->
-        <section class="timeline-section">
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="timeline-num">01</span>
-                    <h3>Anamnese</h3>
-                    <p><strong>Der Dialog.</strong> Wir hören Ihre Geschichte und entschlüsseln die Zusammenhänge Ihres Körpers. Gemeinsam finden wir den Ursprung Ihrer Beschwerden.</p>
+        <!-- STICKY SCROLL PROCESS (Der Heilungsprozess) -->
+        <section class="sticky-process" style="max-width: 1400px; margin: 5rem auto 10rem auto; position: relative;">
+            <div style="text-align: center; margin-bottom: 5rem;">
+                <span style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; color: var(--accent); display: block; margin-bottom: 1rem;">Der Weg</span>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--primary);">Der Heilungsprozess.</h2>
+            </div>
+
+            <div class="sticky-layout" style="display: flex; gap: 6rem; padding: 0 5%; align-items: flex-start;">
+                
+                <!-- Left: Sticky Image Container -->
+                <div class="sticky-visuals" style="flex: 1; position: sticky; top: 15vh; height: 70vh; border-radius: 30px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.06); background: #fff;">
+                    <img id="img-step-1" src="phase_anamnese.png" class="step-image" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; padding: 2rem; transition: opacity 0.8s ease, transform 1s ease;">
+                    <img id="img-step-2" src="phase_befundung.png" class="step-image" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; padding: 2rem; transition: opacity 0.8s ease, transform 1s ease; opacity: 0;">
+                    <img id="img-step-3" src="phase_behandlung.png" class="step-image" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; padding: 2rem; transition: opacity 0.8s ease, transform 1s ease; opacity: 0;">
+                    <img id="img-step-4" src="phase_integration.png" class="step-image" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; padding: 2rem; transition: opacity 0.8s ease, transform 1s ease; opacity: 0;">
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="timeline-num">02</span>
-                    <h3>Befundung</h3>
-                    <p><strong>Das Spüren.</strong> Mit feinsinniger Berührung lokalisieren wir Spannungen und Blockaden – von der Oberfläche bis in die Tiefe Ihrer Organe.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="timeline-num">03</span>
-                    <h3>Behandlung</h3>
-                    <p><strong>Das Lösen.</strong> Gezielte osteopathische Impulse lösen Restriktionen und aktivieren Ihre natürliche Selbstheilungskräfte für nachhaltige Genesung.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="timeline-num">04</span>
-                    <h3>Integration</h3>
-                    <p><strong>Die Balance.</strong> Wir verankern die neue Leichtigkeit in Ihrem Alltag, damit Ihr System langfristig im harmonischen Gleichgewicht bleibt.</p>
+
+                <!-- Right: Scrolling Text Steps -->
+                <div class="scrolling-steps" style="flex: 1; padding: 30vh 0 50vh 0;">
+                    
+                    <div class="process-text-step" data-step="1" style="min-height: 80vh;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 5rem; color: rgba(139, 168, 137, 0.2); display: block; margin-bottom: -1rem;">01</span>
+                        <span style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; font-weight: 700;">Phase 01</span>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); margin: 0.5rem 0 1rem 0;">Anamnese</h3>
+                        <p style="color: var(--text-light); line-height: 1.9; font-size: 1.2rem; max-width: 500px;"><strong>Der Dialog.</strong> Wir hören Ihre Geschichte und entschlüsseln die Zusammenhänge Ihres Körpers. Gemeinsam finden wir den Ursprung Ihrer Beschwerden, noch bevor die Untersuchung beginnt.</p>
+                    </div>
+
+                    <div class="process-text-step" data-step="2" style="min-height: 80vh;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 5rem; color: rgba(139, 168, 137, 0.2); display: block; margin-bottom: -1rem;">02</span>
+                        <span style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; font-weight: 700;">Phase 02</span>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); margin: 0.5rem 0 1rem 0;">Befundung</h3>
+                        <p style="color: var(--text-light); line-height: 1.9; font-size: 1.2rem; max-width: 500px;"><strong>Das Spüren.</strong> Mit feinsinniger Berührung lokalisieren wir Spannungen und Blockaden – von der Hautoberfläche bis tief ins Bindegewebe und zu Ihren Organen.</p>
+                    </div>
+
+                    <div class="process-text-step" data-step="3" style="min-height: 80vh;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 5rem; color: rgba(139, 168, 137, 0.2); display: block; margin-bottom: -1rem;">03</span>
+                        <span style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; font-weight: 700;">Phase 03</span>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); margin: 0.5rem 0 1rem 0;">Behandlung</h3>
+                        <p style="color: var(--text-light); line-height: 1.9; font-size: 1.2rem; max-width: 500px;"><strong>Das Lösen.</strong> Gezielte, oft kaum spürbare osteopathische Impulse lösen Restriktionen im Gewebe auf und aktivieren Ihre natürlichen Selbstheilungskräfte für nachhaltige Genesung.</p>
+                    </div>
+
+                    <div class="process-text-step" data-step="4" style="min-height: 30vh;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 5rem; color: rgba(139, 168, 137, 0.2); display: block; margin-bottom: -1rem;">04</span>
+                        <span style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; font-weight: 700;">Phase 04</span>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); margin: 0.5rem 0 1rem 0;">Integration</h3>
+                        <p style="color: var(--text-light); line-height: 1.9; font-size: 1.2rem; max-width: 500px;"><strong>Die Balance.</strong> Wir verankern die Leichtigkeit in Ihrem System. Der Körper bekommt die Zeit, um langfristig im harmonischen, fließenden Gleichgewicht zu bleiben.</p>
+                    </div>
+
                 </div>
             </div>
+
+            <script>
+                const processSteps = document.querySelectorAll('.process-text-step');
+                const stepImages = document.querySelectorAll('.step-image');
+
+                // Intersection Observer watches which text step is in the middle of the screen
+                const processObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Dim all text steps
+                            processSteps.forEach(step => step.style.opacity = '0.3');
+                            // Highlight the active text step
+                            entry.target.style.opacity = '1';
+                            
+                            // Swap Image in sticky container
+                            const stepId = entry.target.getAttribute('data-step');
+                            stepImages.forEach(img => {
+                                img.style.opacity = '0';
+                                img.style.transform = 'scale(1.05)'; // slight zoom out when hidden
+                            });
+                            const activeImg = document.getElementById('img-step-' + stepId);
+                            if(activeImg) {
+                                activeImg.style.opacity = '1';
+                                activeImg.style.transform = 'scale(1)'; // reset zoom when active
+                            }
+                        }
+                    });
+                }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+
+                // Initialize styles and observer
+                processSteps.forEach((step, index) => {
+                    step.style.transition = 'opacity 0.6s ease';
+                    step.style.opacity = index === 0 ? '1' : '0.3';
+                    processObserver.observe(step);
+                });
+            </script>
+
+            <style>
+                @media (max-width: 900px) {
+                    .sticky-layout { flex-direction: column !important; gap: 3rem !important; }
+                    .sticky-visuals { position: relative !important; width: 100% !important; height: 400px !important; top: 0 !important; }
+                    .scrolling-steps { padding: 0 !important; }
+                    .process-text-step { min-height: auto !important; margin-bottom: 5rem; opacity: 1 !important; }
+                }
+            </style>
         </section>
 
-        <!-- TRANSPARENCY SCALE SECTION -->
-        <section class="scale-container">
-            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 5rem;">Transparenz & Fairness</h2>
-            
-            <div class="scale-layout">
-                <!-- Left: Prices -->
-                <div class="scale-side">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Ihre Investition</h3>
-                    <p style="margin-bottom: 2rem; color: var(--text-light);">Eine Sitzung dauert ca. 60 Minuten.</p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.5rem;">
-                            <span>Erstgespräch</span>
-                            <strong>95,00 €</strong>
-                        </li>
-                        <li style="display: flex; justify-content: space-between;">
-                            <span>Folgetermin</span>
-                            <strong>95,00 €</strong>
-                        </li>
-                    </ul>
-                    <p style="font-size: 0.8rem; margin-top: 2rem; opacity: 0.6;">Abrechnung nach GebüH (Heilpraktiker).</p>
-                </div>
+        <!-- PREMIUM TRANSPARENCY SPREAD -->
+        <section class="transparency-spread" style="margin: 0 auto 10rem auto; max-width: 1300px; padding: 0 5%;">
+            <div style="text-align: center; margin-bottom: 6rem;">
+                <span style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 4px; color: var(--accent); display: block; margin-bottom: 1.2rem;">Finanzielle Klarheit</span>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.1;">Transparenz & Fairness.</h2>
+                <div style="width: 60px; height: 2px; background: var(--accent); margin: 0 auto;"></div>
+            </div>
 
-                <!-- Center: Animated Feather -->
-                <div class="scale-center">
-                    <svg class="feather-icon" viewBox="0 0 24 24">
-                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
-                        <line x1="16" y1="8" x2="2" y2="22" />
-                        <line x1="17.5" y1="15" x2="9" y2="15" />
+            <div class="spread-container" style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: stretch;">
+                
+                <!-- COLUMN 1: THE TICKET (INVESTMENT) -->
+                <div class="investment-card" style="background: var(--primary); color: #fff; padding: 5rem 4rem; border-radius: 40px; box-shadow: 0 40px 100px rgba(139, 168, 137, 0.2); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
+                    <!-- Decorative Background Wave -->
+                    <svg style="position: absolute; bottom: -20%; right: -10%; width: 120%; opacity: 0.1; transform: rotate(-5deg);" viewBox="0 0 200 200">
+                        <path fill="#fff" d="M44.7,-76.4C58.1,-69.2,70,-58.5,77.4,-45.3C84.8,-32,87.7,-16,86.6,-0.6C85.5,14.8,80.4,29.5,72.4,43.2C64.4,56.8,53.4,69.4,39.9,76.4C26.4,83.4,10.4,84.8,-5.1,83.7C-20.6,82.5,-35.6,78.8,-49.2,71.8C-62.8,64.7,-75,54.4,-81.4,41.2C-87.8,28.1,-88.4,12.1,-86.6,-3.4C-84.8,-18.9,-80.6,-33.9,-72.1,-46.8C-63.6,-59.7,-50.8,-70.5,-36.8,-77.4C-22.9,-84.3,-7.6,-87.3,7.6,-86.1C22.8,-84.9,31.3,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
                     </svg>
+
+                    <div>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 1.5rem; color: #fff; text-transform: uppercase; letter-spacing: 3px; opacity: 0.8;">Ihre Investition</h3>
+                        <div style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; margin-bottom: 3rem; line-height: 1.2;">60 Minuten <br><span style="opacity: 0.6; font-size: 1.5rem;">ganzheitlicher Fokus.</span></div>
+                        
+                        <div class="price-row" style="margin-bottom: 3rem; position: relative; z-index: 2;">
+                            <div style="font-family: 'Playfair Display', serif; font-size: 6rem; line-height: 1; font-weight: 700; margin-bottom: 0.5rem;">95<span style="font-size: 1.5rem; opacity: 0.6; margin-left: 0.5rem;">,00 €</span></div>
+                            <span style="display: block; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; opacity: 0.8;">Erst- & Folgesitzung</span>
+                        </div>
+                    </div>
+
+                    <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem;">
+                        <p style="font-size: 0.9rem; opacity: 0.6;">*Abrechnung nach der Gebührenordnung für Heilpraktiker (GebüH).</p>
+                    </div>
                 </div>
 
-                <!-- Right: Reimbursement -->
-                <div class="scale-side">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Ihre Erstattung</h3>
-                    <p style="margin-bottom: 2rem; color: var(--text-light);">Osteopathie wird von vielen Kassen bezuschusst.</p>
-                    
-                    <div class="reimbursement-trigger">
-                        Krankenkassen-Zuschuss
-                        <div class="checklist-popup">
-                            <h4 style="margin-bottom: 1.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">So einfach geht's:</h4>
-                            <div class="checklist-item">
-                                <span class="checklist-num">01</span>
-                                <span>Arztbesuch (Empfehlung holen)</span>
-                            </div>
-                            <div class="checklist-item">
-                                <span class="checklist-num">02</span>
-                                <span>Behandlung genießen</span>
-                            </div>
-                            <div class="checklist-item">
-                                <span class="checklist-num">03</span>
-                                <span>Rechnung einreichen</span>
-                            </div>
-                            <div class="checklist-item">
-                                <span class="checklist-num">04</span>
-                                <span style="color: var(--primary); font-weight: 700;">Geld zurückerhalten</span>
-                            </div>
+                <!-- COLUMN 2: THE REIMBURSEMENT FLOW (SOCIAL PROOF/PATH) -->
+                <div class="reimbursement-panel" style="padding: 2rem 0; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="margin-bottom: 4rem;">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem;">Ihre Erstattung</h3>
+                        <p style="color: var(--text-light); font-size: 1.2rem; line-height: 1.8; max-width: 600px;">Wussten Sie, dass über 100 gesetzliche Krankenkassen die Osteopathie bezuschussen? Wir kümmern uns um den Papierkram – Sie genießen den Weg.</p>
+                    </div>
+
+                    <!-- Journey Tracker -->
+                    <div class="journey-tracker" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        
+                        <!-- Step 01 -->
+                        <div class="journey-node" style="background: #fff; padding: 2.5rem; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.02); transition: transform 0.4s ease; border: 1px solid rgba(0,0,0,0.02);">
+                            <span style="color: var(--accent); font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1; display: block; margin-bottom: 1rem; opacity: 0.4;">01</span>
+                            <h4 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem;">Arztbesuch</h4>
+                            <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.6;">Holen Sie sich ein Privatrezept für Osteopathie von Ihrem Hausarzt.</p>
+                        </div>
+
+                        <!-- Step 02 -->
+                        <div class="journey-node" style="background: #fff; padding: 2.5rem; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.02); transition: transform 0.4s ease; border: 1px solid rgba(0,0,0,0.02); margin-top: 2rem;">
+                            <span style="color: var(--accent); font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1; display: block; margin-bottom: 1rem; opacity: 0.4;">02</span>
+                            <h4 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem;">Behandlung</h4>
+                            <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.6;">Genießen Sie Ihre Auszeit und Behandlung in meinen Praxisräumen.</p>
+                        </div>
+
+                        <!-- Step 03 -->
+                        <div class="journey-node" style="background: #fff; padding: 2.5rem; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.02); transition: transform 0.4s ease; border: 1px solid rgba(0,0,0,0.02);">
+                            <span style="color: var(--accent); font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1; display: block; margin-bottom: 1rem; opacity: 0.4;">03</span>
+                            <h4 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem;">Einreichung</h4>
+                            <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.6;">Rechnung digital über die Krankenkassen-App einreichen.</p>
+                        </div>
+
+                        <!-- Step 04 -->
+                        <div class="journey-node" style="background: var(--base); padding: 2.5rem; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.02); transition: transform 0.4s ease; border: 2px dashed var(--primary); margin-top: 2rem;">
+                            <span style="color: var(--primary); font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1; display: block; margin-bottom: 1rem; opacity: 0.8;">04</span>
+                            <h4 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem;">Erstattung</h4>
+                            <p style="font-size: 0.95rem; color: var(--primary); font-weight: 700; line-height: 1.6;">Bares Geld direkt auf Ihr Konto zurückerhalten.</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <style>
+                .investment-card:hover { transform: translateY(-5px); }
+                .journey-node:hover { transform: scale(1.05); border-color: var(--accent); }
+                
+                @media (max-width: 1000px) {
+                    .transparency-spread .spread-container { grid-template-columns: 1fr !important; }
+                    .transparency-spread .journey-tracker { grid-template-columns: 1fr !important; }
+                    .transparency-spread .journey-node { margin-top: 0 !important; }
+                }
+            </style>
         </section>
 
         <!-- FAQ STACK SECTION -->
@@ -311,6 +402,15 @@
                     <li><a href="impressum.html">Impressum</a></li>
                     <li><a href="datenschutz.html">Datenschutz</a></li>
                 </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.8;">
+                    Am Flussbogen 17<br>
+                    10117 Berlin-Mitte<br><br>
+                    Tel: 0155 662 844 78<br>
+                    Mail: info@osteopathie-flow.de
+                </p>
             </div>
         </div>
         <div class="footer-bottom">

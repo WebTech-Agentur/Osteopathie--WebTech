@@ -6,6 +6,7 @@
     <title>Kontakt & Terminanfrage | Osteopathie im Fluss</title>
     <meta name="description" content="Kontaktieren Sie uns jetzt für Ihre osteopathische Behandlung in Berlin-Mitte. Terminanfrage & Anfahrtsskizze Online.">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         .contact-grid {
             display: grid;
@@ -106,7 +107,7 @@
 
     <main>
         <!-- CONCEPT HERO (ORBITAL STARFIELD) -->
-        <section class="concept-hero" id="conceptHero">
+        <section class="concept-hero" id="conceptHero" style="justify-content: center; padding: 0 5%;">
             <div class="orbital-bg-system" id="orbitalSystem">
                 <div class="orbit-line"></div>
                 <div class="orbit-line"></div>
@@ -119,11 +120,11 @@
             <div class="glow-focus-box"></div>
             <div class="starfield-glow"></div>
 
-            <div class="concept-hero-content">
-                <h1><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> ersten Schritt zur Genesung.</h1>
-                <div class="title-line"></div>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem;">Wir sind für Sie da.</h2>
-                <p>Ob Terminbuchung oder Fragen zum Behandlungsablauf – wir begleiten Sie einfühlsam auf Ihrem Weg zu neuer Balance.</p>
+            <div class="concept-hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 800px; margin: 0 auto;">
+                <h1 style="text-align: center;"><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> ersten Schritt zur Genesung.</h1>
+                <div class="title-line" style="margin-left: auto; margin-right: auto;"></div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem; text-align: center;">Wir sind für Sie da.</h2>
+                <p style="text-align: center; margin: 0 auto;">Ob Terminbuchung oder Fragen zum Behandlungsablauf – wir begleiten Sie einfühlsam auf Ihrem Weg zu neuer Balance.</p>
             </div>
         </section>
 
@@ -183,55 +184,220 @@
             });
         </script>
 
-        <section class="contact-grid">
+        <section class="contact-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; padding: 0 10%; margin-bottom: 7rem;">
+            <!-- Left Panel: Info & Interactive Calendar -->
             <div class="contact-info">
-                <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Unsere Praxis</h2>
-                <p><strong>Praxis Osteopathie im Fluss</strong></p>
-                <p>Mittelstraße 12</p>
-                <p>10117 Berlin-Mitte</p>
-                
-                <div style="margin-top: 2rem;">
-                    <p><strong>E-Mail:</strong> info@osteopathie-flow.de</p>
-                    <p><strong>Telefon:</strong> 030 - 123 456 789</p>
-                </div>
-                
-                <div style="margin-top: 3rem;">
-                    <h3 style="margin-bottom: 1rem;">Termin-Simulator</h3>
-                    <div class="calendar-sim">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                            <strong>März 2026</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-light);">Alle Termine verfügbar</span>
+                <div style="margin-bottom: 4rem;">
+                    <span style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; color: var(--accent); display: block; margin-bottom: 1rem;">Persönlich</span>
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); margin-bottom: 2rem;">Unsere Praxis</h2>
+                    
+                    <div class="info-card-minimal" style="margin-bottom: 2.5rem; display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div style="width: 50px; height: 50px; background: rgba(139, 168, 137, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         </div>
-                        <div class="cal-grid">
-                            <div class="cal-day">M</div><div class="cal-day">D</div><div class="cal-day">M</div><div class="cal-day">D</div><div class="cal-day">F</div><div class="cal-day">S</div><div class="cal-day">S</div>
-                            <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div>
-                            <div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day active">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div>
+                        <div>
+                            <p style="font-weight: 700; margin-bottom: 0.25rem;">Osteopathie im Fluss</p>
+                            <p style="color: var(--text-light);">Am Flussbogen 17, 10117 Berlin-Mitte</p>
                         </div>
-                        <button class="cta-button" style="width: 100%; margin-top: 1.5rem; font-size: 0.8rem;">Termin reservieren</button>
+                    </div>
+
+                    <div class="info-card-minimal" style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div style="width: 50px; height: 50px; background: rgba(212, 163, 115, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.91-1.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div>
+                            <p style="font-weight: 700; margin-bottom: 0.25rem;">info@osteopathie-flow.de</p>
+                            <p style="color: var(--text-light);">0155 662 844 78</p>
+                        </div>
                     </div>
                 </div>
+                
+                <div class="booking-widget" style="background: #fff; padding: 2.5rem; border-radius: 30px; box-shadow: 0 40px 80px rgba(0,0,0,0.04); border: 1px solid #f0efeb; overflow: hidden; position: relative;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem;">Termin-Simulator</h3>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <button onclick="changeMonth(-1)" style="background: none; border: none; cursor: pointer; color: var(--primary); padding: 5px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                            <span id="bookingStatus" style="font-size: 0.75rem; background: rgba(139, 168, 137, 0.1); color: var(--primary); padding: 0.4rem 1rem; border-radius: 50px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; min-width: 120px; text-align: center;">März 2026</span>
+                            <button onclick="changeMonth(1)" style="background: none; border: none; cursor: pointer; color: var(--primary); padding: 5px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Calendar Grid -->
+                    <div id="stepCalendar">
+                        <div class="calendar-header" style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 1rem; opacity: 0.5; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;">
+                            <div>M</div><div>D</div><div>M</div><div>D</div><div>F</div><div>S</div><div>S</div>
+                        </div>
+                        <div class="calendar-grid" id="calGrid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;">
+                            <!-- Generated Days -->
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Time Slots -->
+                    <div id="stepTime" style="margin-top: 2rem; display: none; opacity: 0; transition: all 0.5s ease; border-top: 1px dashed #eee; padding-top: 2rem;">
+                        <p style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light);">Verfügbare Uhrzeiten:</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <div class="time-slot" onclick="selectTime('09:00', this)" style="padding: 0.6rem 1.2rem; background: var(--base); border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">09:00</div>
+                            <div class="time-slot" onclick="selectTime('10:30', this)" style="padding: 0.6rem 1.2rem; background: var(--base); border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">10:30</div>
+                            <div class="time-slot" onclick="selectTime('14:00', this)" style="padding: 0.6rem 1.2rem; background: var(--base); border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">14:00</div>
+                            <div class="time-slot" onclick="selectTime('16:15', this)" style="padding: 0.6rem 1.2rem; background: var(--base); border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">16:15</div>
+                        </div>
+                    </div>
+
+                    <div id="selectedDateText" style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-light); text-align: center; min-height: 1.2rem;">
+                        Bitte wählen Sie einen Wunschtag.
+                    </div>
+
+                    <button id="bookBtn" class="cta-button" style="width: 100%; margin-top: 1.5rem; padding: 1.2rem; border-radius: 15px; font-size: 0.9rem; justify-content: center; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);" disabled>
+                        Termin reservieren
+                    </button>
+                    
+                    <p style="text-align: center; font-size: 0.7rem; color: var(--text-light); margin-top: 1rem; opacity: 0.6;">*Dies ist ein Simulator. Wir bestätigen Ihren Termin manuell.</p>
+                </div>
+
+                <script>
+                    const calGrid = document.getElementById('calGrid');
+                    const stepTime = document.getElementById('stepTime');
+                    const selectedText = document.getElementById('selectedDateText');
+                    const bookBtn = document.getElementById('bookBtn');
+                    const statusText = document.getElementById('bookingStatus');
+                    
+                    let currentDate = new Date(2026, 2, 1); // Start March 2026
+                    let selectedDay = null;
+                    let selectedTimeVal = null;
+
+                    const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+
+                    function renderCalendar() {
+                        calGrid.innerHTML = '';
+                        statusText.innerText = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+                        
+                        const year = currentDate.getFullYear();
+                        const month = currentDate.getMonth();
+                        const daysInMonth = new Date(year, month + 1, 0).getDate();
+                        const firstDayIndex = new Date(year, month, 1).getDay(); // 0 is Sunday
+                        
+                        // Shift for European week (M-S)
+                        const startOffset = (firstDayIndex === 0) ? 6 : firstDayIndex - 1;
+                        
+                        // Add empty slots
+                        for(let x = 0; x < startOffset; x++) {
+                            const empty = document.createElement('div');
+                            calGrid.appendChild(empty);
+                        }
+
+                        for (let i = 1; i <= daysInMonth; i++) {
+                            const day = document.createElement('div');
+                            day.className = 'cal-day-cell';
+                            day.textContent = i;
+                            day.style.cssText = `
+                                padding: 1rem 0;
+                                text-align: center;
+                                background: var(--base);
+                                border-radius: 12px;
+                                cursor: pointer;
+                                font-weight: 600;
+                                transition: all 0.3s ease;
+                            `;
+                            
+                            day.onclick = () => {
+                                document.querySelectorAll('.cal-day-cell').forEach(d => {
+                                    d.style.background = 'var(--base)';
+                                    d.style.color = 'var(--text)';
+                                });
+                                day.style.background = 'var(--primary)';
+                                day.style.color = '#fff';
+                                selectedDay = i;
+                                selectedTimeVal = null;
+                                updateSelection();
+                                stepTime.style.display = 'block';
+                                setTimeout(() => { stepTime.style.opacity = '1'; }, 10);
+                            };
+                            calGrid.appendChild(day);
+                        }
+                    }
+
+                    window.changeMonth = (dir) => {
+                        currentDate.setMonth(currentDate.getMonth() + dir);
+                        selectedDay = null;
+                        selectedTimeVal = null;
+                        stepTime.style.opacity = '0';
+                        setTimeout(() => { stepTime.style.display = 'none'; }, 500);
+                        updateSelection();
+                        renderCalendar();
+                    };
+
+                    window.selectTime = (time, el) => {
+                        document.querySelectorAll('.time-slot').forEach(t => {
+                            t.style.background = 'var(--base)';
+                            t.style.color = 'var(--text)';
+                        });
+                        el.style.background = 'var(--accent)';
+                        el.style.color = '#fff';
+                        selectedTimeVal = time;
+                        updateSelection();
+                        bookBtn.disabled = false;
+                        bookBtn.style.opacity = '1';
+                    };
+
+                    function updateSelection() {
+                        if (selectedDay && selectedTimeVal) {
+                            selectedText.innerHTML = `Gewählt: <strong>${selectedDay}. ${monthNames[currentDate.getMonth()]}</strong> um <strong>${selectedTimeVal} Uhr</strong>.`;
+                        } else if (selectedDay) {
+                            selectedText.innerHTML = `Tag gewählt. Jetzt Uhrzeit wählen.`;
+                        } else {
+                            selectedText.innerHTML = `Bitte wählen Sie einen Wunschtag.`;
+                        }
+                    }
+
+                    bookBtn.onclick = () => {
+                        bookBtn.innerHTML = "Reservierung gesendet...";
+                        setTimeout(() => {
+                            const widget = document.querySelector('.booking-widget');
+                            widget.innerHTML = `
+                                <div style="text-align: center; padding: 4rem 1rem; animation: fadeIn 1s ease;">
+                                    <div style="width: 80px; height: 80px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem;">
+                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    </div>
+                                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem;">Termin reserviert ✓</h3>
+                                    <p style="color: var(--text-light); line-height: 1.6;">Sie haben den <strong>${selectedDay}. ${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}</strong> um <strong>${selectedTimeVal} Uhr</strong> gewählt.</p>
+                                    <button onclick="location.reload()" style="margin-top: 3rem; background: none; border: 1px solid #ddd; padding: 0.8rem 2rem; border-radius: 10px; cursor: pointer; font-size: 0.85rem;">Zurück</button>
+                                </div>
+                            `;
+                        }, 1000);
+                    };
+
+                    // Initial render
+                    renderCalendar();
+                </script>
             </div>
 
-            <div class="contact-form-card">
-                <h2 style="margin-bottom: 2rem;">Kontaktformular</h2>
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label>Ihr Name</label>
-                        <input type="text" placeholder="Max Mustermann" required>
+            <!-- Right Panel: Contact Form -->
+            <div class="contact-form-card" style="background: #fff; padding: 4rem; border-radius: 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.06); border: 1px solid #f0efeb; align-self: flex-start; position: sticky; top: 100px;">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem;">Schreiben Sie uns</h2>
+                <p style="color: var(--text-light); margin-bottom: 3rem; line-height: 1.8;">Haben Sie spezifische Fragen zur Therapie oder bevorzugen Sie eine persönliche Nachricht? Unser Team liest jede Anfrage sorgfältig.</p>
+                
+                <form id="contactForm" onsubmit="event.preventDefault(); alert('Ihre Nachricht wurde erfolgreich übermittelt!');">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;">Name</label>
+                            <input type="text" placeholder="Max Mustermann" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fdfcfb;" required>
+                        </div>
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;">E-Mail</label>
+                            <input type="email" placeholder="beispiel@mail.de" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fdfcfb;" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>E-Mail Adresse</label>
-                        <input type="email" placeholder="max@beispiel.de" required>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;">Betreff</label>
+                        <input type="text" placeholder="Frage zum Behandlungsablauf" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fdfcfb;">
                     </div>
-                    <div class="form-group">
-                        <label>Betreff</label>
-                        <input type="text" placeholder="Wunschtermin / Frage">
+                    <div class="form-group" style="margin-bottom: 2.5rem;">
+                        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;">Nachricht</label>
+                        <textarea rows="5" placeholder="Wie können wir Ihnen helfen?" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fdfcfb; font-family: inherit;"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label>Ihre Nachricht</label>
-                        <textarea rows="5" placeholder="Schreiben Sie uns..."></textarea>
-                    </div>
-                    <button type="submit" class="cta-button" style="width: 100%;">Nachricht senden</button>
+                    <button type="submit" class="cta-button" style="width: 100%; padding: 1.4rem; border-radius: 15px; justify-content: center; font-size: 1rem;">
+                        Nachricht absenden
+                    </button>
                 </form>
             </div>
         </section>
@@ -240,7 +406,7 @@
         <section style="padding: 0 10%;">
             <div class="map-container">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.6596131346083!2d13.3888599!3d52.5170365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851eb33979ea1%3A0x6bba847c209867!2sMittelstra%C3%9Fe%2012%2C%2010117%20Berlin!5e0!3m2!1sde!2sde!4v1711617415444!5m2!1sde!2sde" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.65!2d13.3888!3d52.5170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e373f035901%3A0x6a21815e9a46c24!2sBerlin%20Mitte!5e0!3m2!1sde!2sde!4v1711617415444!5m2!1sde!2sde" 
                     width="100%" 
                     height="100%" 
                     style="border:0;" 
@@ -273,6 +439,15 @@
                     <li><a href="impressum.html">Impressum</a></li>
                     <li><a href="datenschutz.html">Datenschutz</a></li>
                 </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.8;">
+                    Am Flussbogen 17<br>
+                    10117 Berlin-Mitte<br><br>
+                    Tel: 0155 662 844 78<br>
+                    Mail: info@osteopathie-flow.de
+                </p>
             </div>
         </div>
         <div class="footer-bottom">

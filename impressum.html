@@ -1,12 +1,145 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8"><title>Impressum | Osteopathie im Fluss</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | Osteopathie im Fluss</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-<body style="padding-top: 15rem; text-align: center;">
-    <h1>Impressum</h1>
-    <p>Hier folgt der rechtliche Pflichtteil.</p>
-    <a href="index.html" class="cta-button">Zurück zur Startseite</a>
+<body>
+
+    <nav id="mainNav">
+        <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item"><span>Start</span></a>
+            <a href="was-ist-osteopathie.html" class="nav-item"><span>Konzept</span></a>
+            <a href="ueber-mich.html" class="nav-item"><span>Über mich</span></a>
+            <a href="ablauf-kosten.html" class="nav-item"><span>Ablauf</span></a>
+            <a href="kontakt.html" class="cta-button">Termin buchen</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="concept-hero" id="conceptHero" style="justify-content: center; padding: 0 5%; min-height: 60vh;">
+            <div class="orbital-bg-system" id="orbitalSystem">
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+            </div>
+            
+            <canvas id="starfieldCanvas" class="particle-canvas"></canvas>
+            
+            <div class="concept-hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 800px; margin: 0 auto;">
+                <h1>Impressum.</h1>
+                <div class="title-line" style="margin-left: auto; margin-right: auto;"></div>
+                <p style="text-align: center; margin: 2rem auto 0; opacity: 0.8;">Rechtliche Angaben und Kontaktinformationen.</p>
+            </div>
+        </section>
+
+        <!-- CREATIVE LEGAL LAYOUT -->
+        <section class="legal-editorial" style="max-width: 1100px; margin: 0 auto 10rem; padding: 0 5%;">
+            
+            <!-- PART 1: IDENTITY CARD -->
+            <div style="background: #fff; border-radius: 40px; padding: 5rem; box-shadow: 0 40px 100px rgba(0,0,0,0.04); margin-bottom: 5rem; border: 1px solid #f0f0f0; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; right: 0; width: 150px; height: 150px; background: var(--primary); opacity: 0.05; border-radius: 0 0 0 100%;"></div>
+                
+                <span style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; color: var(--accent); display: block; margin-bottom: 1.5rem;">Angaben gemäß § 5 TMG</span>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); margin-bottom: 3rem;">Praxis für Osteopathie <br>im Fluss.</h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                    <div>
+                        <p style="font-weight: 700; margin-bottom: 1rem; color: var(--primary);">Adresse</p>
+                        <p style="line-height: 1.8; color: var(--text-light);">Max Mustermann (Heilpraktiker)<br>
+                        Am Flussbogen 17<br>
+                        10117 Berlin-Mitte</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 700; margin-bottom: 1rem; color: var(--primary);">Direktkontakt</p>
+                        <p style="line-height: 1.8; color: var(--text-light);">Telefon: 0155 662 844 78<br>
+                        E-Mail: info@osteopathie-flow.de<br>
+                        Web: www.osteopathie-flow.de</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART 2: REGULATORY GRID -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                
+                <!-- Box: Berufsbezeichnung -->
+                <div style="padding: 2.5rem; border-left: 2px solid var(--accent); background: rgba(139, 168, 137, 0.02);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--primary);">Gesetzliche Berufsbezeichnung</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.8;">Heilpraktiker (verliehen in der Bundesrepublik Deutschland). Die Erlaubnis nach § 1 Abs. 1 des Heilpraktikergesetzes wurde durch das Gesundheitsamt Berlin erteilt.</p>
+                </div>
+
+                <!-- Box: Aufsichtsbehörde -->
+                <div style="padding: 2.5rem; border-left: 2px solid var(--accent); background: rgba(139, 168, 137, 0.02);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--primary);">Zuständige Aufsichtsbehörde</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.8;">Gesundheitsamt Berlin-Mitte<br>Karl-Marx-Allee 31, 10178 Berlin</p>
+                </div>
+
+                <!-- Box: Berufsrecht -->
+                <div style="padding: 2.5rem; border-left: 2px solid var(--accent); background: rgba(139, 168, 137, 0.02);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--primary);">Berufsrechtliche Regelungen</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.8;">Gesetz über die berufsmäßige Ausübung der Heilkunde ohne Bestallung (Heilpraktikergesetz). Einzusehen unter: <a href="http://www.gesetze-im-internet.de" style="color: var(--accent); text-decoration: underline;">www.gesetze-im-internet.de</a></p>
+                </div>
+
+                <!-- Box: Finanzen & Inhalt -->
+                <div style="padding: 2.5rem; border-left: 2px solid var(--accent); background: rgba(139, 168, 137, 0.02);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--primary);">Hinweise</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.8;">Umsatzsteuer: Befreit nach § 4 Nr. 14 UStG.<br>Inhaltlich verantwortlich nach § 18 MStV: Max Mustermann, Am Flussbogen 17, 10117 Berlin.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
+                <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Praxis für ganzheitliche Gesundheit & manuelle Therapie.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
+                    <li><a href="ueber-mich.html">Über mich</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Rechtliches</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.8;">
+                    Am Flussbogen 17<br>
+                    10117 Berlin-Mitte<br><br>
+                    Tel: 0155 662 844 78<br>
+                    Mail: info@osteopathie-flow.de
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Osteopathie im Fluss. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
+        </div>
+    </footer>
+
+    <script src="particles.js"></script>
+    <script>
+        // Simple fixed nav script
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
 </body>
 </html>

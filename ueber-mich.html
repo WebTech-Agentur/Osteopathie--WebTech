@@ -6,6 +6,7 @@
     <title>Über mich & die Praxis | Vertrauen in die Hände</title>
     <meta name="description" content="Erfahren Sie mehr über meinen Werdegang, meine Philosophie und die Räumlichkeiten unserer Praxis für Osteopathie.">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         .timeline {
             position: relative;
@@ -122,7 +123,7 @@
 
     <main>
         <!-- CONCEPT HERO (ORBITAL STARFIELD & PORTRAIT) -->
-        <section class="concept-hero" id="conceptHero">
+        <section class="concept-hero" id="conceptHero" style="justify-content: center; padding: 150px 5% 100px 5%; height: auto; min-height: 100vh;">
             <div class="orbital-bg-system" id="orbitalSystem">
                 <div class="orbit-line"></div>
                 <div class="orbit-line"></div>
@@ -135,18 +136,24 @@
             <div class="glow-focus-box"></div>
             <div class="starfield-glow"></div>
 
-            <div class="concept-hero-content" style="max-width: 1000px;">
-                <h1><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> Herzen zur Heilung.</h1>
-                <div class="title-line"></div>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem;">Vertrauen in die Hände.</h2>
+            <div class="concept-hero-content" style="max-width: 1000px; display: flex; flex-direction: column; align-items: center; margin-top: 5rem;">
+                <h1 style="text-align: center;"><span style="font-size: 0.5em; display: block; margin-bottom: 0.5rem; opacity: 0.7;">Vom</span> Herzen zur Heilung.</h1>
+                <div class="title-line" style="margin-left: auto; margin-right: auto;"></div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-top: 2rem; text-align: center;">Vertrauen in die Hände.</h2>
                 
                 <div style="display: flex; gap: 4rem; align-items: center; margin-top: 4rem; text-align: left;">
                     <div style="flex: 1; height: 400px; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.4);">
                         <img src="portrait.png" alt="Osteopath Max Mustermann Portrait" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
                     </div>
-                    <div style="flex: 1;">
-                        <p style="font-size: 1.2rem; line-height: 1.9; color: var(--text-light);">Mein Name ist Max Mustermann. Durch meine jahrelange Erfahrung als Physiotherapeut und Heilpraktiker verstehe ich den menschlichen Körper nicht nur mechanisch, sondern als ein harmonisches Gesamtsystem.</p>
-                        <p style="margin-top: 1.5rem; font-style: italic; color: var(--primary);">Meine Philosophie: „Heilen heißt, die Einheit wiederherzustellen.“</p>
+                    <div style="flex: 1; padding-left: 2rem; border-left: 1px solid rgba(139, 168, 137, 0.2);">
+                        <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; color: var(--accent); margin-bottom: 1rem;">Die Leitidee</p>
+                        <p style="font-size: 1.35rem; line-height: 1.7; color: var(--primary); font-weight: 500; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; font-style: italic;">
+                            „Der Körper ist kein starres Uhrwerk, das man repariert – er ist ein fließendes Ökosystem, das man verstehen muss.“
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.9; color: var(--text-light); margin-bottom: 2rem;">
+                            Mein Name ist Max Mustermann. Durch meine jahrelange Erfahrung als Physiotherapeut und Heilpraktiker habe ich gelernt, dass eine echte Heilung niemals mechanisch verläuft. Meine Hände wurden zu meinem wichtigsten Diagnosewerkzeug: Sie helfen mir dabei, Blockaden im Gewebe gezielt aufzuspüren und die verloren gegangene Einheit in Ihrem System sanft wiederherzustellen.
+                        </p>
+                        <p style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent); opacity: 0.8;">Ihr Max Mustermann</p>
                     </div>
                 </div>
             </div>
@@ -234,19 +241,140 @@
             </div>
         </section>
 
-        <section class="praxis" style="margin-bottom: 7rem;">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; padding: 0 5%;">Räumlichkeiten der Praxis</h2>
-            <div class="praxis-grid">
-                <div style="height: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <img src="praxis-raum1.png" alt="Behandlungsraum Osteopathie" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div style="height: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <img src="behandlung.png" alt="Manuelle Therapie Technik" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div style="height: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <img src="eingang.png" alt="Eingangsbereich Praxis" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+        <section class="praxis" style="margin-top: 15rem; margin-bottom: 10rem;">
+            <div style="text-align: center; max-width: 600px; margin: 0 auto 5rem auto; padding: 0 5%;">
+                <span style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; color: var(--accent); display: block; margin-bottom: 1rem;">Die Atmosphäre</span>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--primary); margin-bottom: 1.5rem;">Ein Raum für Balance.</h2>
+                <p style="color: var(--text-light); line-height: 1.8;">Gleiten Sie durch unsere Praxisräume. Ein Ambiente, geschaffen um Ihr Nervensystem vom ersten Moment an zu beruhigen.</p>
             </div>
+            
+            <div class="modern-flex-gallery" style="display: flex; height: 500px; gap: 1.5rem; padding: 0 10%; max-width: 1400px; margin: 0 auto;">
+                
+                <!-- Card 1 -->
+                <div class="gallery-pane active" onclick="activatePane(this)">
+                    <img src="praxis-raum1.png" alt="Behandlungsraum">
+                    <div class="pane-content">
+                        <span class="pane-num">01 / Der Behandlungsraum</span>
+                        <h3 class="pane-title">Raum für Fokus.</h3>
+                        <p class="pane-desc">Große, lichte Fenster und reduzierte Reize. Ein Raum, der Ihrem Nervensystem erlaubt, sich ganz auf den therapeutischen Prozess einzulassen.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="gallery-pane" onclick="activatePane(this)">
+                    <img src="eingang.png" alt="Eingang">
+                    <div class="pane-content">
+                        <span class="pane-num">02 / Das Ankommen</span>
+                        <h3 class="pane-title">Der erste Eindruck.</h3>
+                        <p class="pane-desc">Keine klassische Wartezimmer-Atmosphäre. Warme Erdtöne und organische Materialien heißen Sie vom ersten Moment an willkommen.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="gallery-pane" onclick="activatePane(this)">
+                    <img src="behandlung.png" alt="Die Taktilität">
+                    <div class="pane-content">
+                        <span class="pane-num">03 / Die Atmosphäre</span>
+                        <h3 class="pane-title">Heilende Berührung.</h3>
+                        <p class="pane-desc">Wirksamkeit trifft auf absolute Ruhe. Jedes Detail ist darauf abgestimmt, den therapeutischen Dialog mit Ihrem Gewebe zu unterstützen.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <style>
+                .modern-flex-gallery {
+                    display: flex;
+                    height: 500px;
+                    gap: 1.5rem;
+                }
+                .gallery-pane {
+                    flex: 1;
+                    position: relative;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    cursor: pointer;
+                    transition: flex 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                }
+                .gallery-pane img {
+                    position: absolute;
+                    top: 0; left: 0; width: 100%; height: 100%;
+                    object-fit: cover;
+                    transition: transform 1.5s ease;
+                }
+                .gallery-pane:hover, .gallery-pane.active {
+                    flex: 4;
+                    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+                }
+                .gallery-pane:hover img, .gallery-pane.active img {
+                    transform: scale(1.05);
+                }
+                
+                .pane-content {
+                    position: absolute;
+                    bottom: 0; left: 0; right: 0;
+                    padding: 4rem 2rem 2rem;
+                    background: linear-gradient(to top, rgba(253, 252, 248, 0.95) 0%, rgba(253, 252, 248, 0.8) 50%, transparent 100%);
+                    transform: translateY(50px);
+                    opacity: 0;
+                    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+                .gallery-pane:hover .pane-content, .gallery-pane.active .pane-content {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+
+                .pane-num {
+                    display: block;
+                    font-size: 0.8rem;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    color: var(--accent);
+                    margin-bottom: 0.5rem;
+                    opacity: 0;
+                    transform: translateY(10px);
+                    transition: all 0.4s ease 0.2s;
+                }
+                .pane-title {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 2rem;
+                    color: var(--primary);
+                    margin-bottom: 0.5rem;
+                    white-space: nowrap;
+                }
+                .pane-desc {
+                    font-size: 1.05rem;
+                    color: var(--text-light);
+                    margin: 0;
+                    line-height: 1.6;
+                    max-width: 450px;
+                    opacity: 0;
+                    transform: translateY(10px);
+                    transition: all 0.6s ease 0.3s;
+                }
+                .gallery-pane:hover .pane-num, .gallery-pane.active .pane-num,
+                .gallery-pane:hover .pane-desc, .gallery-pane.active .pane-desc {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                @media (max-width: 900px) {
+                    .modern-flex-gallery { flex-direction: column; height: 800px; padding: 0 5%; }
+                    .pane-content { padding: 2rem 1.5rem; }
+                    .pane-title { font-size: 1.5rem; white-space: normal; }
+                }
+            </style>
+            <script>
+                function activatePane(element) {
+                    const panes = document.querySelectorAll('.gallery-pane');
+                    panes.forEach(p => p.classList.remove('active'));
+                    element.classList.add('active');
+                }
+            </script>
         </section>
     </main>
 
@@ -271,6 +399,15 @@
                     <li><a href="impressum.html">Impressum</a></li>
                     <li><a href="datenschutz.html">Datenschutz</a></li>
                 </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.8;">
+                    Am Flussbogen 17<br>
+                    10117 Berlin-Mitte<br><br>
+                    Tel: 0155 662 844 78<br>
+                    Mail: info@osteopathie-flow.de
+                </p>
             </div>
         </div>
         <div class="footer-bottom">

@@ -1105,19 +1105,29 @@ footer {
     color: var(--primary);
 }
 
-/* ORBITAL STARFIELD CONCEPT HERO (RE-ALIGNED LEFT FOR RIGHT INSIGHTS) */
+/* ORBITAL STARFIELD CONCEPT HERO */
 .concept-hero {
     position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
-    flex-direction: row; /* Row for split layout */
+    flex-direction: row; /* Text links, Insights rechts */
     justify-content: space-between;
     align-items: center;
-    padding: 0 10%;
+    padding: 0 8% 0 0; /* Komplet auf der linken Seite am Rand (0px Padding Links) */
     overflow: hidden;
-    background: #fff;
+    background: #FDFCF8; /* Leinen-Beige */
     margin-bottom: 5rem;
+}
+
+.concept-hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .insight-card-container {
@@ -1126,25 +1136,22 @@ footer {
     height: 500px;
     z-index: 20;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Align right inside column */
     align-items: center;
 }
 
 .insight-card {
     position: absolute;
-    width: 400px;
-    padding: 3rem;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 40px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.05);
+    width: 420px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     opacity: 0;
     transform: translateX(40px) scale(0.95);
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
     pointer-events: none;
-    text-align: left;
+    text-align: center;
 }
 
 .insight-card.active {
@@ -1153,38 +1160,55 @@ footer {
     pointer-events: auto;
 }
 
-.insight-icon {
-    width: 60px;
-    height: 60px;
-    color: var(--primary);
-    margin-bottom: 2rem;
-    opacity: 0.8;
+.insight-element {
+    order: 3;
+    width: 250px;
+    height: 250px;
+    margin-top: 1rem;
+    margin-bottom: -2rem;
+    align-self: center;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+    transition: transform 0.6s ease;
+}
+
+.insight-card.active .insight-element {
+    transform: scale(1.05);
 }
 
 .insight-card h3 {
+    order: 1;
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    background: linear-gradient(90deg, var(--primary), #6e866c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
     line-height: 1.3;
 }
 
 .insight-card p {
-    font-size: 1rem;
-    line-height: 1.7;
+    order: 2;
+    font-size: 1.05rem;
+    line-height: 1.8;
     color: var(--text-light);
     margin: 0;
+    max-width: 400px;
 }
 
 .insight-number {
-    position: absolute;
-    top: 2rem;
-    right: 2.5rem;
-    font-size: 0.75rem;
-    font-weight: 700;
+    order: 0;
+    display: inline-block;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     color: var(--accent);
-    opacity: 0.5;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
 }
 
 .orbit-line {

@@ -1,12 +1,180 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8"><title>Datenschutz | Osteopathie im Fluss</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung | Osteopathie im Fluss</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-<body style="padding-top: 15rem; text-align: center;">
-    <h1>Datenschutz</h1>
-    <p>Hier folgt der rechtliche Pflichtteil zum Datenschutz.</p>
-    <a href="index.html" class="cta-button">Zurück zur Startseite</a>
+<body>
+
+    <nav id="mainNav">
+        <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item"><span>Start</span></a>
+            <a href="was-ist-osteopathie.html" class="nav-item"><span>Konzept</span></a>
+            <a href="ueber-mich.html" class="nav-item"><span>Über mich</span></a>
+            <a href="ablauf-kosten.html" class="nav-item"><span>Ablauf</span></a>
+            <a href="kontakt.html" class="cta-button">Termin buchen</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="concept-hero" id="conceptHero" style="justify-content: center; padding: 0 5%; min-height: 50vh;">
+            <div class="orbital-bg-system" id="orbitalSystem">
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+                <div class="orbit-line"></div>
+            </div>
+            
+            <canvas id="starfieldCanvas" class="particle-canvas"></canvas>
+            
+            <div class="concept-hero-content" style="text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 800px; margin: 0 auto;">
+                <h1>Datenschutz.</h1>
+                <div class="title-line" style="margin-left: auto; margin-right: auto;"></div>
+                <p style="text-align: center; margin: 2rem auto 0; opacity: 0.8;">Wir gehen mit Ihren Daten so achtsam um wie mit Ihrer Gesundheit.</p>
+            </div>
+        </section>
+
+        <!-- MINDFUL DATA LAYOUT -->
+        <section class="privacy-editorial" style="max-width: 1000px; margin: 0 auto 10rem; padding: 0 5%;">
+            
+            <!-- INTRO STATEMENT -->
+            <div style="text-align: center; margin-bottom: 6rem;">
+                <p style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); line-height: 1.4; max-width: 800px; margin: 0 auto;">
+                    "Vertrauen ist das Fundament jeder Heilung. <br>Das gilt für Ihren Körper ebenso wie für Ihre Daten."
+                </p>
+                <div style="width: 60px; height: 1px; background: var(--accent); margin: 3rem auto;"></div>
+                <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">Der Schutz Ihrer Privatsphäre ist für uns keine Pflichtübung, sondern Ausdruck unserer Wertschätzung Ihnen gegenüber.</p>
+            </div>
+
+            <!-- INTERACTIVE ACCORDION AREA -->
+            <div class="data-accordion">
+                
+                <!-- Section 01 -->
+                <details style="margin-bottom: 1.5rem; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid #f0efeb;" open>
+                    <summary style="padding: 2.5rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none;">
+                        <div style="display: flex; align-items: center; gap: 1.5rem;">
+                            <div style="width: 40px; height: 40px; background: rgba(139, 168, 137, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </div>
+                            <span style="font-weight: 700; font-size: 1.2rem; color: var(--primary);">1. Verantwortliche Stelle</span>
+                        </div>
+                        <span style="color: var(--accent); font-weight: bold;">+</span>
+                    </summary>
+                    <div style="padding: 0 2.5rem 2.5rem 6.5rem; color: var(--text-light); line-height: 1.8;">
+                        Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br>
+                        <strong>Max Mustermann</strong>, Am Flussbogen 17, 10117 Berlin<br>
+                        E-Mail: <span style="color: var(--accent);">info@osteopathie-flow.de</span>
+                    </div>
+                </details>
+
+                <!-- Section 02 -->
+                <details style="margin-bottom: 1.5rem; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid #f0efeb;">
+                    <summary style="padding: 2.5rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none;">
+                        <div style="display: flex; align-items: center; gap: 1.5rem;">
+                            <div style="width: 40px; height: 40px; background: rgba(212, 163, 115, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <span style="font-weight: 700; font-size: 1.2rem; color: var(--primary);">2. Datenerfassung auf unserer Website</span>
+                        </div>
+                        <span style="color: var(--accent); font-weight: bold;">+</span>
+                    </summary>
+                    <div style="padding: 0 2.5rem 2.5rem 6.5rem; color: var(--text-light); line-height: 1.8;">
+                        <h4 style="color: var(--text); margin-bottom: 1rem;">Kontaktformular & Termin-Simulator</h4>
+                        <p style="margin-bottom: 2rem;">Ihre Angaben (Name, E-Mail, Wunschtermin) werden verschlüsselt übertragen und zwecks Bearbeitung Ihrer Anfrage sicher bei uns gespeichert. Wir nutzen diese Daten ausschließlich zur Terminplanung und Kommunikation mit Ihnen.</p>
+                        
+                        <h4 style="color: var(--text); margin-bottom: 1rem;">Google Maps</h4>
+                        <p>Zur Darstellung unserer Praxis-Location nutzen wir Google Maps. Hierbei kann Ihre IP-Adresse an Server von Google übertragen werden, um den Kartendienst bereitzustellen.</p>
+                    </div>
+                </details>
+
+                <!-- Section 03 -->
+                <details style="margin-bottom: 1.5rem; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid #f0efeb;">
+                    <summary style="padding: 2.5rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none;">
+                        <div style="display: flex; align-items: center; gap: 1.5rem;">
+                            <div style="width: 40px; height: 40px; background: rgba(139, 168, 137, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <span style="font-weight: 700; font-size: 1.2rem; color: var(--primary);">3. Ihre Rechte (Selbstbestimmung)</span>
+                        </div>
+                        <span style="color: var(--accent); font-weight: bold;">+</span>
+                    </summary>
+                    <div style="padding: 0 2.5rem 2.5rem 6.5rem; color: var(--text-light); line-height: 1.8;">
+                        Sie sind Herr über Ihre Daten. Sie haben jederzeit das Recht auf:<br>
+                        • <strong>Auskunft</strong> über gespeicherte Daten<br>
+                        • <strong>Berichtigung</strong> fehlerhafter Daten<br>
+                        • <strong>Löschung</strong> (Recht auf Vergessenwerden)<br>
+                        Kontaktieren Sie uns dazu einfach per E-Mail.
+                    </div>
+                </details>
+
+                <!-- Section 04 -->
+                <details style="margin-bottom: 1.5rem; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid #f0efeb;">
+                    <summary style="padding: 2.5rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none;">
+                        <div style="display: flex; align-items: center; gap: 1.5rem;">
+                            <div style="width: 40px; height: 40px; background: rgba(212, 163, 115, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6" y2="6"></line><line x1="6" y1="18" x2="6" y2="18"></line></svg>
+                            </div>
+                            <span style="font-weight: 700; font-size: 1.2rem; color: var(--primary);">4. Hosting & Sicherheit</span>
+                        </div>
+                        <span style="color: var(--accent); font-weight: bold;">+</span>
+                    </summary>
+                    <div style="padding: 0 2.5rem 2.5rem 6.5rem; color: var(--text-light); line-height: 1.8;">
+                        Wir hosten unsere Website bei einem spezialisierten Hoster in Deutschland. Die Datenübertragung erfolgt via SSL-Verschlüsselung, um den höchstmöglichen Schutz Ihrer Kommunikation zu gewährleisten.
+                    </div>
+                </details>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">Osteopathie <span style="font-weight: 300;">im Fluss</span></div>
+                <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Praxis für ganzheitliche Gesundheit & manuelle Therapie.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="was-ist-osteopathie.html">Was ist Osteopathie?</a></li>
+                    <li><a href="ueber-mich.html">Über mich</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Rechtliches</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.8;">
+                    Am Flussbogen 17<br>
+                    10117 Berlin-Mitte<br><br>
+                    Tel: 0155 662 844 78<br>
+                    Mail: info@osteopathie-flow.de
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Osteopathie im Fluss. Alle Rechte vorbehalten. | Design mit Ruhe & Kompetenz.
+        </div>
+    </footer>
+
+    <script src="particles.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
 </body>
 </html>
